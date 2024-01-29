@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @Data
 @Entity
 @Table(name = "respuestas")
-public class RespuestaPublicacion {
+public class RespuestaComentario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idRespuesta;
@@ -21,6 +21,6 @@ public class RespuestaPublicacion {
     private LocalDate fCreacion;
 
     @ManyToOne
-    @JoinColumn(name = "publicacion_id")
-    private Publicaciones publicacion;
+    @JoinColumn(name = "id_comentario", nullable = false, foreignKey = @ForeignKey(name = "FK_respuesta_comentario"))
+    private Comentario comentario;
 }
