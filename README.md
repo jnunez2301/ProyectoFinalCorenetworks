@@ -36,7 +36,6 @@ Las rutas deben estar hechas de esta manera.
 * /api
 * /api/usuarios
 * /api/usuarios/{id}
-* /api/publicaciones
 
 
 ## Compañeros
