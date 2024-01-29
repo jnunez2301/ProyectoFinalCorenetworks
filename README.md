@@ -6,15 +6,29 @@ la base de datos con PostgreSQL y haremos una REST FULL API con Spring Web.
 
 Además de que el frontend será gestionado en Angular.
 
+## Montar el Proyecto
+
+* NO OLVIDAR TENER EL PLUGIN DE **LOMBOK** INSTALADO EN INTELIJ!
+
+En caso de que no recuerdes tu contraseña de Postgres
+```
+ALTER USER postgres WITH PASSWORD 'postgres';
+```
+1. Abrir pgAdmin y crear una base de datos con el nombre de **ig_clon**
+2. En Java/IntelIj abrir el proyecto y ejecutar **ProyectoFinalApplication**
+3. Si todo funciona bien no debería dar ningún error y podeís empezar a programar vuestra parte
+4. Acceder al proyecto en http://localhost:3000
+
 ## Distribución del Trabajo
 
-> Lider de Equipo: jnunez2301
+**Lider de Equipo** : jnunez2301
 
-> Capa de Presentación (Frontend): Glady
+**Capa de Presentación (Frontend)** : Glady
 
-> Capa Controlador / Servicios (Backend): JoaoCzz, stevenjaramillo, jnunez2301
+**Capa Controlador / Servicios | Repositorio (Backend)** : JoaoCzz, stevenjaramillo, jnunez2301
 
-> Gestión de Base de Datos (Capa Modelo): DanielGuerreroRa
+**Gestión de Base de Datos (Capa Modelo)** : DanielGuerreroRa
+
 ## Compañeros
 
 * [DanielGuerreroRa](https://github.com/DanielGuerreroRa)
