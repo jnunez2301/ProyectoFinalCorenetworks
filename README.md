@@ -29,6 +29,16 @@ ALTER USER postgres WITH PASSWORD 'postgres';
 
 **Gestión de Base de Datos (Capa Modelo)** : DanielGuerreroRa
 
+## Rutas Controladores
+
+Las rutas deben estar hechas de esta manera.
+
+* /api
+* /api/usuarios
+* /api/usuarios/{id}
+* /api/publicaciones
+
+
 ## Compañeros
 
 * [DanielGuerreroRa](https://github.com/DanielGuerreroRa)
