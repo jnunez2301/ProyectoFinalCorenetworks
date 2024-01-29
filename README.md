@@ -23,7 +23,7 @@ ALTER USER postgres WITH PASSWORD 'postgres';
 
 **Lider de Equipo** : jnunez2301
 
-**Capa de Presentación (Frontend)** : Glady
+**Capa de Presentación (Frontend)** : Gladys
 
 **Capa Controlador / Servicios | Repositorio (Backend)** : JoaoCzz, stevenjaramillo, jnunez2301
 
