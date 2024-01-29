@@ -21,6 +21,6 @@ public class MensajeDirecto {
    /*
    * FK_mensajes_mensajes_directos
    * */
-  
+
 }
 
