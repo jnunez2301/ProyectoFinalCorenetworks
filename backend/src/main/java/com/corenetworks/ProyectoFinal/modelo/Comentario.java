@@ -21,4 +21,8 @@ public class Comentario {
     private String respuestasUsuarios;
     private LocalDate fCreacion;
     private LocalTime hCreacion;
+
+    /*
+    * FK_comentarios_publicaciones
+    * */
 }
