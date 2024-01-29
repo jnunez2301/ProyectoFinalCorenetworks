@@ -14,11 +14,22 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "publicaciones")
 public class Publicaciones {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int idPublicacion;
     private String descripcion;
     private int cantidadLikes;
     private String contenido;
     private String urlCompartir;
     //private String guardar;
     private LocalDate fCreacion;
+
+    /*
+    * FK_usuarios_publicaciones
+    * */
+    @ManyToOne
+    @JoinColumn(name = "id_usuario", nullable = false) // adjust the column name
+    private Usuario usuario;
+
 
 }

@@ -16,7 +16,7 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idUsuario;
     @Column(length = 30, nullable = false)
-    private String contraseña;
+    private String contrasena;
     @Column(length = 60, nullable = false)
     private String correo;
     @Column(length = 60, nullable = false)
@@ -26,9 +26,8 @@ public class Usuario {
     private String nombreUsuario;
     @Column(length = 150)
     private String descripcion;
-    private String publicaciones;
     private LocalDate fCreacion;
     private int numSeguidores;
-    private int numSeguidos;
+    private int numSiguiendo;
     private int numPublicaciones;
 }

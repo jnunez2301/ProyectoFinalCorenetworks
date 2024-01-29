@@ -1,12 +1,12 @@
 package com.corenetworks.ProyectoFinal.modelo;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -14,10 +14,13 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "mensajes_directos")
 public class MensajeDirecto {
-    private LocalDate fCreacion;
-    private String usuarioDestino;
-    private String historialMensajes;
-    private String fotos;
-    private int likeComentarios;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int idMensajeDirecto;
 
+   /*
+   * FK_mensajes_mensajes_directos
+   * */
+  
 }
+

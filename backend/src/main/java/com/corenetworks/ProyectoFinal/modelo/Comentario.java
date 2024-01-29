@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -14,10 +15,10 @@ import java.time.LocalDate;
 public class Comentario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idUsuario;
+    private int idComentario;
     private int likes;
     private String mensajes;
-    private String respuestaUsuario;
+    private String respuestasUsuarios;
     private LocalDate fCreacion;
-
+    private LocalTime hCreacion;
 }

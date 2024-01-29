@@ -12,11 +12,15 @@ import java.time.LocalDate;
 @Data
 @Entity
 @Table(name = "respuestas")
-public class Respuesta {
+public class RespuestaPublicacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idUsuario;
+    private int idRespuesta;
     private int likes;
     private String mensajes;
     private LocalDate fCreacion;
+
+    @ManyToOne
+    @JoinColumn(name = "publicacion_id")
+    private Publicaciones publicacion;
 }
