@@ -24,8 +24,8 @@ public class Historia {
     @JoinColumn(name = "id_usuario", nullable = false, foreignKey = @ForeignKey(name = "FK_historias_usuario"))
     private Usuario usuario;
 
-    private List<Usuario> listaAutorizados;
-
-    private List<Usuario> listaExcluidos;
-    
+//    private List<Usuario> listaAutorizados;
+//
+//    private List<Usuario> listaExcluidos;
+//
 }
