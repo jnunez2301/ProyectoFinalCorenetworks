@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.swing.*;
 import java.time.LocalDate;
 
 @NoArgsConstructor
@@ -27,6 +28,7 @@ public class Publicaciones {
     /*
     * FK_usuarios_publicaciones
     * */
+
     @ManyToOne
     @JoinColumn(name = "id_usuario", nullable = false, foreignKey = @ForeignKey(name = "FK_usuario_publicacion")) // adjust the column name
     private Usuario usuario;
