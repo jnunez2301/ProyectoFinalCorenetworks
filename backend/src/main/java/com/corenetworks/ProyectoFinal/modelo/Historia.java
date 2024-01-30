@@ -20,10 +20,9 @@ public class Historia {
     private Boolean publicas;
     private LocalDate fCreacion;
 
-    /*
-    *
-    * FK_usuarios_historias
-    * */
+    @ManyToOne
+    @JoinColumn(name = "id_usuario", nullable = false, foreignKey = @ForeignKey(name = "FK_historias_usuario"))
+    private Usuario usuario;
     // Usuarios Autorizados
     /*private List<Usuario> listaAutorizados;*/
     // Usuarios que no deben ver las historias

@@ -18,9 +18,9 @@ public class MensajeDirecto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idMensajeDirecto;
 
-   /*
-   * FK_mensajes_mensajes_directos
-   * */
+    @ManyToOne
+    @JoinColumn(name = "id_usuario", nullable = false, foreignKey = @ForeignKey(name = "FK_mensaje_mensajes_directos"))
+    private Mensaje mensaje;
 
 }
 
