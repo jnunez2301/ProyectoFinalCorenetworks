@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,6 +20,7 @@ public class RespuestaComentario {
     private int likes;
     private String mensajes;
     private LocalDate fCreacion;
+    private LocalTime hCreacion;
 
     @ManyToOne
     @JoinColumn(name = "id_comentario", nullable = false, foreignKey = @ForeignKey(name = "FK_respuesta_comentario"))

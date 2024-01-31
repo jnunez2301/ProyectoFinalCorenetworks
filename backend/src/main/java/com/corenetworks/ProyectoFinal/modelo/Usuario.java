@@ -1,6 +1,8 @@
 package com.corenetworks.ProyectoFinal.modelo;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,6 +29,7 @@ public class Usuario {
     @Column(length = 150)
     private String descripcion;
     private LocalDate fCreacion;
+    private LocalTime hCreacion;
     private int numSeguidores;
     private int numSiguiendo;
     private int numPublicaciones;

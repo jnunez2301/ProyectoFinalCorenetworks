@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -20,6 +21,7 @@ public class Mensaje {
     @Column(nullable = false)
     private String contenido;
     private String urlFotos;
+    private LocalTime hCreacion;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "usuarioOrigen_id", nullable = false)

@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import javax.swing.*;
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -24,6 +25,7 @@ public class Publicaciones {
     private String urlCompartir;
     //private String guardar;
     private LocalDate fCreacion;
+    private LocalTime hCreacion;
 
     /*
     * FK_usuarios_publicaciones

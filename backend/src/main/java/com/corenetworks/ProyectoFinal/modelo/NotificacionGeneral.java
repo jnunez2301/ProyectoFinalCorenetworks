@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,6 +20,7 @@ public class NotificacionGeneral {
 
     private LocalDate fNotificacion;
     private Character tipoNotificacion;
+    private LocalTime hNotificacion;
 
     /*
      * A: Amistad
