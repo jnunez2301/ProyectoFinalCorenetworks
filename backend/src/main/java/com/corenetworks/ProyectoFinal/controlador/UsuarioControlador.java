@@ -1,5 +1,6 @@
 package com.corenetworks.ProyectoFinal.controlador;
 
+import com.corenetworks.ProyectoFinal.exepcion.ExcepcionError;
 import com.corenetworks.ProyectoFinal.modelo.Usuario;
 import com.corenetworks.ProyectoFinal.servicio.IUsuarioServicio;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,22 +15,34 @@ import java.util.List;
 public class UsuarioControlador {
     @Autowired
     IUsuarioServicio usuarioServicio;
+
     @GetMapping("/{id}")
-    public Usuario mostrarUno(@PathVariable(name = "id") int id){
-        return usuarioServicio.mostrarUno(id);
+    public ResponseEntity<Usuario> mostrarUno(@PathVariable(name = "id") int id) {
+        Usuario uccBB = usuarioServicio.mostrarUno(id);
+        if (uccBB == null) {
+            throw new ExcepcionError("Usuario no encontrado" + id);
+        }
+        return new ResponseEntity<>(uccBB, HttpStatus.OK);
     }
+
     @GetMapping
-    public List <Usuario> mostrarTodos(){
-        return usuarioServicio.mostrarTodos();
+    public ResponseEntity<List<Usuario>> mostrarTodos() {
+        return new ResponseEntity<>(usuarioServicio.mostrarTodos(), HttpStatus.OK);
     }
+
     @PostMapping
-    public ResponseEntity <Usuario> insertarUno(@RequestBody Usuario u){
-        Usuario CB= usuarioServicio.insertarUno(u);
+    public ResponseEntity<Usuario> insertarUno(@RequestBody Usuario u) {
+        Usuario UccBB = usuarioServicio.insertarUno(u);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
+
     @PutMapping
-    public Usuario modificarUno(@RequestBody Usuario u){
-        return usuarioServicio.modificarUno(u);
+    public ResponseEntity <Usuario> modificarUno(@RequestBody Usuario u) {
+        Usuario UccBB = usuarioServicio.mostrarUno(u.getIdUsuario());
+        if (UccBB == null) {
+            throw new ExcepcionError("Usuario no encontrado" + UccBB);
+        }
+        return new ResponseEntity<>(usuarioServicio.modificarUno(u),HttpStatus.OK);
     }
 
 
