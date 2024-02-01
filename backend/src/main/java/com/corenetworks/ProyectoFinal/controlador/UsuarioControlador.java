@@ -32,7 +32,7 @@ public class UsuarioControlador {
     public ResponseEntity<Usuario> mostrarUno(@PathVariable(name = "id") int id) {
         Usuario uccBB = usuarioServicio.buscarPorId(id);
         if (uccBB == null) {
-            throw new ExcepcionError("Usuario no encontrado" + id);
+            throw new ExcepcionError("Usuario con el dia" + id + "no encontrado");
         }
         return new ResponseEntity<>(uccBB, HttpStatus.OK);
     }
