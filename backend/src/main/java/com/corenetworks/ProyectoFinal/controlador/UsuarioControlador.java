@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.SecureRandom;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
@@ -42,15 +43,20 @@ public class UsuarioControlador {
             System.out.println("La contraseña debe ser más larga que 8 caracteres");
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-
-        Usuario uDB = usuarioServicio.crear(usr);
-
-        return new ResponseEntity<>(uDB, HttpStatus.CREATED);
+        System.out.println(usr.toString());
+        return new ResponseEntity<>(usuarioServicio.crear(usr), HttpStatus.CREATED);
     }
 
     @PutMapping
     public ResponseEntity <Usuario> modificarUno(@RequestBody Usuario u) {
         Usuario UccBB = usuarioServicio.buscarPorId(u.getIdUsuario());
+
+        /*SecureRandom random = new SecureRandom();
+        byte[] salt = new byte[16];
+        random.nextBytes(salt);*/
+
+
+
         if (UccBB == null) {
             throw new ExcepcionError("Usuario no encontrado" + UccBB);
         }

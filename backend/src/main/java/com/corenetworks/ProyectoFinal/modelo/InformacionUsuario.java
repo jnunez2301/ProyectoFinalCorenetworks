@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "informacion_usuario")
 public class InformacionUsuario {
-    
+
     private int numSeguidores;
     private int numSiguiendo;
     private int numPublicaciones;
