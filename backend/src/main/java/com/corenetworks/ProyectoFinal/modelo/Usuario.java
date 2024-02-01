@@ -24,7 +24,7 @@ public class Usuario {
     @Column(length = 60, nullable = false)
     private String preguntaSecreta;
     private String fotoPerfil;
-    @Column(length = 30, nullable = false)
+    @Column(length = 30, nullable = false,unique = true)
     private String nombreUsuario;
     @Column(length = 150)
     private String descripcion;

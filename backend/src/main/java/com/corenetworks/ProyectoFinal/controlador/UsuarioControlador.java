@@ -18,7 +18,7 @@ public class UsuarioControlador {
 
     @GetMapping("/{id}")
     public ResponseEntity<Usuario> mostrarUno(@PathVariable(name = "id") int id) {
-        Usuario uccBB = usuarioServicio.mostrarUno(id);
+        Usuario uccBB = usuarioServicio.buscarPorId(id);
         if (uccBB == null) {
             throw new ExcepcionError("Usuario no encontrado" + id);
         }
@@ -27,22 +27,22 @@ public class UsuarioControlador {
 
     @GetMapping
     public ResponseEntity<List<Usuario>> mostrarTodos() {
-        return new ResponseEntity<>(usuarioServicio.mostrarTodos(), HttpStatus.OK);
+        return new ResponseEntity<>(usuarioServicio.buscarTodos(), HttpStatus.OK);
     }
 
     @PostMapping
     public ResponseEntity<Usuario> insertarUno(@RequestBody Usuario u) {
-        Usuario UccBB = usuarioServicio.insertarUno(u);
+        Usuario UccBB = usuarioServicio.crear(u);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @PutMapping
     public ResponseEntity <Usuario> modificarUno(@RequestBody Usuario u) {
-        Usuario UccBB = usuarioServicio.mostrarUno(u.getIdUsuario());
+        Usuario UccBB = usuarioServicio.buscarPorId(u.getIdUsuario());
         if (UccBB == null) {
             throw new ExcepcionError("Usuario no encontrado" + UccBB);
         }
-        return new ResponseEntity<>(usuarioServicio.modificarUno(u),HttpStatus.OK);
+        return new ResponseEntity<>(usuarioServicio.editar(u),HttpStatus.OK);
     }
 
 
