@@ -17,20 +17,26 @@ public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idUsuario;
+    @Column(length = 30, nullable = false,unique = true)
+    private String nombreUsuario;
     @Column(length = 30, nullable = false)
     private String contrasena;
     @Column(length = 60, nullable = false)
     private String correo;
     @Column(length = 60, nullable = false)
     private String preguntaSecreta;
-    private String fotoPerfil;
-    @Column(length = 30, nullable = false,unique = true)
-    private String nombreUsuario;
-    @Column(length = 150)
-    private String descripcion;
     private LocalDate fCreacion;
     private LocalTime hCreacion;
+
+
+
+    /*
+    FK_información_usuarios
     private int numSeguidores;
     private int numSiguiendo;
     private int numPublicaciones;
+    private String fotoPerfil;
+    @Column(length = 150)
+    private String descripcion;
+    */
 }
