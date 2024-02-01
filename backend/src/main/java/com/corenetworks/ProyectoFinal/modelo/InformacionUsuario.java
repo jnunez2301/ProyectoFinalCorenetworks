@@ -1,3 +1,4 @@
+/*
 package com.corenetworks.ProyectoFinal.modelo;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -10,6 +11,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "informacion_usuario")
 public class InformacionUsuario {
+    
     private int numSeguidores;
     private int numSiguiendo;
     private int numPublicaciones;
@@ -21,3 +23,4 @@ public class InformacionUsuario {
     @JoinColumn(name="id_usuario", nullable = false, foreignKey = @ForeignKey(name = "FK_informacion_usuario_usuario"))
     private Usuario usuario;
 }
+*/

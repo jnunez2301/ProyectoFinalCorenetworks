@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 @RestController
@@ -31,9 +33,19 @@ public class UsuarioControlador {
     }
 
     @PostMapping
-    public ResponseEntity<Usuario> insertarUno(@RequestBody Usuario u) {
-        Usuario UccBB = usuarioServicio.crear(u);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+    public ResponseEntity<Usuario> insertarUno(@RequestBody Usuario usr) {
+
+        usr.setFCreacion(LocalDate.now());
+        usr.setHCreacion(LocalTime.now());
+
+        if(usr.getContrasena() == null || usr.getContrasena().isEmpty() || usr.getContrasena().length() < 8){
+            System.out.println("La contraseña debe ser más larga que 8 caracteres");
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
+        Usuario uDB = usuarioServicio.crear(usr);
+
+        return new ResponseEntity<>(uDB, HttpStatus.CREATED);
     }
 
     @PutMapping

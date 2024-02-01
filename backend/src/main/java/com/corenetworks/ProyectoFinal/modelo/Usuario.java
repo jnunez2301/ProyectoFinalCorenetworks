@@ -17,16 +17,27 @@ public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idUsuario;
-    @Column(length = 30, nullable = false,unique = true)
+
+    @Column(length = 16, nullable = false, unique = true)
     private String nombreUsuario;
-    @Column(length = 30, nullable = false)
+
+    @Column(length = 120, nullable = false)
     private String contrasena;
+
     @Column(length = 60, nullable = false)
     private String correo;
+
     @Column(length = 60, nullable = false)
     private String preguntaSecreta;
+
+
     private LocalDate fCreacion;
     private LocalTime hCreacion;
 
-
+    public Usuario(String nombreUsuario, String contrasena, String correo, String preguntaSecreta) {
+        this.nombreUsuario = nombreUsuario;
+        this.contrasena = contrasena;
+        this.correo = correo;
+        this.preguntaSecreta = preguntaSecreta;
+    }
 }
