@@ -29,14 +29,4 @@ public class Usuario {
     private LocalTime hCreacion;
 
 
-
-    /*
-    FK_información_usuarios
-    private int numSeguidores;
-    private int numSiguiendo;
-    private int numPublicaciones;
-    private String fotoPerfil;
-    @Column(length = 150)
-    private String descripcion;
-    */
 }
