@@ -23,13 +23,13 @@ public class Usuario {
 
     @Column(length = 120, nullable = false)
     private String contrasena;
+    private String salt;
 
     @Column(length = 255, nullable = false)
     private String correo;
 
     @Column(length = 60, nullable = false)
     private String preguntaSecreta;
-
 
     private LocalDate fCreacion;
     private LocalTime hCreacion;
