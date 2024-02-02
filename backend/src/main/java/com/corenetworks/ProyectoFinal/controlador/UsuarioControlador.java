@@ -1,6 +1,7 @@
 package com.corenetworks.ProyectoFinal.controlador;
 
 import com.corenetworks.ProyectoFinal.exepcion.ExcepcionErrorNotFound;
+import com.corenetworks.ProyectoFinal.modelo.Mensaje;
 import com.corenetworks.ProyectoFinal.modelo.Usuario;
 import com.corenetworks.ProyectoFinal.servicio.IUsuarioServicio;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,6 @@ import java.util.List;
 public class UsuarioControlador {
     @Autowired
     IUsuarioServicio usuarioServicio;
-
     @GetMapping("/{id}")
     public ResponseEntity<Usuario> mostrarUno(@PathVariable(name = "id") int id) {
         Usuario uccBB = usuarioServicio.buscarPorId(id);

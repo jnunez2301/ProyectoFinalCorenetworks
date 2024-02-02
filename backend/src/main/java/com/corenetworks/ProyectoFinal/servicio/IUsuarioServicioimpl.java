@@ -1,5 +1,6 @@
 package com.corenetworks.ProyectoFinal.servicio;
 
+import com.corenetworks.ProyectoFinal.modelo.Mensaje;
 import com.corenetworks.ProyectoFinal.modelo.Usuario;
 import com.corenetworks.ProyectoFinal.repositorio.IGeneralRepositorio;
 import com.corenetworks.ProyectoFinal.repositorio.IUsuarioRepositorio;
@@ -17,4 +18,5 @@ public class IUsuarioServicioimpl extends ICRUDimpl <Usuario,Integer> implements
     protected IGeneralRepositorio<Usuario, Integer> getRepo() {
         return repositorio;
     }
+
 }
