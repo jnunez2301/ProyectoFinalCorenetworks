@@ -1,6 +1,6 @@
 package com.corenetworks.ProyectoFinal.controlador;
 
-import com.corenetworks.ProyectoFinal.exepcion.ExcepcionError;
+import com.corenetworks.ProyectoFinal.exepcion.ExcepcionErrorNotFound;
 import com.corenetworks.ProyectoFinal.modelo.Usuario;
 import com.corenetworks.ProyectoFinal.servicio.IUsuarioServicio;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,15 +10,12 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Arrays;
 import java.util.Base64;
 import java.util.List;
 
@@ -32,7 +29,7 @@ public class UsuarioControlador {
     public ResponseEntity<Usuario> mostrarUno(@PathVariable(name = "id") int id) {
         Usuario uccBB = usuarioServicio.buscarPorId(id);
         if (uccBB == null) {
-            throw new ExcepcionError("Usuario con el dia" + id + "no encontrado");
+            throw new ExcepcionErrorNotFound("Usuario con el id " + id + " no encontrado");
         }
         return new ResponseEntity<>(uccBB, HttpStatus.OK);
     }
@@ -72,7 +69,7 @@ public class UsuarioControlador {
 
 
         if (UccBB == null) {
-            throw new ExcepcionError("Usuario no encontrado" + UccBB);
+            throw new ExcepcionErrorNotFound("Usuario no encontrado" + UccBB);
         }
         return new ResponseEntity<>(usuarioServicio.editar(u),HttpStatus.OK);
     }
