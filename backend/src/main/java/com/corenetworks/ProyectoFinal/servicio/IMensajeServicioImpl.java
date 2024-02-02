@@ -8,9 +8,9 @@ import com.corenetworks.ProyectoFinal.repositorio.IUsuarioRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import java.util.List;
 
-@Service
 public class IMensajeServicioImpl extends ICRUDimpl <Mensaje, Integer> implements IMensajeServicio {
     @Autowired
     private IMensajeRepositorio repositorio;
