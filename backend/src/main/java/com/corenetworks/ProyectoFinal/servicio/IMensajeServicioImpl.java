@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 
 import java.util.List;
-
+@Service
 public class IMensajeServicioImpl extends ICRUDimpl <Mensaje, Integer> implements IMensajeServicio {
     @Autowired
     private IMensajeRepositorio repositorio;
