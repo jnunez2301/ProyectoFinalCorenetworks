@@ -7,11 +7,18 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import java.util.Objects;
 
 public interface IMensajeRepositorio extends IGeneralRepositorio<Mensaje, Integer>{
- @Query(value = "Select m.contenido,u.nombre_usuario,m.f_creacion,m.h_creacion,m.id_mensaje,m.url_fotos,usuario_destino_id,usuario_origen_id from mensajes m\n" +
+ @Query(value = "Select m.id_mensaje,m.contenido,m.f_creacion,m.h_creacion,m.url_fotos,u.nombre_usuario,d.nombre_usuario \n" +
+         "from mensajes m \n" +
          "inner join usuarios u\n" +
-         "on u.id_usuario = m.usuario_origen_id\n" +
-         "where  m.usuario_origen_id =:id",nativeQuery = true)
- List<Mensaje> filtroMensajesPoridUsuario(@Value("id") int id);
+         "on u.id_usuario= m.usuario_origen_id\n" +
+         "inner join usuarios d\n" +
+         "on d.id_usuario= m.usuario_destino_id\n" +
+         "where usuario_origen_id=:id",nativeQuery = true)
+ List<Object []> filtroMensajesPoridUsuario(@Value("id") int id) throws Exception;
+
+ @Query(value="SELECT m.id_mensaje,m.contenido FROM mensajes m WHERE m.usuario_origen_id =:id  ORDER BY m.id_mensaje DESC LIMIT 5",nativeQuery = true)
+ List<Object[]> ultimos5mensajes(@Value("id") int id) throws Exception;
 }

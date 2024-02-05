@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 @RequestMapping("/api/mensajes")
@@ -24,7 +25,13 @@ public class MensajeControlador {
         return new ResponseEntity<>(mensajeServicio.buscarTodos(), HttpStatus.OK);
     }
     @GetMapping("/{id}")
-    public ResponseEntity<List<Mensaje>>buscarMensajesporId(@PathVariable(name = "id") int id){
+    public ResponseEntity<List<Object[]>>buscarMensajesporId(@PathVariable(name = "id") int id) throws Exception {
         return new ResponseEntity<>(mensajeServicio.filtroMensajesporId(id),HttpStatus.OK);
+    }
+
+    @GetMapping("/ultimos5porid/{id}")
+    public ResponseEntity<List<Object[]>> ultimos5mensajesporId(@PathVariable(name = "id")int id) throws Exception{
+        return new ResponseEntity<>(mensajeServicio.ultimos5mensajes(id),HttpStatus.OK);
+
     }
 }
