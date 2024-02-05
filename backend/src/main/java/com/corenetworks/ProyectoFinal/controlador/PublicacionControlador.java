@@ -1,5 +1,6 @@
 package com.corenetworks.ProyectoFinal.controlador;
 
+import com.corenetworks.ProyectoFinal.exepcion.ExcepcionPersonalizada;
 import com.corenetworks.ProyectoFinal.modelo.Comentario;
 import com.corenetworks.ProyectoFinal.modelo.Publicacion;
 import com.corenetworks.ProyectoFinal.modelo.Usuario;
@@ -31,8 +32,15 @@ public class PublicacionControlador {
         return new ResponseEntity<>(publicacionServicio.buscarPorId(id),HttpStatus.OK);
     }
     @PostMapping("/{id_usuario}")
-    public ResponseEntity<Publicacion> guardarPublicacion(@RequestBody Publicacion publicacion, @PathVariable int id) throws Exception {
-        Usuario usuario = usuarioServicioimpl.buscarPorId(id);
+    public ResponseEntity<Publicacion> guardarPublicacion(@RequestBody Publicacion publicacion, @PathVariable int id_usuario) throws Exception {
+        if(usuarioServicioimpl.buscarPorId(id_usuario) == null) {
+            throw new ExcepcionPersonalizada("El usuario con el id: "+id_usuario+" no existe");
+        }
+        if(publicacion.getDescripcion().isEmpty() || publicacion.getDescripcion().length() < 10){
+            throw new ExcepcionPersonalizada("La descripcion no puede estar vacia y debe ser mayor a 10 caracteres");
+        }
+
+        Usuario usuario = usuarioServicioimpl.buscarPorId(id_usuario);
         publicacion.setUsuario(usuario);
 
         publicacion.setUrlCompartir("http://localhost:3000/api/publicaciones/"+publicacion.getIdPublicacion());

@@ -72,7 +72,4 @@ public class UsuarioControlador {
         }
         return new ResponseEntity<>(usuarioServicio.editar(u),HttpStatus.OK);
     }
-
-
-
 }
