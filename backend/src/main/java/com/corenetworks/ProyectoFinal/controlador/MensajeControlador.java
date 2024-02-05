@@ -23,7 +23,7 @@ public class MensajeControlador {
     public ResponseEntity <List<Mensaje>> mostrarTodos() throws Exception {
         return new ResponseEntity<>(mensajeServicio.buscarTodos(), HttpStatus.OK);
     }
-@GetMapping("/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<List<Mensaje>>buscarMensajesporId(@PathVariable(name = "id") int id){
         return new ResponseEntity<>(mensajeServicio.filtroMensajesporId(id),HttpStatus.OK);
     }
