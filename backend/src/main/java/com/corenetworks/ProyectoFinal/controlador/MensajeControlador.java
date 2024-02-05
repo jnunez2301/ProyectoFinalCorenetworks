@@ -20,7 +20,7 @@ public class MensajeControlador {
     IMensajeServicio mensajeServicio;
 
     @GetMapping
-    public ResponseEntity <List<Mensaje>> mostrarTodos(){
+    public ResponseEntity <List<Mensaje>> mostrarTodos() throws Exception {
         return new ResponseEntity<>(mensajeServicio.buscarTodos(), HttpStatus.OK);
     }
 @GetMapping("/{id}")

@@ -1,4 +1,4 @@
-package com.corenetworks.ProyectoFinal.servicio;
+package com.corenetworks.ProyectoFinal.servicio.Impl;
 
 import com.corenetworks.ProyectoFinal.modelo.Comentario;
 import com.corenetworks.ProyectoFinal.repositorio.IComentarioRepositorio;
@@ -10,8 +10,12 @@ import org.springframework.stereotype.Service;
 public class IComentarioServicioImpl extends ICRUDimpl <Comentario, Integer> {
     @Autowired
     private IComentarioRepositorio repositorio;
+
     @Override
     protected IGeneralRepositorio<Comentario, Integer> getRepo() {
         return repositorio;
     }
+
+
+
 }

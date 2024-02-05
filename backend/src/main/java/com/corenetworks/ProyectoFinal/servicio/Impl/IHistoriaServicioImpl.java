@@ -1,14 +1,14 @@
-package com.corenetworks.ProyectoFinal.servicio;
+package com.corenetworks.ProyectoFinal.servicio.Impl;
 
 import com.corenetworks.ProyectoFinal.modelo.Historia;
-import com.corenetworks.ProyectoFinal.modelo.Mensaje;
 import com.corenetworks.ProyectoFinal.repositorio.IGeneralRepositorio;
 import com.corenetworks.ProyectoFinal.repositorio.IHistoriaRepositorio;
+import com.corenetworks.ProyectoFinal.servicio.IHistoriaServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class IHistoriaServicioImpl extends ICRUDimpl <Historia, Integer> implements IHistoriaServicio{
+public class IHistoriaServicioImpl extends ICRUDimpl <Historia, Integer> implements IHistoriaServicio {
     @Autowired
     private IHistoriaRepositorio repositorio;
     @Override

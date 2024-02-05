@@ -1,7 +1,6 @@
 package com.corenetworks.ProyectoFinal.controlador;
 
-import com.corenetworks.ProyectoFinal.exepcion.ExcepcionErrorNotFound;
-import com.corenetworks.ProyectoFinal.modelo.Mensaje;
+import com.corenetworks.ProyectoFinal.exepcion.ExcepcionPersonalizada;
 import com.corenetworks.ProyectoFinal.modelo.Usuario;
 import com.corenetworks.ProyectoFinal.servicio.IUsuarioServicio;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,21 +25,21 @@ public class UsuarioControlador {
     @Autowired
     IUsuarioServicio usuarioServicio;
     @GetMapping("/{id}")
-    public ResponseEntity<Usuario> mostrarUno(@PathVariable(name = "id") int id) {
+    public ResponseEntity<Usuario> mostrarUno(@PathVariable(name = "id") int id) throws Exception{
         Usuario uccBB = usuarioServicio.buscarPorId(id);
         if (uccBB == null) {
-            throw new ExcepcionErrorNotFound("Usuario con el id " + id + " no encontrado");
+            throw new ExcepcionPersonalizada("Usuario con el id " + id + " no encontrado");
         }
         return new ResponseEntity<>(uccBB, HttpStatus.OK);
     }
 
     @GetMapping
-    public ResponseEntity<List<Usuario>> mostrarTodos() {
+    public ResponseEntity<List<Usuario>> mostrarTodos() throws Exception {
         return new ResponseEntity<>(usuarioServicio.buscarTodos(), HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<Usuario> insertarUno(@RequestBody Usuario usr) throws NoSuchAlgorithmException, InvalidKeySpecException {
+    public ResponseEntity<Usuario> insertarUno(@RequestBody Usuario usr) throws NoSuchAlgorithmException, InvalidKeySpecException, Exception {
         if(usr.getContrasena() == null || usr.getContrasena().isEmpty() || usr.getContrasena().length() < 8){
             System.out.println("La contraseña debe ser más larga que 8 caracteres");
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -63,13 +62,13 @@ public class UsuarioControlador {
     }
 
     @PutMapping
-    public ResponseEntity <Usuario> modificarUno(@RequestBody Usuario u) {
+    public ResponseEntity <Usuario> modificarUno(@RequestBody Usuario u) throws Exception{
         Usuario UccBB = usuarioServicio.buscarPorId(u.getIdUsuario());
 
 
 
         if (UccBB == null) {
-            throw new ExcepcionErrorNotFound("Usuario no encontrado" + UccBB);
+            throw new ExcepcionPersonalizada("Usuario no encontrado" + UccBB);
         }
         return new ResponseEntity<>(usuarioServicio.editar(u),HttpStatus.OK);
     }
