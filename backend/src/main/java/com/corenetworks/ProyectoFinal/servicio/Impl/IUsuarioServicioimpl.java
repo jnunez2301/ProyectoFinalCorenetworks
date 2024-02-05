@@ -11,8 +11,6 @@ import org.springframework.stereotype.Service;
 public class IUsuarioServicioimpl extends ICRUDimpl <Usuario,Integer> implements IUsuarioServicio {
     @Autowired
     private IUsuarioRepositorio repositorio;
-
-
     @Override
     protected IGeneralRepositorio<Usuario, Integer> getRepo() {
         return repositorio;
