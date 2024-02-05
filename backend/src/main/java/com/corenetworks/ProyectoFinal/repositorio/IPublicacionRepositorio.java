@@ -1,6 +1,6 @@
 package com.corenetworks.ProyectoFinal.repositorio;
 
-import com.corenetworks.ProyectoFinal.modelo.Publicaciones;
+import com.corenetworks.ProyectoFinal.modelo.Publicacion;
 
-public interface IPublicacionRepositorio extends IGeneralRepositorio <Publicaciones,Integer> {
+public interface IPublicacionRepositorio extends IGeneralRepositorio <Publicacion,Integer> {
 }
