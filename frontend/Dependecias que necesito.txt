@@ -1,0 +1,12 @@
+Necesito:
+*Nodel
+*Instalar el git en el visual
+
+Dependecias:
+*Angular Language Server
+*Tabnine:AI
+*Angular Files
+*Angular Snippets
+*Auto close Tag
+*Liver Server
+*Material Icon Theme
