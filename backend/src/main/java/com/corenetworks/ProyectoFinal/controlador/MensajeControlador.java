@@ -31,7 +31,7 @@ public class MensajeControlador {
     }
 
     @GetMapping("/ultimos5porid/{id}")
-    public ResponseEntity<List<Mensaje>> ultimos5mensajesporId(@PathVariable(name = "id")int id) throws Exception{
+    public ResponseEntity<List<Mensajfe>> ultimos5mensajesporId(@PathVariable(name = "id")int id) throws Exception{
         return new ResponseEntity<>(mensajeServicio.ultimos5mensajes(id),HttpStatus.OK);
 
     }
