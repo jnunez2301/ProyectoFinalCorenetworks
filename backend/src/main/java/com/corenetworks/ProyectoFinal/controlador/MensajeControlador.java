@@ -1,5 +1,6 @@
 package com.corenetworks.ProyectoFinal.controlador;
 
+import com.corenetworks.ProyectoFinal.dto.UsuarioDTO;
 import com.corenetworks.ProyectoFinal.modelo.Mensaje;
 import com.corenetworks.ProyectoFinal.modelo.Usuario;
 import com.corenetworks.ProyectoFinal.servicio.IMensajeServicio;
@@ -25,12 +26,12 @@ public class MensajeControlador {
         return new ResponseEntity<>(mensajeServicio.buscarTodos(), HttpStatus.OK);
     }
     @GetMapping("/{id}")
-    public ResponseEntity<List<Object[]>>buscarMensajesporId(@PathVariable(name = "id") int id) throws Exception {
+    public ResponseEntity<List<UsuarioDTO>>buscarMensajesporId(@PathVariable(name = "id") int id) throws Exception {
         return new ResponseEntity<>(mensajeServicio.filtroMensajesporId(id),HttpStatus.OK);
     }
 
     @GetMapping("/ultimos5porid/{id}")
-    public ResponseEntity<List<Object[]>> ultimos5mensajesporId(@PathVariable(name = "id")int id) throws Exception{
+    public ResponseEntity<List<Mensaje>> ultimos5mensajesporId(@PathVariable(name = "id")int id) throws Exception{
         return new ResponseEntity<>(mensajeServicio.ultimos5mensajes(id),HttpStatus.OK);
 
     }

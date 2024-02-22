@@ -1,5 +1,6 @@
 package com.corenetworks.ProyectoFinal.servicio.Impl;
 
+import com.corenetworks.ProyectoFinal.dto.UsuarioDTO;
 import com.corenetworks.ProyectoFinal.modelo.Mensaje;
 import com.corenetworks.ProyectoFinal.repositorio.IGeneralRepositorio;
 import com.corenetworks.ProyectoFinal.repositorio.IMensajeRepositorio;
@@ -9,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 
 import java.util.List;
-import java.util.Objects;
 
 @Service
 public class IMensajeServicioImpl extends ICRUDimpl <Mensaje, Integer> implements IMensajeServicio {
@@ -23,12 +23,12 @@ public class IMensajeServicioImpl extends ICRUDimpl <Mensaje, Integer> implement
     }
 
     @Override
-    public List<Object[]> filtroMensajesporId(int id) throws Exception {
+    public List<UsuarioDTO> filtroMensajesporId(int id) throws Exception {
         return repositorio.filtroMensajesPoridUsuario(id);
     }
 
     @Override
-    public List<Object[]> ultimos5mensajes(int id) throws Exception {
+    public List<Mensaje> ultimos5mensajes(int id) throws Exception {
         return repositorio.ultimos5mensajes(id);
     }
 }
