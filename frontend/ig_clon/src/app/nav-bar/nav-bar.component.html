@@ -1,18 +1,43 @@
-<img src="https://picsum.photos/200/100" alt="" width="200px" height="100px">
-
-<nav>
-    <ul>
-        <li><a [routerLink]="['/inicio']" routerLinkActive="router-link-active">Home</a></li>
-        <li><a [routerLink]="['/busqueda']" routerLinkActive="router-link-active">Buscar</a></li>
-        <li><a [routerLink]="['/explorar']" routerLinkActive="router-link-active">Explorar</a></li>
-        <li><a [routerLink]="['/reels']" routerLinkActive="router-link-active">Reels</a></li>
-        <li><a [routerLink]="['/mensajes']" routerLinkActive="router-link-active">Mensajes</a></li>
-        <li><a [routerLink]="['/notificaciones']" routerLinkActive="router-link-active">Notificaciones</a></li>
-        <li><a [routerLink]="['/publicar']" routerLinkActive="router-link-active">Publicar</a></li>
-        <li><a [routerLink]="['/perfil']" routerLinkActive="router-link-active">Perfil</a></li>
+<nav class="nav">
+    <ul class="nav-container">
+        <div class="search-bar">
+            <li>
+                <a [routerLink]="['/']" routerLinkActive="router-link-active">
+                    <h1>Posty !</h1>
+                </a>
+            </li>
+            <li><a [routerLink]="['/inicio']" routerLinkActive="router-link-active">
+                    <mat-icon aria-hidden="false" aria-label="home-icon" fontIcon="home"></mat-icon>
+                    Inicio
+                </a></li>
+            <li><a [routerLink]="['/busqueda']" routerLinkActive="router-link-active">
+                    <mat-icon aria-hidden="false" aria-label="search-icon" fontIcon="search"></mat-icon>
+                    Buscar
+                </a></li>
+            <li><a [routerLink]="['/explorar']" routerLinkActive="router-link-active">
+                    <mat-icon aria-hidden="false" aria-label="explore-icon" fontIcon="explore"></mat-icon>
+                    Explorar</a></li>
+            <li><a [routerLink]="['/reels']" routerLinkActive="router-link-active">
+                    <mat-icon aria-hidden="false" aria-label="reels-icon" fontIcon="video_collection"></mat-icon>
+                    Reels</a></li>
+            <li><a [routerLink]="['/mensajes']" routerLinkActive="router-link-active">
+                    <mat-icon aria-hidden="false" aria-label="message-icon" fontIcon="message"></mat-icon>
+                    Mensajes</a></li>
+            <li><a [routerLink]="['/notificaciones']" routerLinkActive="router-link-active">
+                    <mat-icon aria-hidden="false" aria-label="notification-icon" fontIcon="notifications"></mat-icon>
+                    Notificaciones</a></li>
+            <li><a [routerLink]="['/publicar']" routerLinkActive="router-link-active">
+                    <mat-icon aria-hidden="false" aria-label="add-icon" fontIcon="add"></mat-icon>
+                    Publicar</a></li>
+            <li><a [routerLink]="['/perfil']" routerLinkActive="router-link-active">
+                    <mat-icon aria-hidden="false" aria-label="profile-icon" fontIcon="person"></mat-icon>
+                    Perfil</a></li>
+        </div>
         <div>
             <!-- TODO: MODAL de configuracion -->
-            <li><a href="#">\\\ Más</a></li>
+            <li><a [routerLink]="['/configuracion']" routerLinkActive="router-link-active">
+                    <mat-icon aria-hidden="false" aria-label="settings-icon" fontIcon="settings"></mat-icon>
+                    Configuración</a></li>
         </div>
     </ul>
 </nav>
