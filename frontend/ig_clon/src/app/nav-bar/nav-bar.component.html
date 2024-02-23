@@ -1,1 +1,18 @@
-<p>nav-bar works!</p>
+<img src="https://picsum.photos/200/100" alt="" width="200px" height="100px">
+
+<nav>
+    <ul>
+        <li><a [routerLink]="['/inicio']" routerLinkActive="router-link-active">Home</a></li>
+        <li><a [routerLink]="['/busqueda']" routerLinkActive="router-link-active">Buscar</a></li>
+        <li><a [routerLink]="['/explorar']" routerLinkActive="router-link-active">Explorar</a></li>
+        <li><a [routerLink]="['/reels']" routerLinkActive="router-link-active">Reels</a></li>
+        <li><a [routerLink]="['/mensajes']" routerLinkActive="router-link-active">Mensajes</a></li>
+        <li><a [routerLink]="['/notificaciones']" routerLinkActive="router-link-active">Notificaciones</a></li>
+        <li><a [routerLink]="['/publicar']" routerLinkActive="router-link-active">Publicar</a></li>
+        <li><a [routerLink]="['/perfil']" routerLinkActive="router-link-active">Perfil</a></li>
+        <div>
+            <!-- TODO: MODAL de configuracion -->
+            <li><a href="#">\\\ Más</a></li>
+        </div>
+    </ul>
+</nav>
