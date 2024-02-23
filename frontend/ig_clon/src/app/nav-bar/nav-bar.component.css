@@ -131,6 +131,66 @@ ul {
   background-color: transparent;
   border-radius: 5px;
 }
+.short-title{
+  display: none;
+}
+@media(max-width: 1260px){
+  a{
+    flex-direction: column;
+    justify-content: center;    
+  }
+  .nav-container{
+    width: 120px;
+  }
+  a > p{
+    display: none;
+  }
+  .btn-config p {
+    display: none;
+  }
+  .modal-container{
+    display: flex;
+    justify-content: center;
+  }
+  .modal a {
+    height: auto;
+
+  }
+  .modal{
+    left: 5px;
+  }
+  h1{
+    display: none;
+  }
+  .short-title{
+    display: block;
+    font-weight: 1000;
+    color: rgb(226, 44, 226);
+    font-style: italic;
+    font-size: 42px;
+    text-align: center;
+    /* font-family: "Anta", sans-serif; */
+    margin: 0 auto;
+    text-shadow: -10px 10px 1px rgba(70, 123, 236, 0.1);
+  }
+}
+@media (max-width: 768px){
+  .search-bar{
+    flex-direction: row;
+  }
+  .nav-container{
+    flex-direction: row;
+    border-right: none;
+    
+  }
+  .nav{
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    width: 100%;
+  }
+
+  
+}
+
 @keyframes rotate {
   from {
     transform: rotate(0deg);

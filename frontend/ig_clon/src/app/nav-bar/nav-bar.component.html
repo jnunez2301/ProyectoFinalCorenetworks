@@ -4,34 +4,41 @@
             <li>
                 <a [routerLink]="['/']" routerLinkActive="router-link-active">
                     <h1>Posty !</h1>
+                    <h2 class="short-title">P</h2>
                 </a>
             </li>
             <li><a [routerLink]="['/inicio']" routerLinkActive="router-link-active">
                     <mat-icon aria-hidden="false" aria-label="home-icon" fontIcon="home"></mat-icon>
-                    Inicio
+                    <p>Inicio</p>
                 </a></li>
             <li><a [routerLink]="['/busqueda']" routerLinkActive="router-link-active">
                     <mat-icon aria-hidden="false" aria-label="search-icon" fontIcon="search"></mat-icon>
-                    Buscar
+                    <p>Buscar</p>
                 </a></li>
             <li><a [routerLink]="['/explorar']" routerLinkActive="router-link-active">
                     <mat-icon aria-hidden="false" aria-label="explore-icon" fontIcon="explore"></mat-icon>
-                    Explorar</a></li>
+                <p>Explorar</p>    
+                </a></li>
             <li><a [routerLink]="['/reels']" routerLinkActive="router-link-active">
                     <mat-icon aria-hidden="false" aria-label="reels-icon" fontIcon="video_collection"></mat-icon>
-                    Reels</a></li>
+                    <p>Reels</p>
+                    </a></li>
             <li><a [routerLink]="['/mensajes']" routerLinkActive="router-link-active">
                     <mat-icon aria-hidden="false" aria-label="message-icon" fontIcon="message"></mat-icon>
-                    Mensajes</a></li>
+                <p>Mensajes</p>
+                </a></li>
             <li><a [routerLink]="['/notificaciones']" routerLinkActive="router-link-active">
                     <mat-icon aria-hidden="false" aria-label="notification-icon" fontIcon="notifications"></mat-icon>
-                    Notificaciones</a></li>
+                <p>Notificaciones</p>    
+                </a></li>
             <li><a [routerLink]="['/publicar']" routerLinkActive="router-link-active">
                     <mat-icon aria-hidden="false" aria-label="add-icon" fontIcon="add"></mat-icon>
-                    Publicar</a></li>
+                    <p>Publicar</p>
+                    </a></li>
             <li><a [routerLink]="['/perfil']" routerLinkActive="router-link-active">
                     <mat-icon aria-hidden="false" aria-label="profile-icon" fontIcon="person"></mat-icon>
-                    Perfil</a></li>
+                    <p>Perfil</p>
+                    </a></li>
         </div>
         <div>
             <!-- TODO: MODAL de configuracion -->
@@ -46,20 +53,24 @@
 
                             <a href="#"><mat-icon aria-hidden="false" aria-label="settings-icon"
                                     fontIcon="settings"></mat-icon>
-                                Configuracion</a>
+                                <p>Configuracion</p>
+                            </a>
 
                         </li>
                         <li>
                             <!-- TODO: Crear una variable booleana que en verdadero deje un tema claro y en falso un tema oscuro -->
                             <a href="#"><mat-icon aria-hidden="false" aria-label="theme-icon"
                                     fontIcon="palette"></mat-icon>
-                                Cambiar Tema</a>
+                                <p>Cambiar Tema</p>
+                            </a>
 
                         </li>
                         <li>
 
                             <a href="#"><mat-icon aria-hidden="false" aria-label="logout-icon"
-                                    fontIcon="exit_to_app"></mat-icon> Cerrar Sesión</a>
+                                    fontIcon="exit_to_app"></mat-icon>
+                                <p>Cerrar Sesión</p>
+                            </a>
 
                         </li>
                     </ul>
@@ -69,7 +80,9 @@
                 @if (!modalOpen) {
                 <button class="btn-config" (click)="abrirModal()" [class.btn-active]="modalOpen"><mat-icon
                         aria-hidden="false" aria-label="settings-icon"
-                        fontIcon="settings"></mat-icon>Configuración</button>
+                        fontIcon="settings"></mat-icon>
+                        <p>Configuración</p>
+                </button>
                 }
             </li>
 
