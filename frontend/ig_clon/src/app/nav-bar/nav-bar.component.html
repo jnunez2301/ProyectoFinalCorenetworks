@@ -35,7 +35,7 @@
         </div>
         <div>
             <!-- TODO: MODAL de configuracion -->
-            <li>
+            <li class="modal-container">
                 @if (modalOpen) {
                 <div class="modal">
                     <button (click)="cerrarModal()" class="btn-cerrar">
@@ -50,7 +50,7 @@
 
                         </li>
                         <li>
-
+                            <!-- TODO: Crear una variable booleana que en verdadero deje un tema claro y en falso un tema oscuro -->
                             <a href="#"><mat-icon aria-hidden="false" aria-label="theme-icon"
                                     fontIcon="palette"></mat-icon>
                                 Cambiar Tema</a>

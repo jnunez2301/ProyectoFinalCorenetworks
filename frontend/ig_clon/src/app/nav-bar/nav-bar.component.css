@@ -11,7 +11,7 @@
 }
 li {
   list-style-type: none;
-  margin: 0.8rem;
+  margin: 0;
 }
 a {
   text-decoration: none;
@@ -19,9 +19,20 @@ a {
   display: flex;
   align-items: center;
   gap: 6px;
+  padding: 0 1rem;
+  height: 64px;
+  width: 100%;
   transition: all 0.3s ease;
 }
 a:hover {
+  background-color: #F2F2F2;
+  border-radius: 5px;
+}
+mat-icon{
+  margin-right: 5px;
+  transition: all 0.3s ease;
+}
+a:hover mat-icon{
   scale: 1.1;
 }
 ul {
@@ -97,16 +108,28 @@ ul {
     transform: rotate(180deg);
   }
 }
-
+.modal-container{
+  position: relative;
+}
+.modal{
+  position: absolute;
+  top: -150px;
+  background-color: #fff;
+  z-index: 100;
+}
 .modal button:hover {
   color: red;
 }
 .modal a {
   scale: 1;
   transition: all 0.3s ease;
+  height: 16px;
+  width: 100%;
 }
 .modal a:hover {
   color: #e967e9;
+  background-color: transparent;
+  border-radius: 5px;
 }
 @keyframes rotate {
   from {
