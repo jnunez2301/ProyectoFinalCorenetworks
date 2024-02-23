@@ -35,9 +35,44 @@
         </div>
         <div>
             <!-- TODO: MODAL de configuracion -->
-            <li><a [routerLink]="['/configuracion']" routerLinkActive="router-link-active">
-                    <mat-icon aria-hidden="false" aria-label="settings-icon" fontIcon="settings"></mat-icon>
-                    Configuración</a></li>
+            <li>
+                @if (modalOpen) {
+                <div class="modal">
+                    <button (click)="cerrarModal()" class="btn-cerrar">
+                        <mat-icon aria-hidden="false" aria-label="close-icon" fontIcon="close_icon"></mat-icon>
+                    </button>
+                    <ul>
+                        <li>
+
+                            <a href="#"><mat-icon aria-hidden="false" aria-label="settings-icon"
+                                    fontIcon="settings"></mat-icon>
+                                Configuracion</a>
+
+                        </li>
+                        <li>
+
+                            <a href="#"><mat-icon aria-hidden="false" aria-label="theme-icon"
+                                    fontIcon="palette"></mat-icon>
+                                Cambiar Tema</a>
+
+                        </li>
+                        <li>
+
+                            <a href="#"><mat-icon aria-hidden="false" aria-label="logout-icon"
+                                    fontIcon="exit_to_app"></mat-icon> Cerrar Sesión</a>
+
+                        </li>
+                    </ul>
+
+                </div>
+                }
+                @if (!modalOpen) {
+                <button class="btn-config" (click)="abrirModal()" [class.btn-active]="modalOpen"><mat-icon
+                        aria-hidden="false" aria-label="settings-icon"
+                        fontIcon="settings"></mat-icon>Configuración</button>
+                }
+            </li>
+
         </div>
     </ul>
 </nav>
