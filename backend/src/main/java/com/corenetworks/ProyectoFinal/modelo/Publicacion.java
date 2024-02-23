@@ -19,22 +19,22 @@ public class Publicacion {
     private int idPublicacion;
     private String descripcion;
     private int cantidadLikes;
-    private String contenido; // ¿Imagen o video?
+    private String rutaContenido;
     private String urlCompartir;
     //private String guardar;
     private LocalDate fCreacion;
     private LocalTime hCreacion;
 
-    public Publicacion(int idPublicacion, String descripcion, int cantidadLikes, String contenido, String urlCompartir, LocalDate fCreacion, LocalTime hCreacion, Usuario usuario) {
-        this.idPublicacion = idPublicacion;
-        this.descripcion = descripcion;
-        this.cantidadLikes = cantidadLikes;
-        this.contenido = contenido;
-        this.urlCompartir = urlCompartir;
-        this.fCreacion = fCreacion;
-        this.hCreacion = hCreacion;
-        this.usuario = usuario;
-    }
+//    public Publicacion(int idPublicacion, String descripcion, int cantidadLikes, String contenido, String urlCompartir, LocalDate fCreacion, LocalTime hCreacion, Usuario usuario) {
+//        this.idPublicacion = idPublicacion;
+//        this.descripcion = descripcion;
+//        this.cantidadLikes = cantidadLikes;
+//        this.rutaContenido = contenido;
+//        this.urlCompartir = urlCompartir;
+//        this.fCreacion = fCreacion;
+//        this.hCreacion = hCreacion;
+//        this.usuario = usuario;
+//    }
     /*
     * FK_usuarios_publicaciones
     * */
