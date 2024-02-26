@@ -175,13 +175,37 @@ ul {
   }
 }
 @media (max-width: 768px){
+  .short-title{
+    font-size: 28px;
+  }
   .search-bar{
     flex-direction: row;
+    gap: 0;
+    overflow-x: auto;
+    align-items: center;
+  }
+  .search-bar::-webkit-scrollbar {
+    width: 4px;
+    height: 2px;
+  }
+
+  .search-bar::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+  }
+
+  .search-bar::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 2px;
+  }
+
+  .search-bar::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
   }
   .nav-container{
     flex-direction: row;
     border-right: none;
-    
+    width: 100%;
+    justify-content: space-evenly;
   }
   .nav{
     border-top: 1px solid rgba(0, 0, 0, 0.1);
@@ -190,7 +214,10 @@ ul {
   .modal-container{
     height: 100%;
   }
-  
+  .modal{
+    top: -150px;
+    left: -100px;
+  }
 }
 
 @keyframes rotate {
