@@ -1,5 +1,6 @@
 package com.corenetworks.ProyectoFinal.servicio.Impl;
 
+import com.corenetworks.ProyectoFinal.dto.MensajeDTO;
 import com.corenetworks.ProyectoFinal.dto.UsuarioDTO;
 import com.corenetworks.ProyectoFinal.modelo.Mensaje;
 import com.corenetworks.ProyectoFinal.repositorio.IGeneralRepositorio;
@@ -23,12 +24,12 @@ public class IMensajeServicioImpl extends ICRUDimpl <Mensaje, Integer> implement
     }
 
     @Override
-    public List<UsuarioDTO> filtroMensajesporId(int id) throws Exception {
+    public List<MensajeDTO> filtroMensajesporId(int id) throws Exception {
         return repositorio.filtroMensajesPoridUsuario(id);
     }
 
     @Override
-    public List<Mensaje> ultimos5mensajes(int id) throws Exception {
+    public List<MensajeDTO> ultimos5mensajes(int id) throws Exception {
         return repositorio.ultimos5mensajes(id);
     }
 }

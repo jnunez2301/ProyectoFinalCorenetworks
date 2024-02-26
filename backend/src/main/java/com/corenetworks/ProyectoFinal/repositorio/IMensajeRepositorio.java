@@ -1,5 +1,6 @@
 package com.corenetworks.ProyectoFinal.repositorio;
 
+import com.corenetworks.ProyectoFinal.dto.MensajeDTO;
 import com.corenetworks.ProyectoFinal.dto.UsuarioDTO;
 import com.corenetworks.ProyectoFinal.modelo.Mensaje;
 import com.corenetworks.ProyectoFinal.modelo.Usuario;
@@ -18,8 +19,8 @@ public interface IMensajeRepositorio extends IGeneralRepositorio<Mensaje, Intege
          "inner join usuarios d\n" +
          "on d.id_usuario= m.usuario_destino_id\n" +
          "where usuario_origen_id=:id",nativeQuery = true)
- List<UsuarioDTO> filtroMensajesPoridUsuario(@Value("id") int id) throws Exception;
+ List<MensajeDTO> filtroMensajesPoridUsuario(@Value("id") int id) throws Exception;
 
  @Query(value="SELECT m.id_mensaje,m.contenido FROM mensajes m WHERE m.usuario_origen_id =:id  ORDER BY m.id_mensaje DESC LIMIT 5",nativeQuery = true)
- List<Mensaje> ultimos5mensajes(@Value("id") int id) throws Exception;
+ List<MensajeDTO> ultimos5mensajes(@Value("id") int id) throws Exception;
 }
