@@ -9,8 +9,6 @@ import { PublicarComponent } from './publicar/publicar.component';
 import { PerfilComponent } from './perfil/perfil.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: '**', component: InicioComponent },
   { path: 'busqueda', component: BusquedaComponent },
   { path: 'explorar', component: ExplorarComponent },
   { path: 'reels', component: ReelsComponent },
@@ -18,4 +16,6 @@ export const routes: Routes = [
   { path: 'notificaciones', component: NotificacionesComponent },
   { path: 'publicar', component: PublicarComponent },
   { path: 'perfil', component: PerfilComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '**', component: InicioComponent },
 ];
