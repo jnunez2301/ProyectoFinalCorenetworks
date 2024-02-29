@@ -5,8 +5,9 @@ import com.corenetworks.ProyectoFinal.repositorio.IGeneralRepositorio;
 import com.corenetworks.ProyectoFinal.repositorio.IUsuarioRepositorio;
 import com.corenetworks.ProyectoFinal.servicio.IUsuarioServicio;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class IUsuarioServicioimpl extends ICRUDimpl <Usuario,Integer> implements IUsuarioServicio {
@@ -16,4 +17,5 @@ public class IUsuarioServicioimpl extends ICRUDimpl <Usuario,Integer> implements
     protected IGeneralRepositorio<Usuario, Integer> getRepo() {
         return repositorio;
     }
+
 }
