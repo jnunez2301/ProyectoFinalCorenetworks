@@ -1,5 +1,6 @@
 package com.corenetworks.ProyectoFinal.servicio.Impl;
 
+import com.corenetworks.ProyectoFinal.dto.HistorialChatsDTO;
 import com.corenetworks.ProyectoFinal.dto.MensajeDTO;
 import com.corenetworks.ProyectoFinal.modelo.Mensaje;
 import com.corenetworks.ProyectoFinal.repositorio.IGeneralRepositorio;
@@ -47,6 +48,11 @@ public class IMensajeServicioImpl extends ICRUDimpl <Mensaje, Integer> implement
     @Override
     public Mensaje enviarMensaje(Mensaje mensaje) {
         return repositorio.save(mensaje);
+    }
+
+    @Override
+    public List<HistorialChatsDTO> historialChats(int id_origen, int id_destino) throws Exception{
+        return repositorio.historialChats(id_origen,id_destino);
     }
 
 }
