@@ -27,7 +27,7 @@ h1{
     text-align: center;
     /* font-family: "Anta", sans-serif; */
     margin: 0 auto;
-    text-shadow: -10px 10px 1px rgba(70, 123, 236, 0.1);
+    /* text-shadow: -10px 10px 1px rgba(70, 123, 236, 0.1); */
 }
 
 @media (max-width: 768px){
