@@ -1,12 +1,10 @@
 package com.corenetworks.ProyectoFinal.servicio.Impl;
 
-import com.corenetworks.ProyectoFinal.dto.UsuarioDTO;
 import com.corenetworks.ProyectoFinal.modelo.Usuario;
 import com.corenetworks.ProyectoFinal.repositorio.IGeneralRepositorio;
 import com.corenetworks.ProyectoFinal.repositorio.IUsuarioRepositorio;
 import com.corenetworks.ProyectoFinal.servicio.IUsuarioServicio;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,8 +18,4 @@ public class IUsuarioServicioimpl extends ICRUDimpl <Usuario,Integer> implements
         return repositorio;
     }
 
-    @Override
-    public List<UsuarioDTO> ultimos5mensajes(int id) throws Exception {
-        return ultimos5mensajes(id);
-    }
 }

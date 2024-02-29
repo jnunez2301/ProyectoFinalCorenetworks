@@ -1,7 +1,6 @@
 package com.corenetworks.ProyectoFinal.servicio.Impl;
 
 import com.corenetworks.ProyectoFinal.dto.MensajeDTO;
-import com.corenetworks.ProyectoFinal.dto.UsuarioDTO;
 import com.corenetworks.ProyectoFinal.modelo.Mensaje;
 import com.corenetworks.ProyectoFinal.repositorio.IGeneralRepositorio;
 import com.corenetworks.ProyectoFinal.repositorio.IMensajeRepositorio;
@@ -10,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -25,11 +25,28 @@ public class IMensajeServicioImpl extends ICRUDimpl <Mensaje, Integer> implement
 
     @Override
     public List<MensajeDTO> filtroMensajesporId(int id) throws Exception {
-        return repositorio.filtroMensajesPoridUsuario(id);
+        List <MensajeDTO> mDTO= new ArrayList<>();
+        List<Object[]> resultado= repositorio.filtroMensajesPoridUsuario(id);
+        for (Object[] elemento:
+             resultado) {
+            MensajeDTO m= new MensajeDTO();
+            m.setIdMensaje((Integer) elemento[0]);
+            m.setContenido((String) elemento[1]);
+            m.setFCreacion(((java.sql.Date) elemento[2]).toLocalDate());
+            m.setHCreacion(((java.sql.Time) elemento[3]).toLocalTime());
+            m.setUrlFotos((String) elemento[4]);
+            m.setNombreUsuarioOrigen((String) elemento[5]);
+            m.setNombreUsuarioDestino((String) elemento[6]);
+            mDTO.add(m);
+
+        }
+        return mDTO;
     }
 
+
     @Override
-    public List<MensajeDTO> ultimos5mensajes(int id) throws Exception {
-        return repositorio.ultimos5mensajes(id);
+    public Mensaje enviarMensaje(Mensaje mensaje) {
+        return repositorio.save(mensaje);
     }
+
 }

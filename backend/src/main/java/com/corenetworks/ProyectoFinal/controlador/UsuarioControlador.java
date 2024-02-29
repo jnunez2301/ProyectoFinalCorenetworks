@@ -1,6 +1,5 @@
 package com.corenetworks.ProyectoFinal.controlador;
 
-import com.corenetworks.ProyectoFinal.dto.UsuarioDTO;
 import com.corenetworks.ProyectoFinal.exepcion.ExcepcionPersonalizada;
 import com.corenetworks.ProyectoFinal.modelo.Usuario;
 import com.corenetworks.ProyectoFinal.servicio.IUsuarioServicio;
@@ -72,10 +71,5 @@ public class UsuarioControlador {
             throw new ExcepcionPersonalizada("Usuario no encontrado" + UccBB);
         }
         return new ResponseEntity<>(usuarioServicio.editar(u),HttpStatus.OK);
-    }
-    @GetMapping("/ultimos5porid/{id}")
-    public ResponseEntity<List<UsuarioDTO>> ultimos5mensajesporId(@PathVariable(name = "id")int id) throws Exception{
-        return new ResponseEntity<>(usuarioServicio.ultimos5mensajes(id),HttpStatus.OK);
-
     }
 }
