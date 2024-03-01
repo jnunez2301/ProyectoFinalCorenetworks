@@ -30,9 +30,15 @@ h1{
     /* text-shadow: -10px 10px 1px rgba(70, 123, 236, 0.1); */
 }
 
+app-inicio{
+    overflow-y: auto;
+    height: 100vh;
+    flex: 1;
+}
+
+
 @media (max-width: 768px){
     .main{
         flex-direction: column-reverse;
-      }
-    
+      }    
 }
