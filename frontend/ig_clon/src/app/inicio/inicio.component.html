@@ -1,5 +1,5 @@
 <section>
-  <div class="historias">
+  <div>
     <header class="barra-historias">
       <div class="nav-historias">
         <a href="" class="anchor-historia">Para ti</a>
@@ -96,14 +96,16 @@
       <ul class="sidebar-sugerencias">
         @for (item of usuarios; track item.id) {
         <li>
-          <img
-            [src]="'https://picsum.photos/id/' + item.id + '/60/60'"
-            [alt]="item.nombre_completo"
-          />
-          <div>
-            <h3>{{ item.nombre_usuario }}</h3>
-            <p>{{ item.nombre_completo }}</p>
-            <p class="mini-text">Suggester for you</p>
+          <div class="sug-info">
+            <img
+              [src]="'https://picsum.photos/id/' + item.id + '/60/60'"
+              [alt]="item.nombre_completo"
+            />
+            <div>
+              <h3>{{ item.nombre_usuario }}</h3>
+              <p>{{ item.nombre_completo }}</p>
+              <p class="mini-text">Suggester for you</p>
+            </div>
           </div>
           <a href="#" class="btn-follow">Follow</a>
         </li>

@@ -1,8 +1,19 @@
+@keyframes bounceIn {
+    from{
+        opacity: 0;
+    }to{
+        opacity: 1;
+    }
+    
+}
 section{
     display: flex;
     width: 100%;
     padding: 1rem;
     gap: 16px;
+    animation-name: bounceIn;
+    animation-duration: 200ms;
+    animation-timing-function: ease-in-out;
 }
 a{
     text-decoration: none;
@@ -11,10 +22,7 @@ a{
     width: 70%;
 }
 /* .barra-historias{
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background-color: white;
+    width: 100%;
 } */
 .sidebar{
     width: 30%;
@@ -69,7 +77,7 @@ li{
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin: 1.5rem 0;
+    margin: 1rem;
 }
 .sidebar-perfil{
     display: flex;
@@ -95,6 +103,7 @@ li{
 .siderbar-btns{
     display: flex;
     width: 100%;
+    
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid rgba(0,0,0,0.1);
@@ -104,8 +113,13 @@ li{
 .sidebar-sugerencias li{
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 16px;
     margin-bottom: .8rem;
+}
+.sug-info{
+    display: flex;
+    gap: 8px;
 }
 .mini-text{
     font-weight: thin;
