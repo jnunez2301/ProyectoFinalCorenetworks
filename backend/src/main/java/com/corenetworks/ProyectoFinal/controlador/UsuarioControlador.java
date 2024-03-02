@@ -1,5 +1,6 @@
 package com.corenetworks.ProyectoFinal.controlador;
 
+import com.corenetworks.ProyectoFinal.dto.SeguidorDTO;
 import com.corenetworks.ProyectoFinal.exepcion.ExcepcionPersonalizada;
 import com.corenetworks.ProyectoFinal.modelo.Usuario;
 import com.corenetworks.ProyectoFinal.servicio.IUsuarioServicio;
@@ -32,14 +33,14 @@ public class UsuarioControlador {
         }
         return new ResponseEntity<>(uccBB, HttpStatus.OK);
     }
-    @GetMapping("/name/{nombre}")
-    public ResponseEntity<Usuario> BuscarPorNombreUsuario(@PathVariable(name = "nombre") String nombre) throws Exception{
-        Usuario uccBB = usuarioServicio.BuscarPorNombreUsuario(nombre);
-        if (uccBB == null) {
-            throw new ExcepcionPersonalizada(" el usuario " + nombre + " no ha sido encontrado");
-        }
-        return new ResponseEntity<>(uccBB, HttpStatus.OK);
-    }
+//    @GetMapping("/name/{nombre}")
+//    public ResponseEntity<Usuario> BuscarPorNombreUsuario(@PathVariable(name = "nombre") String nombre) throws Exception{
+//        Usuario uccBB = usuarioServicio.BuscarPorNombreUsuario(nombre);
+//        if (uccBB == null) {
+//            throw new ExcepcionPersonalizada(" el usuario " + nombre + " no ha sido encontrado");
+//        }
+//        return new ResponseEntity<>(uccBB, HttpStatus.OK);
+//    }
 
     @GetMapping
     public ResponseEntity<List<Usuario>> mostrarTodos() throws Exception {
@@ -80,16 +81,6 @@ public class UsuarioControlador {
         }
         return new ResponseEntity<>(usuarioServicio.editar(u),HttpStatus.OK);
     }
-    @GetMapping("/seguidores/{nombreUsuario}")
-    public ResponseEntity<List<Usuario>> buscarSeguidoresPorNombreUsuario(@PathVariable String nombreUsuario) {
-        List<Usuario> seguidores = usuarioServicio.seguidor(nombreUsuario);
-        return new ResponseEntity<>(seguidores,HttpStatus.OK);
-    }
-    @PostMapping("/seguir")
-    public ResponseEntity<String> seguirUsuario(
-            @RequestParam("seguidor") String nombreUsuarioSeguidor,
-            @RequestParam("seguido") String nombreUsuarioSeguido) {
-        usuarioServicio.seguirUsuario(nombreUsuarioSeguidor, nombreUsuarioSeguido);
-        return ResponseEntity.ok("El usuario " + nombreUsuarioSeguidor + " sigue a " + nombreUsuarioSeguido);
-    }
+
+
 }

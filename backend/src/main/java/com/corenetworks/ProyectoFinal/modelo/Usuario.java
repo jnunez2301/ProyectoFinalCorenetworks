@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 @Data
 @Entity
 @Table(name = "usuarios")
-public class Usuario {
+public class Usuario{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idUsuario;
@@ -29,15 +29,17 @@ public class Usuario {
     @JsonIgnore
     @Column(length = 120, nullable = false)
     private String contrasena;
+    @JsonIgnore
     private String salt;
-
+    @JsonIgnore
     @Column(length = 255, nullable = false, unique = true)
     private String correo;
-
+    @JsonIgnore
     @Column(length = 60, nullable = false)
     private String preguntaSecreta;
-
+    @JsonIgnore
     private LocalDate fCreacion;
+    @JsonIgnore
     private LocalTime hCreacion;
 
     public Usuario(String nombreUsuario, String contrasena, String correo, String preguntaSecreta) {
@@ -46,18 +48,13 @@ public class Usuario {
         this.correo = correo;
         this.preguntaSecreta = preguntaSecreta;
     }
-
-
-    @ManyToMany(mappedBy = "seguidores")
-    @JsonBackReference
     @JsonIgnore
-    private List<Usuario> seguidos;
+    @OneToMany(mappedBy = "seguido")
+    private List<Seguido> seguidos;
+    @JsonIgnore
+    @OneToMany(mappedBy = "seguidor")
+    private List<Seguidor> seguidores;
 
 
-    @ManyToMany
-    @JsonBackReference
-    @JoinTable(name = "seguidores",
-            joinColumns = @JoinColumn(name = "usuario_id"),
-            inverseJoinColumns = @JoinColumn(name = "seguidor_id"))
-    private List<Usuario> seguidores;
+
 }
