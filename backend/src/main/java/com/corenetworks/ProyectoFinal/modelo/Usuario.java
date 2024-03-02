@@ -40,4 +40,9 @@ public class Usuario {
         this.correo = correo;
         this.preguntaSecreta = preguntaSecreta;
     }
+
+    public Usuario(int idUsuario, String nombreUsuario) {
+        this.idUsuario = idUsuario;
+        this.nombreUsuario = nombreUsuario;
+    }
 }

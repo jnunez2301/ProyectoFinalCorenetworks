@@ -18,4 +18,6 @@ public class IUsuarioServicioimpl extends ICRUDimpl <Usuario,Integer> implements
         return repositorio;
     }
 
+
+
 }
