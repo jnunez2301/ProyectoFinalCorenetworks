@@ -22,5 +22,18 @@ public class InformacionUsuario {
     @OneToOne
     @JoinColumn(name="id_usuario", nullable = false, foreignKey = @ForeignKey(name = "FK_informacion_usuario_usuario"))
     private Usuario usuario;
+
+    @ManyToMany(mappedBy = "seguidores")
+    @JsonBackReference
+    @JsonIgnore
+    private List<Usuario> seguidos;
+
+
+    @ManyToMany
+    @JsonManagedReference
+    @JoinTable(name = "seguidores",
+            joinColumns = @JoinColumn(name = "usuario_id"),
+            inverseJoinColumns = @JoinColumn(name = "seguidor_id"))
+    private List<Usuario> seguidores;
 }
 */
