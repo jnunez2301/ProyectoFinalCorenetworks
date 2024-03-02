@@ -24,17 +24,6 @@ public class ISeguidorServicioImpl extends ICRUDimpl<Seguidor, Long> {
         return seguidorRepositorio;
     }
 
-//    public List<Seguidor> obtenerSeguidores(Usuario seguido){
-//
-//        Usuario usuarioCorto = new Usuario();
-//
-//        usuarioCorto.setIdUsuario(seguido.getIdUsuario());
-//        usuarioCorto.setNombreUsuario(seguido.getNombreUsuario());
-//
-//        return seguidorRepositorio.findBySeguido(usuarioCorto);
-//    }
-
-
     public List<SeguidorDTO> obtenerSeguidores(Usuario seguido) {
         List<Seguidor> seguidores = seguidorRepositorio.findBySeguido(seguido);
         List<SeguidorDTO> seguidoresDTO = new ArrayList<>();
@@ -44,9 +33,7 @@ public class ISeguidorServicioImpl extends ICRUDimpl<Seguidor, Long> {
 
             // Mapea los datos del Seguidor a un SeguidorDTO
             seguidorDTO.setId(seguidor.getId());
-            seguidorDTO.setIdUsuarioSeguidor(seguidor.getSeguidor().getIdUsuario());
             seguidorDTO.setNombreUsuarioSeguidor(seguidor.getSeguidor().getNombreUsuario());
-            seguidorDTO.setIdUsuarioSeguido(seguidor.getSeguido().getIdUsuario());
             seguidorDTO.setNombreUsuarioSeguido(seguidor.getSeguido().getNombreUsuario());
 
             seguidoresDTO.add(seguidorDTO);
