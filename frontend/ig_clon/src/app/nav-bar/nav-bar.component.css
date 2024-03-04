@@ -1,3 +1,25 @@
+.search-input-container {
+  position: relative;
+  display: inline-block;
+  padding: 3%;
+}
+
+.search-input {
+  width: 200px;
+  padding: 5px 35px 5px 10px;
+  border: 1px solid black;
+  border-radius: 3px;
+ 
+}
+
+.search-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color:rgb(226, 44, 226);
+}
 .nav {
   height: 100%;
 }
@@ -218,7 +240,8 @@ ul {
     top: -150px;
     left: -100px;
   }
-}
+
+
 
 @keyframes rotate {
   from {
@@ -243,7 +266,10 @@ ul {
   to {
     transform: rotate(180deg);
   }
+
 }
 /* 
 TODO: RESPONSIVE
+ */
+}
  */
