@@ -18,12 +18,12 @@ section{
 a{
     text-decoration: none;
 }
+.barra-historias{
+    width: 100%;
+}
 .historias{
     width: 70%;
 }
-/* .barra-historias{
-    width: 100%;
-} */
 .sidebar{
     width: 30%;
     position: sticky;
@@ -65,6 +65,7 @@ li{
     text-align: center;
     align-items: center;
     overflow-x: auto;
+    justify-content: center;
     
 }
 .contenedor-historias p{
@@ -94,6 +95,12 @@ li{
 .sidebar h2{
     color: #d037d0;
 }
+
+#sugerencia{
+    color: #d037d0;
+    font-weight: bold;
+    font-size: 1em;
+}
 .sidebar h3{
     font-size: 16px;
 }
@@ -103,7 +110,6 @@ li{
 .siderbar-btns{
     display: flex;
     width: 100%;
-    
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid rgba(0,0,0,0.1);
@@ -124,6 +130,9 @@ li{
 .mini-text{
     font-weight: thin;
     color: gray;
+}
+.mini-historia{
+    margin-bottom: .4rem;
 }
 .show-all{
     font-size: 12px;
@@ -210,4 +219,47 @@ li{
     color: #E22CE2;
     font-weight: bold;
     font-size: 14px;
+}
+.contenedor{
+    width: 100%;
+}
+@media(max-width: 1400px){
+    .sidebar{
+        display: none;
+    }
+    section{
+        justify-content: center;
+    }
+}
+@media (max-width: 768px) {
+  .contenedor-historias{
+    justify-content: flex-start;
+  }
+  section{
+    padding: 0 1rem;
+  }
+}
+@media (max-width: 768px) {
+    .sidebar{
+        display: none;
+    }    
+}
+@media (max-width: 498px){
+    .post{
+        margin: 0;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        margin-top: .5rem;
+    }   
+    .post-contenido{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        }
+    .post-contenido img{
+        width: 280px;
+       
+    }
+    
 }

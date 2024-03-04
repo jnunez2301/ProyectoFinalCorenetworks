@@ -39,6 +39,6 @@ app-inicio{
 
 @media (max-width: 768px){
     .main{
-        flex-direction: column-reverse;
+        flex-direction: column;
       }    
 }

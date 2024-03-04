@@ -1,5 +1,5 @@
 <section>
-  <div>
+  <div class="contenedor">
     <header class="barra-historias">
       <div class="nav-historias">
         <a href="" class="anchor-historia">Para ti</a>
@@ -25,12 +25,15 @@
         ></mat-icon>
       </div>
     </header>
-    @for (item of usuarios; track item.id) {
+    @for (item of listaPublicaciones$; track item.idPublicacion) {
     <article class="post">
       <header class="post-titulo">
         <div class="post-info-usuario">
-          <img [src]="item.imgPerfil" [alt]="item.nombre_completo" />
-          <p>{{ item.nombre_usuario }} - <span class="post-time">3h</span></p>
+          <img [src]="item.rutaContenido" [alt]="item.descripcion" />
+          @if(item.usuario){
+
+            <p>{{ item.usuario.nombreUsuario}}- <span class="post-time">3h</span></p>
+          }
         </div>
         <div>
           <span>...</span>
@@ -38,8 +41,7 @@
       </header>
       <div class="post-contenido">
         <img
-          [src]="'https://picsum.photos/id/' + item.id + '/468/640/'"
-          width="468"
+          [src]="'https://picsum.photos/id/' + item.idPublicacion + '/468/640/'"
           alt=""
         />
       </div>
@@ -90,7 +92,7 @@
     </div>
     <div class="sidebar-sugerencias">
       <div class="siderbar-btns">
-        <h2>Te sugerimos</h2>
+        <p id="sugerencia">Te sugerimos</p>
         <a href="" class="show-all">Mostrar todos</a>
       </div>
       <ul class="sidebar-sugerencias">
@@ -113,4 +115,5 @@
       </ul>
     </div>
   </aside>
+  
 </section>

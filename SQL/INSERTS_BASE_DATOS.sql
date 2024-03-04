@@ -33,8 +33,6 @@ VALUES (4, CURRENT_DATE, CURRENT_TIME, 0, 'Increíble vista desde allí.', '');
 INSERT INTO comentarios (id_comentario, f_creacion, h_creacion, likes, mensajes, respuestas_usuarios)
 VALUES (5, CURRENT_DATE, CURRENT_TIME, 0, '¿En qué parte del mundo es esto?', '');
 
-
-
 -- INSERT PUBLICACIONES
 INSERT INTO publicaciones (f_creacion, h_creacion, id_usuario, id_comentario, descripcion, ruta_contenido, url_compartir, cantidad_likes)
 VALUES(CURRENT_DATE, CURRENT_TIME, 1, 2, 'De viaje en paris :D', 'https://picsum.photos/id/237/200/300', '', 0);
@@ -52,4 +50,3 @@ VALUES(CURRENT_DATE, CURRENT_TIME, 4, 4, 'Caminando por Roma', 'https://picsum.p
 -- Publicación 5 con dimensión y ID distinto
 INSERT INTO publicaciones (f_creacion, h_creacion, id_usuario, id_comentario, descripcion, ruta_contenido, url_compartir, cantidad_likes)
 VALUES(CURRENT_DATE, CURRENT_TIME, 5, 5, 'Relajándome en la playa', 'https://picsum.photos/id/240/400/300', '', 0);
-

@@ -17,6 +17,7 @@ import java.time.LocalTime;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api/publicaciones")
 public class PublicacionControlador {
     @Autowired
