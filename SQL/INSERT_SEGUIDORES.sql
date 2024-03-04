@@ -14,4 +14,14 @@ INSERT INTO usuarios (nombre_usuario, contrasena, salt, correo, pregunta_secreta
 VALUES ('usuario5', 'contrasena5', 'salt5', 'usuario5@example.com', 'Pregunta5', '2024-02-05', '16:30:00');
 
 
-SELECT * FROM usuarios;
+SELECT * FROM seguidores;
+
+--INSERT INTO seguidores (seguido_id, seguidor_id)
+--VALUES
+--(1, 2),
+--(1, 1);
+
+SELECT u.id_usuario ,u.nombre_usuario
+FROM usuarios u
+INNER JOIN seguidores s
+ON u.id_usuario = s.seguido_id WHERE u.id_usuario = 2;

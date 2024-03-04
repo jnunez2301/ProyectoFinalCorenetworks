@@ -2,6 +2,7 @@ package com.corenetworks.ProyectoFinal.controlador;
 
 import com.corenetworks.ProyectoFinal.exepcion.ExcepcionPersonalizada;
 import com.corenetworks.ProyectoFinal.modelo.Usuario;
+import com.corenetworks.ProyectoFinal.servicio.ISeguidorServicio;
 import com.corenetworks.ProyectoFinal.servicio.IUsuarioServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,6 +25,7 @@ import java.util.List;
 public class UsuarioControlador {
     @Autowired
     IUsuarioServicio usuarioServicio;
+
     @GetMapping("/{id}")
     public ResponseEntity<Usuario> mostrarUno(@PathVariable(name = "id") int id) throws Exception{
         Usuario uccBB = usuarioServicio.buscarPorId(id);
@@ -64,8 +66,6 @@ public class UsuarioControlador {
     @PutMapping
     public ResponseEntity <Usuario> modificarUno(@RequestBody Usuario u) throws Exception{
         Usuario UccBB = usuarioServicio.buscarPorId(u.getIdUsuario());
-
-
 
         if (UccBB == null) {
             throw new ExcepcionPersonalizada("Usuario no encontrado" + UccBB);

@@ -7,6 +7,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -39,5 +40,10 @@ public class Usuario {
         this.contrasena = contrasena;
         this.correo = correo;
         this.preguntaSecreta = preguntaSecreta;
+    }
+
+    public Usuario(int idUsuario, String nombreUsuario) {
+        this.idUsuario = idUsuario;
+        this.nombreUsuario = nombreUsuario;
     }
 }
