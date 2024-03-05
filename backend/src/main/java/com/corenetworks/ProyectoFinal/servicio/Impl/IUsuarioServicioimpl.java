@@ -15,7 +15,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+<<<<<<< HEAD
 import java.util.NoSuchElementException;
+=======
+>>>>>>> main
 
 @Service
 public class IUsuarioServicioimpl extends ICRUDimpl <Usuario,Integer> implements IUsuarioServicio {
@@ -32,9 +35,14 @@ public class IUsuarioServicioimpl extends ICRUDimpl <Usuario,Integer> implements
     }
 
 
+<<<<<<< HEAD
     @Override
     public BuscarPorNombreDTO BuscarPorNombreUsuario(String nombreUsuario) {
         return repositorio.BuscarporNombreUsuario(nombreUsuario);
     }
 
 }
+=======
+
+}
+>>>>>>> main

@@ -1,5 +1,6 @@
 package com.corenetworks.ProyectoFinal.servicio;
 
+<<<<<<< HEAD
 import com.corenetworks.ProyectoFinal.dto.CantidadSeguidoresDTO;
 import com.corenetworks.ProyectoFinal.dto.SeguidorDTO;
 import com.corenetworks.ProyectoFinal.modelo.Seguidor;
@@ -15,5 +16,10 @@ public interface ISeguidorServicio extends ICRUD<Seguidor,Long> {
 
     List<CantidadSeguidoresDTO> seguidos(String nombreUsuario);
     List<SeguidorDTO> obtenerSeguidos(Usuario seguidor);
+=======
+import com.corenetworks.ProyectoFinal.modelo.Seguidor;
+
+public interface ISeguidorServicio extends ICRUD<Seguidor, Long> {
+>>>>>>> main
 
 }

@@ -1,7 +1,10 @@
 package com.corenetworks.ProyectoFinal.servicio.Impl;
 
+<<<<<<< HEAD
 import com.corenetworks.ProyectoFinal.dto.BarritaDeMensajesDto;
 import com.corenetworks.ProyectoFinal.dto.HistorialChatsDTO;
+=======
+>>>>>>> main
 import com.corenetworks.ProyectoFinal.dto.MensajeDTO;
 import com.corenetworks.ProyectoFinal.modelo.Mensaje;
 import com.corenetworks.ProyectoFinal.repositorio.IGeneralRepositorio;
@@ -43,15 +46,20 @@ public class IMensajeServicioImpl extends ICRUDimpl <Mensaje, Integer> implement
 
         }
         return mDTO;
+<<<<<<< HEAD
     }
 
 
     @Override
     public Mensaje enviarMensaje(Mensaje mensaje) {
         return repositorio.save(mensaje);
+=======
+>>>>>>> main
     }
 
+
     @Override
+<<<<<<< HEAD
     public List<HistorialChatsDTO> historialChats(int id_origen, int id_destino) throws Exception{
         return repositorio.historialChats(id_origen,id_destino);
     }
@@ -61,4 +69,10 @@ public class IMensajeServicioImpl extends ICRUDimpl <Mensaje, Integer> implement
         return repositorio.barritadeMensajes(id_origen);
     }
 
+=======
+    public Mensaje enviarMensaje(Mensaje mensaje) {
+        return repositorio.save(mensaje);
+    }
+
+>>>>>>> main
 }

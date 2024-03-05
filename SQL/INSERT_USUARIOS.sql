@@ -14,4 +14,4 @@ INSERT INTO usuarios (nombre_usuario, contrasena, salt, correo, pregunta_secreta
 VALUES ('usuario5', 'contrasena5', 'salt5', 'usuario5@example.com', 'Pregunta5', '2024-02-05', '16:30:00');
 
 
-SELECT *^FROM usuarios;
+SELECT * FROM usuarios;
