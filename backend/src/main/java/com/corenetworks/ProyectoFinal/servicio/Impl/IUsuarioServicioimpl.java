@@ -36,10 +36,13 @@ public class IUsuarioServicioimpl extends ICRUDimpl <Usuario,Integer> implements
 
 
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
     @Override
     public BuscarPorNombreDTO BuscarPorNombreUsuario(String nombreUsuario) {
         return repositorio.BuscarporNombreUsuario(nombreUsuario);
     }
+>>>>>>> main
 
 }
 =======

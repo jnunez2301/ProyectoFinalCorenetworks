@@ -16,9 +16,12 @@ import java.util.List;
 public interface IUsuarioRepositorio extends IGeneralRepositorio<Usuario,Integer> {
 
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 @Query(value = "select NEW com.corenetworks.ProyectoFinal.dto.BuscarPorNombreDTO(u.nombreUsuario) from Usuario u where u.nombreUsuario = :nombreUsuario")
 BuscarPorNombreDTO BuscarporNombreUsuario(@Param("nombreUsuario") String nombreUsuario);
 =======
+>>>>>>> main
 >>>>>>> main
 }
 
