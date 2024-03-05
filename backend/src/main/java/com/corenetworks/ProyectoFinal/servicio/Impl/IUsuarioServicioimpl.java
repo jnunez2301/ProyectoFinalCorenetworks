@@ -10,15 +10,9 @@ import com.corenetworks.ProyectoFinal.repositorio.ISeguidoRepositorio;
 import com.corenetworks.ProyectoFinal.repositorio.ISeguidorRepositorio;
 import com.corenetworks.ProyectoFinal.repositorio.IUsuarioRepositorio;
 import com.corenetworks.ProyectoFinal.servicio.IUsuarioServicio;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-<<<<<<< HEAD
-import java.util.NoSuchElementException;
-=======
->>>>>>> main
 
 @Service
 public class IUsuarioServicioimpl extends ICRUDimpl <Usuario,Integer> implements IUsuarioServicio {
@@ -35,17 +29,10 @@ public class IUsuarioServicioimpl extends ICRUDimpl <Usuario,Integer> implements
     }
 
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
+
     @Override
     public BuscarPorNombreDTO BuscarPorNombreUsuario(String nombreUsuario) {
         return repositorio.BuscarporNombreUsuario(nombreUsuario);
     }
->>>>>>> main
 
 }
-=======
-
-}
->>>>>>> main

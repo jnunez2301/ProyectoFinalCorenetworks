@@ -1,9 +1,6 @@
 package com.corenetworks.ProyectoFinal.servicio;
 
-<<<<<<< HEAD
-import com.corenetworks.ProyectoFinal.dto.SeguidorDTO;
-=======
->>>>>>> main
+
 import com.corenetworks.ProyectoFinal.modelo.Usuario;
 
 import java.util.List;
