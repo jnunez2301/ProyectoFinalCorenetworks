@@ -5,9 +5,9 @@
   }
 
   .item {
-    width: 30%;
+    width: 240px;
+    height: auto;
     margin-bottom: 1px;
-    text-align: center;
   }
 
   .item img {
