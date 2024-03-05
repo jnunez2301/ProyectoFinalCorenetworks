@@ -3,6 +3,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -22,4 +23,8 @@ public class Comentario {
     private String respuestasUsuarios;
     private LocalDate fCreacion;
     private LocalTime hCreacion;
+
+    @ManyToOne
+    @JoinColumn(name = "id_usuario",foreignKey = @ForeignKey(name = "FK_comentarios_usuarios"))
+    private Usuario usuario;
 }

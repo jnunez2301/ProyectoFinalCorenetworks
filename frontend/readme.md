@@ -2,6 +2,13 @@
 
 Proyecto final de corenetworks.
 
+## Trabajos Realizados por Cada Colaborador
+
+
+* [JoaoCzz](https://github.com/JoaoCzz) - Página de Inicio
+* [GladysAlvarado](https://github.com/GladysAlvarado) - Página de Perfil
+* [jnunez2301](https://github.com/jnunez2301) - Barra de Navegación / Testing
+
 ## Iniciar el Proyecto
 
 Para iniciar el proyecto debes iniciar el siguiente comándo en la ***raíz*** del proyecto, en concreto en la carpeta `/frontend`
