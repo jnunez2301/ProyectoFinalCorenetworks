@@ -1,4 +1,4 @@
-/*
+
 package com.corenetworks.ProyectoFinal.modelo;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -9,9 +9,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Entity
-@Table(name = "informacion_usuario")
-public class InformacionUsuario {
-
+@Table(name = "perfil")
+public class Perfil{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long idPerfil;
     private int numSeguidores;
     private int numSiguiendo;
     private int numPublicaciones;
@@ -19,8 +21,9 @@ public class InformacionUsuario {
     @Column(length = 250)
     private String descripcion;
 
-    @OneToOne
-    @JoinColumn(name="id_usuario", nullable = false, foreignKey = @ForeignKey(name = "FK_informacion_usuario_usuario"))
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="id_usuario", nullable = false, foreignKey = @ForeignKey(name = "FK_perfil_usuario"))
     private Usuario usuario;
+
 }
-*/
+
