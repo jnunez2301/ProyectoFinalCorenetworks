@@ -16,12 +16,11 @@ public class Seguidor {
     private Long id;
 
     @ManyToOne
-
-    @JoinColumn(name = "seguidor_id", referencedColumnName = "idUsuario")
+    @JoinColumn(name = "id_usuario_seguidor")
     private Usuario seguidor;
 
     @ManyToOne
-    @JoinColumn(name = "seguido_id", referencedColumnName = "idUsuario")
+    @JoinColumn(name = "id_usuario_seguido")
     private Usuario seguido;
 
     public Seguidor(Usuario seguidor, Usuario seguido) {
