@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -16,6 +18,7 @@ public class SeguidorDTO {
     private String NombreUsuarioSeguidor;
 
 =======
+>>>>>>> main
 import java.util.List;
 
 @NoArgsConstructor
@@ -25,6 +28,9 @@ public class SeguidorDTO {
     private Long id;
     private String nombreUsuarioSeguido;
     private String nombreUsuarioSeguidor;
+<<<<<<< HEAD
+=======
+>>>>>>> main
 >>>>>>> main
     public Seguidor castSeguidor(){
         Seguidor s1 = new Seguidor();
@@ -33,6 +39,11 @@ public class SeguidorDTO {
 
 
 <<<<<<< HEAD
+        uSeguido.setNombreUsuario(nombreUsuarioSeguido);
+
+        follower.setNombreUsuario(nombreUsuarioSeguidor);
+=======
+<<<<<<< HEAD
         uSeguido.setNombreUsuario(NombreUsuarioSeguido);
 
         follower.setNombreUsuario(NombreUsuarioSeguidor);
@@ -40,6 +51,7 @@ public class SeguidorDTO {
         uSeguido.setNombreUsuario(nombreUsuarioSeguido);
 
         follower.setNombreUsuario(nombreUsuarioSeguidor);
+>>>>>>> main
 >>>>>>> main
 
         s1.setSeguido(uSeguido);

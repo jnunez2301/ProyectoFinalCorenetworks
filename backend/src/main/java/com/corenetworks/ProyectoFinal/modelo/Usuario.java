@@ -51,6 +51,8 @@ public class Usuario{
     }
 
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
     @OneToMany(mappedBy = "seguido")
     private List<Seguidor> seguidos;
 
@@ -60,9 +62,13 @@ public class Usuario{
 
 
 =======
+>>>>>>> main
     public Usuario(int idUsuario, String nombreUsuario) {
         this.idUsuario = idUsuario;
         this.nombreUsuario = nombreUsuario;
     }
+<<<<<<< HEAD
+=======
+>>>>>>> main
 >>>>>>> main
 }
