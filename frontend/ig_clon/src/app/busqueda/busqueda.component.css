@@ -30,7 +30,7 @@
     width: calc(100% - 45px); 
     padding: 5px 35px 5px 10px;
     border: 1px solid black;
-    border-radius: 8px;
+    border: 1px solid rgba(0,0,0,0.1)
 }
 
 .search-icon {
