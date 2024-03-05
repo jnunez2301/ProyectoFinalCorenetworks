@@ -26,6 +26,10 @@ public class SeguidorControlador{
     public ResponseEntity<List<SeguidorDTO>> obtenerSeguidores(@PathVariable int idUsuario) throws Exception {
         return ResponseEntity.ok(seguidorServicio.obtenerSeguidores(usuarioServicioimpl.buscarPorId(idUsuario)));
     }
+    @GetMapping("/usuario/{idUsuario}/seguidos")
+    public ResponseEntity<List<SeguidorDTO>> obtenerSeguidos(@PathVariable int idUsuario) throws Exception {
+        return ResponseEntity.ok(seguidorServicio.obtenerSeguidos(usuarioServicioimpl.buscarPorId(idUsuario)));
+    }
 
     @PostMapping("/seguir/{idSeguidor}/{idSeguido}")
     public ResponseEntity<String> seguirUsuario(@PathVariable int idSeguidor, @PathVariable int idSeguido) {
@@ -60,8 +64,13 @@ public class SeguidorControlador{
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al intentar seguir al usuario: " + e.getMessage());
         }
     }
-    @GetMapping("/total/{usuario}")
+    @GetMapping("/total/seguidores/{usuario}")
     public ResponseEntity<List<CantidadSeguidoresDTO>> cantidadeSeguidores(@PathVariable("usuario")String NombreUsuario){
         return new ResponseEntity<>(seguidorServicio.seguidor(NombreUsuario),HttpStatus.OK);
     }
+    @GetMapping("/total/seguidos/{usuario}")
+    public ResponseEntity<List<CantidadSeguidoresDTO>> cantidadeSeguidos(@PathVariable("usuario")String NombreUsuario){
+        return new ResponseEntity<>(seguidorServicio.seguidos(NombreUsuario),HttpStatus.OK);
+    }
+
 }

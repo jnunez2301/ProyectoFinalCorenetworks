@@ -13,4 +13,7 @@ public interface ISeguidorServicio extends ICRUD<Seguidor,Long> {
 
     List<CantidadSeguidoresDTO> seguidor(String nombreUsuario);
 
+    List<CantidadSeguidoresDTO> seguidos(String nombreUsuario);
+    List<SeguidorDTO> obtenerSeguidos(Usuario seguidor);
+
 }

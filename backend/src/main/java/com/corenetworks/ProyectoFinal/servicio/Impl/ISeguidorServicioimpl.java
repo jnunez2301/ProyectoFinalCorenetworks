@@ -54,5 +54,25 @@ public class ISeguidorServicioimpl extends ICRUDimpl <Seguidor,Long> implements 
         return repositorio.seguidor(nombreUsuario);
     }
 
+    @Override
+    public List<CantidadSeguidoresDTO> seguidos(String nombreUsuario) {
+        return repositorio.seguidos(nombreUsuario);
+    }
+
+    @Override
+    public List<SeguidorDTO> obtenerSeguidos(Usuario seguidor) {
+        List<Seguidor> seguidos = repositorio.findBySeguidor(seguidor);
+        List<SeguidorDTO> seguidoresDTO = new ArrayList<>();
+
+        for (Seguidor elemento : seguidos) {
+            SeguidorDTO seguidorDTO = new SeguidorDTO();
+            // Mapea los datos del Seguidor a un SeguidorDTO
+            seguidorDTO.setId(Math.toIntExact(elemento.getId()));
+            seguidorDTO.setNombreUsuarioSeguidor(elemento.getSeguidor().getNombreUsuario());
+            seguidorDTO.setNombreUsuarioSeguido(elemento.getSeguido().getNombreUsuario());
+            seguidoresDTO.add(seguidorDTO);
+        }
+        return seguidoresDTO;
+    }
 
 }

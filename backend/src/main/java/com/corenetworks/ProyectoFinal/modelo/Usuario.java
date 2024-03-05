@@ -50,7 +50,7 @@ public class Usuario{
     }
     @JsonIgnore
     @OneToMany(mappedBy = "seguido")
-    private List<Seguido> seguidos;
+    private List<Seguidor> seguidos;
     @JsonIgnore
     @OneToMany(mappedBy = "seguidor")
     private List<Seguidor> seguidores;
