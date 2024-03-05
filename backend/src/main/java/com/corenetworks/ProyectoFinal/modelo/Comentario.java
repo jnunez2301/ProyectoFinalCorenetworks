@@ -23,4 +23,8 @@ public class Comentario {
     private String respuestasUsuarios;
     private LocalDate fCreacion;
     private LocalTime hCreacion;
+
+    @ManyToOne
+    @JoinColumn(name = "id_usuario",foreignKey = @ForeignKey(name = "FK_comentarios_usuarios"))
+    private Usuario usuario;
 }
