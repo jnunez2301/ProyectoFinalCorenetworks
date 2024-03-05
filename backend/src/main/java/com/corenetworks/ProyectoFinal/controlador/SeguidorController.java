@@ -2,14 +2,13 @@ package com.corenetworks.ProyectoFinal.controlador;
 
 import com.corenetworks.ProyectoFinal.dto.SeguidorDTO;
 import com.corenetworks.ProyectoFinal.modelo.Usuario;
-import com.corenetworks.ProyectoFinal.servicio.Impl.ISeguidorServicioImpl;
+import com.corenetworks.ProyectoFinal.servicio.Impl.ISeguidorServicioimpl;
 import com.corenetworks.ProyectoFinal.servicio.Impl.IUsuarioServicioimpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -17,7 +16,7 @@ import java.util.Objects;
 @RequestMapping("/api/seguidores")
 public class SeguidorController {
     @Autowired
-    ISeguidorServicioImpl seguidorServicio;
+    ISeguidorServicioimpl seguidorServicio;
     @Autowired
     IUsuarioServicioimpl usuarioServicioimpl;
     @GetMapping("/usuario/{idUsuario}/seguidores")
@@ -41,7 +40,7 @@ public class SeguidorController {
             }
 
             for (SeguidorDTO seguidorDTO : seguidores) {
-                if (Objects.equals(seguidorDTO.getNombreUsuarioSeguidor(), seguidor.getNombreUsuario())) {
+                if (Objects.equals(seguidorDTO.getNombreFollower(), seguidor.getNombreUsuario())) {
                     yaSigue = true;
                     break;
                 }
