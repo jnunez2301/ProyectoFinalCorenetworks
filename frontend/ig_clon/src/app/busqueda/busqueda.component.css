@@ -1,45 +1,49 @@
+
+/*IMAGENES*/
 .container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
   }
-
+  section{
+    padding: 1rem;
+  }
+  @media (max-width: 498px){
   .item {
-    width: 33%;
     margin-bottom: 1px;
     margin-right: 3px;
-
-
+  }
+  }
  
-  }
-
   .item img {
-    width: 100%;
+    width: 280px;
     height: 300px;
-    border-radius: 4px;
-
+    border-radius: 2px;
   }
-  .search-input-container {
+
+  /*BARRA BUSCADOR*/
+.search-input-container {
     position: relative;
     display: inline-block;
     width: 100%; 
     margin-left: 2%;
 }
+.search-input-container input{
+  width: 100%;
+
+ }
 
 .search-input {
     width: calc(100% - 45px); 
     padding: 5px 35px 5px 10px;
-    border: 1px solid black;
     border: 1px solid rgba(0,0,0,0.1)
 }
 
 .search-icon {
-   position:absolute;
+    position:absolute;
     right: 4.5%;
     top: 55%;
     transform: translateY(-50%);
     font-size: 20px;
     color: rgb(226, 44, 226);
-    
-
 }
