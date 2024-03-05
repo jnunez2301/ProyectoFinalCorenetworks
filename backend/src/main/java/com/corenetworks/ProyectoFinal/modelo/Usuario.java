@@ -48,10 +48,10 @@ public class Usuario{
         this.correo = correo;
         this.preguntaSecreta = preguntaSecreta;
     }
-    @JsonIgnore
+
     @OneToMany(mappedBy = "seguido")
     private List<Seguidor> seguidos;
-    @JsonIgnore
+
     @OneToMany(mappedBy = "seguidor")
     private List<Seguidor> seguidores;
 
