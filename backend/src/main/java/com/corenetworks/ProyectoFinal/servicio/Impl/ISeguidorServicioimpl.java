@@ -31,7 +31,7 @@ public class ISeguidorServicioimpl extends ICRUDimpl <Seguidor,Long> implements 
         for (Seguidor seguidor : seguidores) {
             SeguidorDTO seguidorDTO = new SeguidorDTO();
             // Mapea los datos del Seguidor a un SeguidorDTO
-            seguidorDTO.setId(Math.toIntExact(seguidor.getId()));
+            seguidorDTO.setId((long) Math.toIntExact(seguidor.getId()));
             seguidorDTO.setNombreUsuarioSeguidor(seguidor.getSeguidor().getNombreUsuario());
             seguidorDTO.setNombreUsuarioSeguido(seguidor.getSeguido().getNombreUsuario());
             seguidoresDTO.add(seguidorDTO);
@@ -52,6 +52,25 @@ public class ISeguidorServicioimpl extends ICRUDimpl <Seguidor,Long> implements 
     @Override
     public List<CantidadSeguidoresDTO> seguidor(String nombreUsuario) {
         return repositorio.seguidor(nombreUsuario);
+    }
+    @Override
+    public List<CantidadSeguidoresDTO> seguidos(String nombreUsuario) {
+        return repositorio.seguidos(nombreUsuario);
+    }
+
+    public List<SeguidorDTO> obtenerSeguidos(Usuario seguidor) {
+        List<Seguidor> seguidos = repositorio.findBySeguidor(seguidor);
+        List<SeguidorDTO> seguidoresDTO = new ArrayList<>();
+
+        for (Seguidor elemento : seguidos) {
+            SeguidorDTO seguidorDTO = new SeguidorDTO();
+            // Mapea los datos del Seguidor a un SeguidorDTO
+            seguidorDTO.setId((long) Math.toIntExact(elemento.getId()));
+            seguidorDTO.setNombreUsuarioSeguidor(elemento.getSeguidor().getNombreUsuario());
+            seguidorDTO.setNombreUsuarioSeguido(elemento.getSeguido().getNombreUsuario());
+            seguidoresDTO.add(seguidorDTO);
+        }
+        return seguidoresDTO;
     }
 
 

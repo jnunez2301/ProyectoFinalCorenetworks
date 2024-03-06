@@ -10,9 +10,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class SeguidorDTO {
-    private int id;
-    private String NombreUsuarioSeguido;
+    private Long id;
     private String NombreUsuarioSeguidor;
+    private String NombreUsuarioSeguido;
+
 
     public Seguidor castSeguidor(){
         Seguidor s1 = new Seguidor();
