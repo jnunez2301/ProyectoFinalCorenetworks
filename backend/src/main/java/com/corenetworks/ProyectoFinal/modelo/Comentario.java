@@ -27,4 +27,10 @@ public class Comentario {
     @ManyToOne
     @JoinColumn(name = "id_usuario",foreignKey = @ForeignKey(name = "FK_comentarios_usuarios"))
     private Usuario usuario;
+
+    @ManyToOne
+    @JoinColumn(name = "id_publicacion",foreignKey = @ForeignKey(name = "FK_comentarios_publicacion"))
+    private Publicacion publicacion;
+
+
 }
