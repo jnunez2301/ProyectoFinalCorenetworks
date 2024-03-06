@@ -280,3 +280,32 @@ li{
     }
     
 }
+
+/* Botones de publicación*/
+
+ng-icon{
+    cursor: pointer;
+    transition: all .2 ease-in-out;
+    margin: .3rem 0;
+    color: #d037d0;
+}
+ng-icon:hover{
+    opacity: 0.8;
+    scale: 1.1;
+    color: #dbaedb;
+}
+.dotBtn{
+    cursor: pointer;
+    transition: all .2s ease-in;
+}
+.dotBtn:hover{
+    color: #d037d0;
+}
+
+.nombre-usuario{
+    cursor: pointer;
+    transition: all .2s ease-in;
+}
+.nombre-usuario:hover{
+    color: #d037d0;
+}

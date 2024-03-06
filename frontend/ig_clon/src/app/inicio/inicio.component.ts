@@ -7,13 +7,37 @@ import { PublicarComentarioService } from '../_servicio/publicar-comentario.serv
 import { Publicaciones } from '../_modelo/Publicaciones';
 import { Comentarios } from '../_modelo/Comentarios';
 import { FormsModule } from '@angular/forms';
+import { NgIconComponent, provideIcons } from '@ng-icons/core';
+
+import {
+  ionHeartCircleOutline,
+  ionChatboxEllipsesOutline,
+  ionShareOutline,
+  ionBookmarkOutline,
+} from '@ng-icons/ionicons';
+
 
 @Component({
   selector: 'app-inicio',
   standalone: true,
-  imports: [RouterModule, MatIconModule, CommonModule, AsyncPipe, FormsModule],
+  imports: [
+    RouterModule,
+    MatIconModule,
+    CommonModule,
+    AsyncPipe,
+    FormsModule,
+    NgIconComponent,
+  ],
   templateUrl: './inicio.component.html',
   styleUrl: './inicio.component.css',
+  viewProviders: [
+    provideIcons({
+      ionHeartCircleOutline,
+      ionChatboxEllipsesOutline,
+      ionShareOutline,
+      ionBookmarkOutline,
+    }),
+  ],
 })
 
 /* 
@@ -21,33 +45,43 @@ TODO: Hacer las rutas ?variant=home || ?variant=following en el url
 TODO: Mostrar el perfil en :hover al ver la sugerencia
  */
 export class InicioComponent implements OnInit {
+
   public listaPublicaciones$!: Publicaciones[];
   public listaComentarios$!: Comentarios[];
 
-  error:string = '';
-  comentarioActual:string = '';
+  error: string = '';
+  comentarioActual: string = '';
+  publicacionAbierta:boolean = false;
 
-  constructor(private service: PublicacionesService, private comentariosService: PublicarComentarioService) {}
+  constructor(
+    private service: PublicacionesService,
+    private comentariosService: PublicarComentarioService
+  ) {}
+  
   ngOnInit(): void {
     this.service.getPublicaciones().subscribe((data) => {
       this.listaPublicaciones$ = data;
     });
-    this.comentariosService.getComentarios().subscribe(data => {
+    this.comentariosService.getComentarios().subscribe((data) => {
       this.listaComentarios$ = data;
-    })
+    });
   }
 
-  postComentario():void{
-    if(this.comentarioActual.length < 3){
-      this.error = 'El comentario debe ser más largo'
+  postComentario(): void {
+    if (this.comentarioActual.length < 3) {
+      this.error = 'El comentario debe ser más largo';
       console.log(this.error);
       return;
     }
     console.log(this.comentarioActual);
-    
+
     console.log('Comentario posteado');
-    
   }
+
+  abrirPublicacion(): void{
+    this.publicacionAbierta = true;
+  }
+
   usuario = {
     id: 0,
     nombre_usuario: 'test_23',

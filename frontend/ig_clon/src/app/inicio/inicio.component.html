@@ -24,19 +24,20 @@
           fontIcon="navigate_next"
         ></mat-icon>
       </div>
-    </header>
+    </header>   
     @for (item of listaPublicaciones$; track item.idPublicacion) {
     <article class="post">
       <header class="post-titulo">
         <div class="post-info-usuario">
           <img [src]="item.rutaContenido" [alt]="item.descripcion" />
           @if(item.usuario){
-
-            <p>{{ item.usuario.nombreUsuario}}- <span class="post-time">3h</span></p>
+          <p>
+            <span class="nombre-usuario">{{ item.usuario.nombreUsuario }} </span>  -  <span class="post-time">3h</span>
+          </p>
           }
         </div>
         <div>
-          <span>...</span>
+          <span class="dotBtn">...</span>
         </div>
       </header>
       <div class="post-contenido">
@@ -47,35 +48,27 @@
       </div>
       <div class="post-btns">
         <div class="post-interactive-btns">
-          <mat-icon
-            aria-hidden="false"
-            aria-label="Like icon"
-            fontIcon="thumb_up_alt"
-          ></mat-icon>
-          <mat-icon
-            aria-hidden="false"
-            aria-label="Comment icon"
-            fontIcon="mode_comment"
-          ></mat-icon>
-          <mat-icon
-            aria-hidden="false"
-            aria-label="Share icon"
-            fontIcon="ios_share"
-          ></mat-icon>
+          <ng-icon name="ionHeartCircleOutline" size="24px"></ng-icon>
+          <ng-icon 
+          name="ionChatboxEllipsesOutline" size="24px"></ng-icon>
+          <ng-icon name="ionShareOutline" size="24px"></ng-icon>
         </div>
         <div>
-          <mat-icon
-            aria-hidden="false"
-            aria-label="Bookmark icon"
-            fontIcon="bookmark"
-          ></mat-icon>
+          <ng-icon name="ionBookmarkOutline" size="24px"></ng-icon>
         </div>
       </div>
       <div class="post-info">
         <p class="likes">320 likes</p>
-        <span class="open-comments">Abre todos los comentarios - 4 comentarios</span>
+        <span class="open-comments"
+          >Abre todos los comentarios - 4 comentarios</span
+        >
         <div class="post-add-comment">
-          <input type="text" placeholder="Añade un comentario" [(ngModel)]="comentarioActual" (keyup.enter)="postComentario()"/>
+          <input
+            type="text"
+            placeholder="Añade un comentario"
+            [(ngModel)]="comentarioActual"
+            (keyup.enter)="postComentario()"
+          />
           <button class="btn-post" (click)="postComentario()">POST</button>
         </div>
       </div>
@@ -115,5 +108,4 @@
       </ul>
     </div>
   </aside>
-  
 </section>

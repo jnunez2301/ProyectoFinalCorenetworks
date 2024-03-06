@@ -1,10 +1,9 @@
 package com.corenetworks.ProyectoFinal.controlador;
 
 import com.corenetworks.ProyectoFinal.exepcion.ExcepcionPersonalizada;
-import com.corenetworks.ProyectoFinal.modelo.Comentario;
+
 import com.corenetworks.ProyectoFinal.modelo.Publicacion;
 import com.corenetworks.ProyectoFinal.modelo.Usuario;
-import com.corenetworks.ProyectoFinal.servicio.IComentarioServicio;
 import com.corenetworks.ProyectoFinal.servicio.IPublicacionServicio;
 import com.corenetworks.ProyectoFinal.servicio.Impl.IUsuarioServicioimpl;
 import org.springframework.beans.factory.annotation.Autowired;
