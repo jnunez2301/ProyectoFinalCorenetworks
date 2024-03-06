@@ -11,7 +11,8 @@ import { Publicaciones } from '../_modelo/Publicaciones';
 export class PublicacionModalComponent{
   
   @Input() isOpen:boolean = false;
-  @Input() publicacionActual: Publicaciones | undefined;
+
+  @Input() publicacionActual:Publicaciones | undefined;
 
   @Output() cerrar: EventEmitter<any> = new EventEmitter();
 

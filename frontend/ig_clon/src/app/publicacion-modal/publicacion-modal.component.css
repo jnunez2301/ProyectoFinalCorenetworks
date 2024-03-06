@@ -14,7 +14,7 @@
 
 .modal-content {
   background-color: #fefefe;
-  margin: 15% auto;
+  margin: 5% auto;
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
@@ -40,4 +40,27 @@
   }to{
     opacity: 1;
   }
+}
+/* AFTER MODAL */
+.post-modal{
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  max-width: 768px;
+}
+.post-modal ul{
+  list-style-type: none;
+}
+.post-content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  flex: 1;
+  min-height: 80vh;
+}
+.post-content img{
+  width: fit-content;
+  height: fit-content;
+  max-width: 320px;
 }

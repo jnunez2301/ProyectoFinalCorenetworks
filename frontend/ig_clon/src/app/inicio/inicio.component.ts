@@ -53,7 +53,7 @@ export class InicioComponent implements OnInit {
 
   error: string = '';
   comentarioActual: string = '';
-  publicacionAbierta:boolean = false;
+  publicacionAbierta:boolean = true;
   publicacionActual:{} = {};
 
   constructor(
@@ -63,7 +63,7 @@ export class InicioComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getPublicaciones().subscribe((data) => {
-      this.listaPublicaciones$ = data;
+      this.listaPublicaciones$ = data;      
     });
     this.comentariosService.getComentarios().subscribe((data) => {
       this.listaComentarios$ = data;
