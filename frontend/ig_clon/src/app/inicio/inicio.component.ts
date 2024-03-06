@@ -54,6 +54,7 @@ export class InicioComponent implements OnInit {
   error: string = '';
   comentarioActual: string = '';
   publicacionAbierta:boolean = false;
+  publicacionActual:{} = {};
 
   constructor(
     private service: PublicacionesService,
