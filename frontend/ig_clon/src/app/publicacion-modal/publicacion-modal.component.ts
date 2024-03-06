@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Publicaciones } from '../_modelo/Publicaciones';
 
 @Component({
   selector: 'app-publicacion-modal',
@@ -8,5 +9,11 @@ import { Component } from '@angular/core';
   styleUrl: './publicacion-modal.component.css'
 })
 export class PublicacionModalComponent {
+  @Input() isOpen:boolean = false;
+  @Input() idPublicacion:number = 0;
+  @Output() cerrar: EventEmitter<any> = new EventEmitter();
 
+  close() {
+    this.cerrar.emit(); 
+  }
 }

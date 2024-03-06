@@ -15,6 +15,7 @@ import {
   ionShareOutline,
   ionBookmarkOutline,
 } from '@ng-icons/ionicons';
+import { PublicacionModalComponent } from '../publicacion-modal/publicacion-modal.component';
 
 
 @Component({
@@ -27,6 +28,7 @@ import {
     AsyncPipe,
     FormsModule,
     NgIconComponent,
+    PublicacionModalComponent
   ],
   templateUrl: './inicio.component.html',
   styleUrl: './inicio.component.css',
@@ -57,7 +59,7 @@ export class InicioComponent implements OnInit {
     private service: PublicacionesService,
     private comentariosService: PublicarComentarioService
   ) {}
-  
+
   ngOnInit(): void {
     this.service.getPublicaciones().subscribe((data) => {
       this.listaPublicaciones$ = data;
@@ -81,7 +83,9 @@ export class InicioComponent implements OnInit {
   abrirPublicacion(): void{
     this.publicacionAbierta = true;
   }
-
+  cerrarPublicacion(): void{
+    this.publicacionAbierta = false;
+  }
   usuario = {
     id: 0,
     nombre_usuario: 'test_23',
