@@ -73,10 +73,10 @@
       </div>
       <div class="post-info">
         <p class="likes">320 likes</p>
-        <span>Abre todos los comentarios - 4 comentarios</span>
+        <span class="open-comments">Abre todos los comentarios - 4 comentarios</span>
         <div class="post-add-comment">
-          <input type="text" placeholder="Añade un comentario" />
-          <span class="btn-post">POST</span>
+          <input type="text" placeholder="Añade un comentario" [(ngModel)]="comentarioActual" (keyup.enter)="postComentario()"/>
+          <button class="btn-post" (click)="postComentario()">POST</button>
         </div>
       </div>
     </article>

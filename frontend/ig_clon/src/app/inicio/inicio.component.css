@@ -212,13 +212,30 @@ li{
 }
 .post-info input{
     margin: 5px 0;
+    padding: .3rem 0;
     border: none;
     outline: none;
+    width: 100%;
+    transition: all .3s ease-in;
+}
+.post-info input:focus{
+    border-bottom: 1px solid #d037d0;
+}
+.open-comments{
+    color: rgba(0,0,0,0.6);
 }
 .btn-post{
     color: #E22CE2;
+    border: none;
+    background-color: #fff;
+    cursor: pointer;
     font-weight: bold;
     font-size: 14px;
+    transition: all .2s ease-in;
+}
+
+.btn-post:hover{
+    opacity: 0.5;
 }
 .contenedor{
     width: 100%;

@@ -3,13 +3,15 @@ import { Component, OnInit } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 import { PublicacionesService } from '../_servicio/publicaciones.service';
-import { Observable } from 'rxjs';
+import { PublicarComentarioService } from '../_servicio/publicar-comentario.service';
 import { Publicaciones } from '../_modelo/Publicaciones';
+import { Comentarios } from '../_modelo/Comentarios';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-inicio',
   standalone: true,
-  imports: [RouterModule, MatIconModule, CommonModule, AsyncPipe],
+  imports: [RouterModule, MatIconModule, CommonModule, AsyncPipe, FormsModule],
   templateUrl: './inicio.component.html',
   styleUrl: './inicio.component.css',
 })
@@ -20,16 +22,32 @@ TODO: Mostrar el perfil en :hover al ver la sugerencia
  */
 export class InicioComponent implements OnInit {
   public listaPublicaciones$!: Publicaciones[];
+  public listaComentarios$!: Comentarios[];
 
-  constructor(private service: PublicacionesService) {}
+  error:string = '';
+  comentarioActual:string = '';
+
+  constructor(private service: PublicacionesService, private comentariosService: PublicarComentarioService) {}
   ngOnInit(): void {
     this.service.getPublicaciones().subscribe((data) => {
-      this.listaPublicaciones$ = data;      
-      console.log(data);
-      
+      this.listaPublicaciones$ = data;
     });
+    this.comentariosService.getComentarios().subscribe(data => {
+      this.listaComentarios$ = data;
+    })
   }
 
+  postComentario():void{
+    if(this.comentarioActual.length < 3){
+      this.error = 'El comentario debe ser más largo'
+      console.log(this.error);
+      return;
+    }
+    console.log(this.comentarioActual);
+    
+    console.log('Comentario posteado');
+    
+  }
   usuario = {
     id: 0,
     nombre_usuario: 'test_23',

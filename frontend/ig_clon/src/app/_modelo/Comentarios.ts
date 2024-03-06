@@ -1,4 +1,5 @@
-export interface Comentario {
+export interface Comentarios {
+    idPublicacion: number;
     idComentario: number;
     likes: number;
     mensajes: string;
