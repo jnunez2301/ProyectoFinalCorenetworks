@@ -19,6 +19,7 @@ TODO: Hacer las rutas ?variant=home || ?variant=following en el url
 TODO: Mostrar el perfil en :hover al ver la sugerencia
  */
 export class InicioComponent implements OnInit {
+  
   public listaPublicaciones$!: Publicaciones[];
 
   constructor(private service: PublicacionesService) {}
