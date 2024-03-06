@@ -16,13 +16,17 @@ public class HistoriaControlador {
     @Autowired
   IHistoriaServicio servicio;
 
+    /*
+    TODO: Eliminar fecha final
+    TODO: Añadir validaciones a las peticiones
+    *   */
     @PostMapping("/publicas")
     public ResponseEntity <Historia> subirHistoriaPublica(@PathVariable("usuario") int usuario,@RequestBody Historia h) throws Exception {
             h.setActivo(true);
             h.setHCreacion(LocalTime.now());
             h.setFCreacion(LocalDate.now());
             h.getUsuario().setIdUsuario(usuario);
-            h.setPublicas(false);
+            h.setPublicas(true);
         return new ResponseEntity<>(servicio.crear(h), HttpStatus.CREATED);
     }
 
