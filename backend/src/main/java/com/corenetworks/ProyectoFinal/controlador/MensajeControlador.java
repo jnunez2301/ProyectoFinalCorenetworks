@@ -1,5 +1,8 @@
 package com.corenetworks.ProyectoFinal.controlador;
 
+import com.corenetworks.ProyectoFinal.dto.BarritaDeMensajesDto;
+import com.corenetworks.ProyectoFinal.dto.HistorialChatsDTO;
+
 import com.corenetworks.ProyectoFinal.dto.MensajeDTO;
 import com.corenetworks.ProyectoFinal.exepcion.ExcepcionPersonalizada;
 import com.corenetworks.ProyectoFinal.modelo.Mensaje;
@@ -47,5 +50,16 @@ public class MensajeControlador {
 
         return new ResponseEntity<>(mensajeEnviado, HttpStatus.CREATED);
     }
+    @GetMapping("/de/{id_origen}/con/{id_destino}")
+    public ResponseEntity<List<HistorialChatsDTO>> historialChats(@PathVariable("id_origen")int id_origen,@PathVariable("id_destino")int id_destino) throws Exception {
+        return new ResponseEntity<>(mensajeServicio.historialChats(id_origen, id_destino), HttpStatus.OK);
     }
+    @GetMapping("/chats/{id_origen}")
+        public ResponseEntity<List<BarritaDeMensajesDto>> barritaMensajes ( @PathVariable("id_origen") int id_origen) throws
+        Exception {
+            return new ResponseEntity<>(mensajeServicio.barritaDeMensajes(id_origen), HttpStatus.OK);
+        }
+
+    }
+
 
