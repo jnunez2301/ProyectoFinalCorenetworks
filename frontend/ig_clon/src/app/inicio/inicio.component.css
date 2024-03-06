@@ -133,6 +133,10 @@ li{
 }
 .mini-historia{
     margin-bottom: .4rem;
+    cursor: pointer;
+}
+.mini-historia:hover{
+    opacity: .8;
 }
 .show-all{
     font-size: 12px;

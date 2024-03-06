@@ -27,7 +27,7 @@
     </header>   
     @for (item of listaPublicaciones$; track item.idPublicacion) {
         @if (publicacionAbierta) {
-          <app-publicacion-modal (cerrar)="cerrarPublicacion()" [publicacionActual]="item"></app-publicacion-modal>
+          <app-publicacion-modal (cerrar)="cerrarPublicacion()" [publicacionActual]="publicacionActual"></app-publicacion-modal>
         }
     <article class="post">
       <header class="post-titulo">
@@ -53,7 +53,7 @@
         <div class="post-interactive-btns">
           <ng-icon name="ionHeartCircleOutline" size="24px"></ng-icon>
           <ng-icon 
-          (click)="abrirPublicacion()"
+          (click)="abrirPublicacion(item.idPublicacion)"
           name="ionChatboxEllipsesOutline" size="24px"></ng-icon>
           <ng-icon name="ionShareOutline" size="24px"></ng-icon>
         </div>

@@ -45,9 +45,13 @@ app-inicio{
     flex: 1;
 }
 
-
+@media (min-width: 769px){
+    body{
+        overflow: hidden;
+    }
+}
 @media (max-width: 768px){
     .main{
         flex-direction: column;
-      }    
+    }
 }

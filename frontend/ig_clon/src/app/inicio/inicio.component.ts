@@ -53,8 +53,8 @@ export class InicioComponent implements OnInit {
 
   error: string = '';
   comentarioActual: string = '';
-  publicacionAbierta:boolean = true;
-  publicacionActual:{} = {};
+  publicacionAbierta:boolean = false;
+  publicacionActual:Publicaciones | undefined;
 
   constructor(
     private service: PublicacionesService,
@@ -81,8 +81,9 @@ export class InicioComponent implements OnInit {
     console.log('Comentario posteado');
   }
 
-  abrirPublicacion(): void{
+  abrirPublicacion(id:number): void{
     this.publicacionAbierta = true;
+    this.publicacionActual = this.listaPublicaciones$[id - 1];
   }
   cerrarPublicacion(): void{
     this.publicacionAbierta = false;
