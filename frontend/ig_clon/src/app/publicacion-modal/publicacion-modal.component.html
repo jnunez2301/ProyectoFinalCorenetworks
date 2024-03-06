@@ -1,28 +1,34 @@
 <div class="modal">
   <div class="modal-content">
-    <span class="close" (click)="close()">&times;</span>
     <div class="post-modal">
       <picture class="post-content">
         <img
-          [src]="publicacionActual?.rutaContenido"
+          [src]="
+            'https://picsum.photos/id/' +
+            publicacionActual?.idPublicacion +
+            '/640/640/'
+          "
           [alt]="publicacionActual?.descripcion"
-          width="320px"
         />
       </picture>
-      <article>
+      <article class="comentarios">
         <header>
-          <picture>
+          <picture class="info-user">
             <img
               height="66"
               width="66"
               class="icono-historia"
-              [src]="'https://picsum.photos/id/' + publicacionActual?.idPublicacion + '/468/640/'"
-
+              [src]="
+                'https://picsum.photos/id/' +
+                publicacionActual?.idPublicacion +
+                '/640/640/'
+              "
             />
-            <p>{{publicacionActual?.usuario?.nombreUsuario}}</p>
+            <p>{{ publicacionActual?.usuario?.nombreUsuario }}</p>
+            <span class="close" (click)="close()">&times;</span>
           </picture>
           <ul>
-            <li>{{publicacionActual?.descripcion}}</li>
+            <li>{{ publicacionActual?.descripcion }}</li>
           </ul>
         </header>
       </article>
