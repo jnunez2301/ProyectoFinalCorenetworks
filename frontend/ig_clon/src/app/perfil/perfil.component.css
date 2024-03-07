@@ -6,15 +6,30 @@ section{
 }
 
 .contenedor-barra-navegacion{
+
+
     flex-direction: row; 
     width: 100%; 
     padding: 16px; 
     flex-wrap: wrap; 
     gap: 16px; 
-
-
-        
 }
+
+.contenedor-fotos {
+    display: flex;
+    flex-direction: column; 
+    width: 100%; 
+}
+
+.foto {
+    height: 200px; 
+    background-color: #ccc; 
+    margin-bottom: 20px; 
+}
+
+       
+    
+
 .perfil-container {
     display: grid;
     grid-template-columns: auto 1fr; 
