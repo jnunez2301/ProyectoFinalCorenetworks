@@ -2,7 +2,6 @@ package com.corenetworks.ProyectoFinal.repositorio;
 
 import com.corenetworks.ProyectoFinal.dto.BarritaDeMensajesDto;
 import com.corenetworks.ProyectoFinal.dto.HistorialChatsDTO;
-
 import com.corenetworks.ProyectoFinal.modelo.Mensaje;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.jpa.repository.Query;
@@ -35,5 +34,4 @@ public interface IMensajeRepositorio extends IGeneralRepositorio<Mensaje, Intege
          "WHERE m2.usuarioDestino.idUsuario = :idUsuario OR m2.usuarioOrigen.idUsuario = :idUsuario " +
          "GROUP BY m2.usuarioOrigen.idUsuario)")
  List<BarritaDeMensajesDto> barritadeMensajes(@Param("idUsuario")int id) throws Exception;
-
 }

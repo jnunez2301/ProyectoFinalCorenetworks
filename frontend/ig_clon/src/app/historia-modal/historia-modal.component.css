@@ -1,0 +1,87 @@
+.modal {
+    display: block;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 1rem auto;
+    width: 300px;
+    min-height: 90vh;
+    border-radius: 5px;
+
+  }
+  
+  .close {
+    color: #aaaaaa;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .historia-modal{
+    display: flex;
+    flex-direction: column;
+    padding: .3rem;
+    position: relative;
+    justify-content: space-between;
+    height: 547px;
+    color: #fff;
+    background-image: url('https://picsum.photos/200/300?grayscale');
+    border-radius: 5px;
+  }
+  .timeline{
+    border: 1px solid #fff;
+    width: 100%;
+  }
+  .controls-container{
+    display: flex;
+    justify-content: space-between;
+    margin: 1.3rem 0;
+  }
+  
+  .comment-container{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .comment-container input{
+    border: none;
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid #fff;
+    padding: 8px 12px;
+    border-radius: 5px;
+  }
+  .comment-container input::placeholder{
+    color: #fff;
+  }
+  .comment-container input::-ms-input-placeholder{
+    color: #fff;
+  }
+  .comment-container input:focus{
+    outline: #d037d0;
+  }
+  ng-icon{
+    transition: all .2s ease-in;
+    width: 30px;
+  }
+  ng-icon:hover{
+    color: #d037d0;
+    cursor: pointer;
+  }

@@ -1,6 +1,7 @@
 package com.corenetworks.ProyectoFinal.servicio.Impl;
 
 import com.corenetworks.ProyectoFinal.dto.CantidadSeguidoresDTO;
+import com.corenetworks.ProyectoFinal.dto.PerfilDTO;
 import com.corenetworks.ProyectoFinal.dto.SeguidorDTO;
 import com.corenetworks.ProyectoFinal.modelo.Seguidor;
 import com.corenetworks.ProyectoFinal.modelo.Usuario;
@@ -9,6 +10,7 @@ import com.corenetworks.ProyectoFinal.repositorio.ISeguidorRepositorio;
 import com.corenetworks.ProyectoFinal.repositorio.IUsuarioRepositorio;
 import com.corenetworks.ProyectoFinal.servicio.ISeguidorServicio;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -31,7 +33,7 @@ public class ISeguidorServicioimpl extends ICRUDimpl <Seguidor,Long> implements 
             SeguidorDTO seguidorDTO = new SeguidorDTO();
             // Mapea los datos del Seguidor a un SeguidorDTO
             seguidorDTO.setId((long) Math.toIntExact(seguidor.getId()));
-            seguidorDTO.setNombreFollower(seguidor.getSeguidor().getNombreUsuario());
+            seguidorDTO.setNombreUsuarioSeguidor(seguidor.getSeguidor().getNombreUsuario());
             seguidorDTO.setNombreUsuarioSeguido(seguidor.getSeguido().getNombreUsuario());
             seguidoresDTO.add(seguidorDTO);
         }
@@ -52,13 +54,11 @@ public class ISeguidorServicioimpl extends ICRUDimpl <Seguidor,Long> implements 
     public List<CantidadSeguidoresDTO> seguidor(String nombreUsuario) {
         return repositorio.seguidor(nombreUsuario);
     }
-
     @Override
     public List<CantidadSeguidoresDTO> seguidos(String nombreUsuario) {
         return repositorio.seguidos(nombreUsuario);
     }
 
-    @Override
     public List<SeguidorDTO> obtenerSeguidos(Usuario seguidor) {
         List<Seguidor> seguidos = repositorio.findBySeguidor(seguidor);
         List<SeguidorDTO> seguidoresDTO = new ArrayList<>();
@@ -67,11 +67,12 @@ public class ISeguidorServicioimpl extends ICRUDimpl <Seguidor,Long> implements 
             SeguidorDTO seguidorDTO = new SeguidorDTO();
             // Mapea los datos del Seguidor a un SeguidorDTO
             seguidorDTO.setId((long) Math.toIntExact(elemento.getId()));
-            seguidorDTO.setNombreFollower(elemento.getSeguidor().getNombreUsuario());
+            seguidorDTO.setNombreUsuarioSeguidor(elemento.getSeguidor().getNombreUsuario());
             seguidorDTO.setNombreUsuarioSeguido(elemento.getSeguido().getNombreUsuario());
             seguidoresDTO.add(seguidorDTO);
         }
         return seguidoresDTO;
     }
+
 
 }

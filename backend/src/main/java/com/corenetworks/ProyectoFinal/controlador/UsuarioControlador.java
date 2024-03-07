@@ -1,10 +1,14 @@
 package com.corenetworks.ProyectoFinal.controlador;
 
 import com.corenetworks.ProyectoFinal.dto.SeguidorDTO;
+import com.corenetworks.ProyectoFinal.dto.views;
 import com.corenetworks.ProyectoFinal.exepcion.ExcepcionPersonalizada;
+import com.corenetworks.ProyectoFinal.modelo.Perfil;
 import com.corenetworks.ProyectoFinal.modelo.Usuario;
+import com.corenetworks.ProyectoFinal.servicio.IPerfilServicio;
 import com.corenetworks.ProyectoFinal.servicio.ISeguidorServicio;
 import com.corenetworks.ProyectoFinal.servicio.IUsuarioServicio;
+import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,9 +27,12 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/usuarios")
+@CrossOrigin(origins = "http://localhost:4200")
 public class UsuarioControlador {
     @Autowired
     IUsuarioServicio usuarioServicio;
+    @Autowired
+    IPerfilServicio perfilServicio;
 
     @GetMapping("/{id}")
     public ResponseEntity<Usuario> mostrarUno(@PathVariable(name = "id") int id) throws Exception{
@@ -50,12 +57,12 @@ public class UsuarioControlador {
     }
 
     @PostMapping
+    @JsonView(views.Private.class)
     public ResponseEntity<Usuario> insertarUno(@RequestBody Usuario usr) throws NoSuchAlgorithmException, InvalidKeySpecException, Exception {
         if(usr.getContrasena() == null || usr.getContrasena().isEmpty() || usr.getContrasena().length() < 8){
             System.out.println("La contraseña debe ser más larga que 8 caracteres");
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-
         usr.setFCreacion(LocalDate.now());
         usr.setHCreacion(LocalTime.now());
         SecureRandom random = new SecureRandom();
@@ -69,7 +76,17 @@ public class UsuarioControlador {
         Base64.Encoder enc = Base64.getEncoder();
         usr.setSalt(enc.encodeToString(salt));
         usr.setContrasena(enc.encodeToString(hash));
-        return new ResponseEntity<>(usuarioServicio.crear(usr), HttpStatus.CREATED);
+        Perfil p1= new Perfil();
+        p1.setUsuario(usr);
+        p1.setIdPerfil(usr.getIdUsuario());
+        p1.setNumPublicaciones(0);
+        p1.setFotoPerfil("https://t4.ftcdn.net/jpg/03/49/49/79/360_F_349497933_Ly4im8BDmHLaLzgyKg2f2yZOvJjBtlw5.webp");
+        p1.setNumSeguidores(0);
+        p1.setNumSiguiendo(0);
+        p1.setDescripcion("");
+        usuarioServicio.crear(usr);
+        perfilServicio.crear(p1);
+        return new ResponseEntity<>(usr, HttpStatus.CREATED);
     }
 
     @PutMapping

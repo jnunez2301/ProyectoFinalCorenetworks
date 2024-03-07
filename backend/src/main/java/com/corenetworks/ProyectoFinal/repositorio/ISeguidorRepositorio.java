@@ -1,6 +1,5 @@
 package com.corenetworks.ProyectoFinal.repositorio;
 
-
 import com.corenetworks.ProyectoFinal.dto.CantidadSeguidoresDTO;
 import com.corenetworks.ProyectoFinal.dto.SeguidorDTO;
 import com.corenetworks.ProyectoFinal.modelo.Seguidor;
@@ -19,12 +18,11 @@ public interface ISeguidorRepositorio extends IGeneralRepositorio<Seguidor,Long>
            "WHERE s.seguido.nombreUsuario = :nombreUsuarioSeguido " +
             "GROUP BY s.seguido.nombreUsuario")
     List<CantidadSeguidoresDTO> seguidor(@Param("nombreUsuarioSeguido") String nombreUsuario);
-
-
     @Query("SELECT NEW com.corenetworks.ProyectoFinal.dto.CantidadSeguidoresDTO(s.seguidor.nombreUsuario, COUNT(s.seguidor)) " +
             "FROM Seguidor s " +
             "WHERE s.seguidor.nombreUsuario = :nombreUsuarioSeguidor " +
             "GROUP BY s.seguidor.nombreUsuario")
-   List<CantidadSeguidoresDTO> seguidos(@Param("nombreUsuarioSeguidor") String nombreUsuario);
+    List<CantidadSeguidoresDTO> seguidos(@Param("nombreUsuarioSeguidor") String nombreUsuario);
+
 
 }

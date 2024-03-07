@@ -19,8 +19,10 @@ public class Historia {
     private int idHistoria;
     private String contenido;
     private Boolean publicas;
+    private Boolean Activo;
     private LocalDate fCreacion;
     private LocalTime hCreacion;
+    private LocalDate fFinal;
 
     @ManyToOne
     @JoinColumn(name = "id_usuario", nullable = false, foreignKey = @ForeignKey(name = "FK_historias_usuario"))

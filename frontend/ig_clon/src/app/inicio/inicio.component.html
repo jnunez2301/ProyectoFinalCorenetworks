@@ -6,15 +6,18 @@
         <a href="" class="anchor-historia">Siguiendo</a>
       </div>
       <div class="contenedor-historias">
-        @for (item of usuarios; track item.id) {
-        <div class="mini-historia">
+        @for (item of listaUsuarios$; track item.idUsuario) {
+          @if (historiaAbierta) {
+            <app-historia-modal (cerrar)="cerrarHistoria()"></app-historia-modal>
+          }
+        <div class="mini-historia" (click)="abrirHistoria()">
           <img
             height="66"
             width="66"
             class="icono-historia"
-            [src]="'https://picsum.photos/id/' + item.id + '/66/66'"
+            [src]="'https://picsum.photos/id/' + item.idUsuario + '/66/66'"
           />
-          <p>{{ item.nombre_usuario }}</p>
+          <p>{{ item.nombreUsuario }}</p>
         </div>
         }
         <mat-icon
@@ -24,20 +27,26 @@
           fontIcon="navigate_next"
         ></mat-icon>
       </div>
-    </header>
-    @for (item of listaPublicaciones$; track item.idPublicacion) {
+    </header>   
+    @for (item of listaPublicaciones$; track item.idPublicacion; let i = $index) {
+        @if (publicacionAbierta) {
+          <app-publicacion-modal (cerrar)="cerrarPublicacion()" [publicacionActual]="publicacionActual"></app-publicacion-modal>
+        }
     <article class="post">
       <header class="post-titulo">
         <div class="post-info-usuario">
           <img [src]="item.rutaContenido" [alt]="item.descripcion" />
           @if(item.usuario){
-
-            <p>{{ item.usuario.nombreUsuario}}- <span class="post-time">3h</span></p>
+          <p>
+            <span class="nombre-usuario">{{ item.usuario.nombreUsuario }} </span>  -  <span class="post-time">3h</span>
+          </p>
           }
         </div>
-        <div>
-          <span>...</span>
-        </div>
+       <!-- 
+        TODO: Espacio apartado para reportar, bloquear, remover publicación de momento se queda en standby
+         <div>
+          <span class="dotBtn">...</span>
+        </div> -->
       </header>
       <div class="post-contenido">
         <img
@@ -47,36 +56,36 @@
       </div>
       <div class="post-btns">
         <div class="post-interactive-btns">
-          <mat-icon
-            aria-hidden="false"
-            aria-label="Like icon"
-            fontIcon="thumb_up_alt"
-          ></mat-icon>
-          <mat-icon
-            aria-hidden="false"
-            aria-label="Comment icon"
-            fontIcon="mode_comment"
-          ></mat-icon>
-          <mat-icon
-            aria-hidden="false"
-            aria-label="Share icon"
-            fontIcon="ios_share"
-          ></mat-icon>
+          <ng-icon
+          (click)="darLike(item.idPublicacion)"
+           name="ionHeartCircleOutline" size="24px"></ng-icon>
+          <ng-icon 
+          (click)="abrirPublicacion(i)"
+          name="ionChatboxEllipsesOutline" size="24px"></ng-icon>
+          <ng-icon
+          (click)="compartir(item.idPublicacion)"
+           name="ionShareOutline" size="24px"></ng-icon>
         </div>
         <div>
-          <mat-icon
-            aria-hidden="false"
-            aria-label="Bookmark icon"
-            fontIcon="bookmark"
-          ></mat-icon>
+          <ng-icon
+          (click)="guardarPublicacion(item.idPublicacion)"
+           name="ionBookmarkOutline" size="24px"></ng-icon>
         </div>
       </div>
       <div class="post-info">
         <p class="likes">320 likes</p>
-        <span>Abre todos los comentarios - 4 comentarios</span>
+        <p class="open-comments"
+        (click)="abrirPublicacion(i)"
+          >Abre todos los comentarios - 4 comentarios</p
+        >
         <div class="post-add-comment">
-          <input type="text" placeholder="Añade un comentario" />
-          <span class="btn-post">POST</span>
+          <input
+            type="text"
+            placeholder="Añade un comentario"
+            [(ngModel)]="comentarioActual"
+            (keyup.enter)="postComentario()"
+          />
+          <button class="btn-post" (click)="postComentario()">POST</button>
         </div>
       </div>
     </article>
@@ -96,16 +105,17 @@
         <a href="" class="show-all">Mostrar todos</a>
       </div>
       <ul class="sidebar-sugerencias">
-        @for (item of usuarios; track item.id) {
+        @for (item of listaUsuarios$; track item.idUsuario) {
         <li>
           <div class="sug-info">
             <img
-              [src]="'https://picsum.photos/id/' + item.id + '/60/60'"
-              [alt]="item.nombre_completo"
+              [src]="'https://picsum.photos/id/' + item.idUsuario + '/60/60'"
+              [alt]="item.nombreUsuario"
             />
             <div>
-              <h3>{{ item.nombre_usuario }}</h3>
-              <p>{{ item.nombre_completo }}</p>
+              <h3>{{ item.nombreUsuario }}</h3>
+              <p>{{ item.nombreUsuario }}</p>
+              <!-- TODO: Añadir nombre completo en lugar de nombreUsuario -->
               <p class="mini-text">Suggester for you</p>
             </div>
           </div>
@@ -115,5 +125,4 @@
       </ul>
     </div>
   </aside>
-  
 </section>
