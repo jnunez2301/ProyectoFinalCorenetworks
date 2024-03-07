@@ -27,7 +27,7 @@ public class Comentario {
     @JsonView(views.Public.class)
     private String mensajes;
     @JsonView(views.Public.class)
-    private String respuestasComentario;
+    private String respuestasUsuarios;
     @JsonView(views.Public.class)
     private LocalDate fCreacion;
     @JsonView(views.Public.class)
