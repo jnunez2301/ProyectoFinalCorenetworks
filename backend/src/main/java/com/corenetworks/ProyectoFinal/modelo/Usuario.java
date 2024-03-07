@@ -5,14 +5,15 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.corenetworks.ProyectoFinal.dto.views;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonView;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.web.bind.annotation.CrossOrigin;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -27,20 +28,21 @@ public class Usuario{
     @Column(length = 16, nullable = false, unique = true)
     private String nombreUsuario;
 
-    @JsonIgnore
+    @JsonView(views.Private.class)
     @Column(length = 120, nullable = false)
     private String contrasena;
-    @JsonIgnore
+
+    @JsonView(views.Private.class)
     private String salt;
-    @JsonIgnore
+    @JsonView(views.Private.class)
     @Column(length = 255, nullable = false, unique = true)
     private String correo;
-    @JsonIgnore
+    @JsonView(views.Private.class)
     @Column(length = 60, nullable = false)
     private String preguntaSecreta;
-    @JsonIgnore
+    @JsonView(views.Private.class)
     private LocalDate fCreacion;
-    @JsonIgnore
+    @JsonView(views.Private.class)
     private LocalTime hCreacion;
 
     public Usuario(String nombreUsuario, String contrasena, String correo, String preguntaSecreta) {
@@ -50,16 +52,12 @@ public class Usuario{
         this.preguntaSecreta = preguntaSecreta;
     }
 
-
     @OneToMany(mappedBy = "seguido")
-    private List<Seguidor> seguidos;
+    private List<Seguido> seguidos;
 
     @OneToMany(mappedBy = "seguidor")
     private List<Seguidor> seguidores;
 
 
-    public Usuario(int idUsuario, String nombreUsuario) {
-        this.idUsuario = idUsuario;
-        this.nombreUsuario = nombreUsuario;
-    }
+
 }

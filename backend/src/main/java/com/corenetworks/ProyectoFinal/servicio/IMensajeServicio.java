@@ -14,5 +14,4 @@ public interface IMensajeServicio extends ICRUD <Mensaje, Integer> {
     List<HistorialChatsDTO> historialChats(int id_origen, int id_destino) throws Exception;
 
     List<BarritaDeMensajesDto> barritaDeMensajes(int id_origen) throws Exception;
-
 }

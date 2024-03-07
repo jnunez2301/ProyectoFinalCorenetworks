@@ -2,13 +2,14 @@ package com.corenetworks.ProyectoFinal.controlador;
 
 import com.corenetworks.ProyectoFinal.dto.BarritaDeMensajesDto;
 import com.corenetworks.ProyectoFinal.dto.HistorialChatsDTO;
-
 import com.corenetworks.ProyectoFinal.dto.MensajeDTO;
+import com.corenetworks.ProyectoFinal.dto.views;
 import com.corenetworks.ProyectoFinal.exepcion.ExcepcionPersonalizada;
 import com.corenetworks.ProyectoFinal.modelo.Mensaje;
 import com.corenetworks.ProyectoFinal.modelo.Usuario;
 import com.corenetworks.ProyectoFinal.servicio.IMensajeServicio;
 import com.corenetworks.ProyectoFinal.servicio.Impl.IUsuarioServicioimpl;
+import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -52,14 +53,15 @@ public class MensajeControlador {
     }
     @GetMapping("/de/{id_origen}/con/{id_destino}")
     public ResponseEntity<List<HistorialChatsDTO>> historialChats(@PathVariable("id_origen")int id_origen,@PathVariable("id_destino")int id_destino) throws Exception {
-        return new ResponseEntity<>(mensajeServicio.historialChats(id_origen, id_destino), HttpStatus.OK);
+       return new ResponseEntity<>(mensajeServicio.historialChats(id_origen,id_destino), HttpStatus.OK);
+
     }
+
     @GetMapping("/chats/{id_origen}")
-        public ResponseEntity<List<BarritaDeMensajesDto>> barritaMensajes ( @PathVariable("id_origen") int id_origen) throws
-        Exception {
-            return new ResponseEntity<>(mensajeServicio.barritaDeMensajes(id_origen), HttpStatus.OK);
-        }
-
+    public ResponseEntity<List<BarritaDeMensajesDto>> barritaMensajes(@PathVariable("id_origen")int id_origen) throws Exception {
+        return new ResponseEntity<>(mensajeServicio.barritaDeMensajes(id_origen),HttpStatus.OK);
     }
 
+
+    }
 
