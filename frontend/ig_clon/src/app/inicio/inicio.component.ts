@@ -61,23 +61,41 @@ export class InicioComponent implements OnInit {
   publicacionActual: Publicaciones | undefined;
   
   /* HISTORIAS  */
-  historiaAbierta: boolean = true;
+  historiaAbierta: boolean = false;
   timeline: number = 0;
+  pause: boolean = false;
 
   abrirHistoria(): void {
     this.historiaAbierta = true;
+    if(this.pause){
+      this.timeline = 0;
+    }
     const interval = setInterval(() => {
-      this.timeline += 1; // Aumenta el timeline en un 10% cada vez
-      if (this.timeline >= 100) {
-        clearInterval(interval); // Detiene el intervalo cuando alcanza el 100%
-        this.historiaAbierta = false;
+      this.timeline += 1;
+      if(!this.pause){
+        if (this.timeline >= 100) {
+          clearInterval(interval); // Detiene el intervalo cuando alcanza el 100%
+          this.historiaAbierta = false;
+          this.timeline = 0;
+          console.log('se ha cerrado la historia');
+        }
+      }else if(this.pause){
         this.timeline = 0;
-        console.log('se ha cerrado la historia');
       }
     }, 100); // Intervalo de tiempo para aumentar gradualmente (300 ms en este caso)
   }
   cerrarHistoria(): void {
     this.historiaAbierta = false;
+    this.timeline = 0;
+  }
+  pararTemporizador():void{
+    this.timeline = 0;
+  }
+  pauseBtn():void{
+    this.pause = true;
+  }
+  playBtn():void{
+    this.pause = false;
   }
   /* TODO: Modelo de historia pendiente */
 
