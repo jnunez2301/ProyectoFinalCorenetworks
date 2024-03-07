@@ -94,9 +94,21 @@ export class InicioComponent implements OnInit {
   }
   cerrarPublicacion(): void{
     this.publicacionAbierta = false;
+    
   }
 
-
+  darLike(idPublicacion: number): void{
+    console.log("Has dado like"); 
+    /* SI LA PUBLI YA TIENE LIKE QUITARLO */
+    /* SI LA PUBLI TIENE LIKE MOSTRARLO ROJO */
+  }
+  compartir(idPublicacion:number):void{
+    /* TODO: Esta en standby pero debería aportar un link acortado de la publicación actual */
+  }
+  guardarPublicacion(idPublicacion:number):void{
+    /* TODO: Debe almacenar las publicaciones en el perfil del usuario, sin embargo estas no deben ser públicas */
+    console.log("Publicación guardada");
+  }
   usuario = {
     id: 0,
     nombre_usuario: 'test_23',
