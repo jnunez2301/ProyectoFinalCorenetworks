@@ -7,7 +7,10 @@
       </div>
       <div class="contenedor-historias">
         @for (item of listaUsuarios$; track item.idUsuario) {
-        <div class="mini-historia">
+          @if (historiaAbierta) {
+            <app-historia-modal (cerrar)="cerrarHistoria()"></app-historia-modal>
+          }
+        <div class="mini-historia" (click)="abrirHistoria()">
           <img
             height="66"
             width="66"
@@ -25,7 +28,7 @@
         ></mat-icon>
       </div>
     </header>   
-    @for (item of listaPublicaciones$; track item.idPublicacion) {
+    @for (item of listaPublicaciones$; track item.idPublicacion; let i = $index) {
         @if (publicacionAbierta) {
           <app-publicacion-modal (cerrar)="cerrarPublicacion()" [publicacionActual]="publicacionActual"></app-publicacion-modal>
         }
@@ -57,7 +60,7 @@
           (click)="darLike(item.idPublicacion)"
            name="ionHeartCircleOutline" size="24px"></ng-icon>
           <ng-icon 
-          (click)="abrirPublicacion(item.idPublicacion)"
+          (click)="abrirPublicacion(i)"
           name="ionChatboxEllipsesOutline" size="24px"></ng-icon>
           <ng-icon
           (click)="compartir(item.idPublicacion)"
@@ -72,7 +75,7 @@
       <div class="post-info">
         <p class="likes">320 likes</p>
         <p class="open-comments"
-        (click)="abrirPublicacion(item.idPublicacion)"
+        (click)="abrirPublicacion(i)"
           >Abre todos los comentarios - 4 comentarios</p
         >
         <div class="post-add-comment">

@@ -1,0 +1,20 @@
+<div class="modal">
+  <div class="modal-content">
+    <div class="historia-modal">
+      <span class="close" (click)="close()">&times;</span>
+      <header>
+        <div id="timeline"></div>
+        <div class="controls-container">
+          <p>nombre_usuario - 3h</p>
+          <!--HACE CUANTO SE PUBLICO -->
+          <ng-icon name="ionPause"></ng-icon>
+        </div>
+      </header>
+      <div class="comment-container">
+        <input type="text" placeholder="Envia un comentario" required/>
+        <ng-icon name="ionHeartOutline" size="22px"></ng-icon>
+        <ng-icon name="ionSendOutline" size="22px"></ng-icon>
+      </div>
+    </div>
+  </div>
+</div>
