@@ -1,12 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Usuario } from '../_modelo/Usuario';
+import { UsuariosService } from '../_servicio/usuarios.service';
 
 @Component({
   selector: 'app-explorar',
-  standalone: true,
-  imports: [],
   templateUrl: './explorar.component.html',
-  styleUrl: './explorar.component.css'
+  styleUrls: ['./explorar.component.css']
 })
-export class ExplorarComponent {
+export class ExplorarComponent implements OnInit {
+ 
+  public imagenesUsuario$!: Usuario[];
 
+  constructor(private service: UsuariosService) {}
+  ngOnInit(): void {
+    this.service.getImagenUsuarios('nombreDeLaRuta').subscribe((data) => {
+      this.imagenesUsuario$ = data;      
+      console.log(data);
+      
+    });
+  }
+  
 }

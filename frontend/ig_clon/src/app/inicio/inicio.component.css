@@ -226,7 +226,14 @@ li{
     border-bottom: 1px solid #d037d0;
 }
 .open-comments{
-    color: rgba(0,0,0,0.6);
+    color: rgba(0,0,0,0.5);
+    font-weight: bold;
+    transition: all .2s ease-in;
+    font-size: 13px;
+}
+.open-comments:hover{
+    cursor: pointer;
+    color: #E22CE2;
 }
 .btn-post{
     color: #E22CE2;

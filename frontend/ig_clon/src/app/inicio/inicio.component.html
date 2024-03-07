@@ -39,9 +39,11 @@
           </p>
           }
         </div>
-        <div>
+       <!-- 
+        TODO: Espacio apartado para reportar, bloquear, remover publicación de momento se queda en standby
+         <div>
           <span class="dotBtn">...</span>
-        </div>
+        </div> -->
       </header>
       <div class="post-contenido">
         <img
@@ -51,20 +53,27 @@
       </div>
       <div class="post-btns">
         <div class="post-interactive-btns">
-          <ng-icon name="ionHeartCircleOutline" size="24px"></ng-icon>
+          <ng-icon
+          (click)="darLike(item.idPublicacion)"
+           name="ionHeartCircleOutline" size="24px"></ng-icon>
           <ng-icon 
           (click)="abrirPublicacion(item.idPublicacion)"
           name="ionChatboxEllipsesOutline" size="24px"></ng-icon>
-          <ng-icon name="ionShareOutline" size="24px"></ng-icon>
+          <ng-icon
+          (click)="compartir(item.idPublicacion)"
+           name="ionShareOutline" size="24px"></ng-icon>
         </div>
         <div>
-          <ng-icon name="ionBookmarkOutline" size="24px"></ng-icon>
+          <ng-icon
+          (click)="guardarPublicacion(item.idPublicacion)"
+           name="ionBookmarkOutline" size="24px"></ng-icon>
         </div>
       </div>
       <div class="post-info">
         <p class="likes">320 likes</p>
-        <span class="open-comments"
-          >Abre todos los comentarios - 4 comentarios</span
+        <p class="open-comments"
+        (click)="abrirPublicacion(item.idPublicacion)"
+          >Abre todos los comentarios - 4 comentarios</p
         >
         <div class="post-add-comment">
           <input
