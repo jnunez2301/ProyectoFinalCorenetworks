@@ -15,6 +15,8 @@ public class PerfilDTO {
     private String fotoPerfil;
     private String descripcion;
     private String nombreUsuario;
+    private String nombre;
+    private String Apellido;
 
 
 }
