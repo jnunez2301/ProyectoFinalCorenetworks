@@ -1,1 +1,22 @@
-<p>perfil works!</p>
+<section>
+    <div class="contenedor-perfil">
+        @for (item of mostrarUsuario$; track item.idUsuario) {
+        <div class="imgPeril">
+          <img
+            [src]="'https://picsum.photos/id/' + item.idUsuario"
+          />
+          <div>{{ item.nombreUsuario }}</div>
+        </div>
+        }
+        <div>Seguidores: {{ usuario.numSeguidores }}</div>
+      <div>Siguiendo: {{ usuario.numSiguiendo }}</div>
+      <div>Publicaciones: {{ usuario.numPublicaciones }}</div>
+      <div>{{ usuario.descripcion }}</div>
+       </div>
+
+       <div>
+        @for (item of listaPublicaciones$; track $index) {}
+       </div>
+       
+
+</section> 
