@@ -104,6 +104,8 @@ export class InicioComponent implements OnInit {
   }
   compartir(idPublicacion:number):void{
     /* TODO: Esta en standby pero debería aportar un link acortado de la publicación actual */
+    console.log('Compartiendo public...');
+    
   }
   guardarPublicacion(idPublicacion:number):void{
     /* TODO: Debe almacenar las publicaciones en el perfil del usuario, sin embargo estas no deben ser públicas */
