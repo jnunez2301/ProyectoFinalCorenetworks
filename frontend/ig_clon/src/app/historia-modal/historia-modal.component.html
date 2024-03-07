@@ -1,9 +1,9 @@
 <div class="modal">
   <div class="modal-content">
     <div class="historia-modal">
-      <span class="close" (click)="close()">&times;</span>
+      <!-- <span class="close" (click)="close()">&times;</span> -->
       <header>
-        <div id="timeline"></div>
+        <div id="timeline" [style.width.%]="timelineWidth"></div>
         <div class="controls-container">
           <p>nombre_usuario - 3h</p>
           <!--HACE CUANTO SE PUBLICO -->

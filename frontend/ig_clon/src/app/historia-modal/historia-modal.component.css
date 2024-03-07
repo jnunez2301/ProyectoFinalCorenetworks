@@ -42,12 +42,14 @@
     justify-content: space-between;
     height: 547px;
     color: #fff;
-    background-image: url('https://picsum.photos/200/300?grayscale');
+    background-image: url('https://picsum.photos/200/300');
+    background-color: rgba(0, 0, 0, 0.1);
+    font-weight: bold;
     border-radius: 5px;
   }
-  .timeline{
-    border: 1px solid #fff;
-    width: 100%;
+  #timeline{
+    border: 1px solid #f2f2f2;
+    transition: all 100ms ease-in;
   }
   .controls-container{
     display: flex;
@@ -67,6 +69,7 @@
     border: 1px solid #fff;
     padding: 8px 12px;
     border-radius: 5px;
+    color: #fff;
   }
   .comment-container input::placeholder{
     color: #fff;

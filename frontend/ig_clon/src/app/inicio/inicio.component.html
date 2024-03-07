@@ -8,7 +8,7 @@
       <div class="contenedor-historias">
         @for (item of listaUsuarios$; track item.idUsuario) {
           @if (historiaAbierta) {
-            <app-historia-modal (cerrar)="cerrarHistoria()"></app-historia-modal>
+            <app-historia-modal (cerrar)="cerrarHistoria()" [timelineWidth]="timeline"></app-historia-modal>
           }
         <div class="mini-historia" (click)="abrirHistoria()">
           <img

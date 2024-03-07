@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, input } from '@angular/core';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { ionPause, ionHeartOutline, ionSendOutline } from '@ng-icons/ionicons';
 
@@ -18,6 +18,8 @@ import { ionPause, ionHeartOutline, ionSendOutline } from '@ng-icons/ionicons';
 })
 export class HistoriaModalComponent{
  
+  @Input()timelineWidth:number = 0;
+  
   @Output() cerrar: EventEmitter<any> = new EventEmitter();
 
   close(){

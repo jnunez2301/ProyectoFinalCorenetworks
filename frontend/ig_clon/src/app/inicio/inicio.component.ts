@@ -59,31 +59,26 @@ export class InicioComponent implements OnInit {
   comentarioActual: string = '';
   publicacionAbierta: boolean = false;
   publicacionActual: Publicaciones | undefined;
+  
   /* HISTORIAS  */
-  historiaAbierta: boolean = false;
+  historiaAbierta: boolean = true;
   timeline: number = 0;
 
   abrirHistoria(): void {
     this.historiaAbierta = true;
     const interval = setInterval(() => {
-      this.timeline += 10; // Aumenta el timeline en un 10% cada vez
+      this.timeline += 1; // Aumenta el timeline en un 10% cada vez
       if (this.timeline >= 100) {
         clearInterval(interval); // Detiene el intervalo cuando alcanza el 100%
         this.historiaAbierta = false;
+        this.timeline = 0;
         console.log('se ha cerrado la historia');
       }
-    }, 300); // Intervalo de tiempo para aumentar gradualmente (300 ms en este caso)
+    }, 100); // Intervalo de tiempo para aumentar gradualmente (300 ms en este caso)
   }
   cerrarHistoria(): void {
     this.historiaAbierta = false;
   }
-  /*   abrirPublicacion(id:number): void{
-    this.publicacionAbierta = true;
-    this.publicacionActual = this.listaPublicaciones$[id];    
-  }
-  cerrarPublicacion(): void{
-    this.publicacionAbierta = false;
-  } */
   /* TODO: Modelo de historia pendiente */
 
   constructor(
