@@ -10,9 +10,12 @@ import com.corenetworks.ProyectoFinal.repositorio.ISeguidoRepositorio;
 import com.corenetworks.ProyectoFinal.repositorio.ISeguidorRepositorio;
 import com.corenetworks.ProyectoFinal.repositorio.IUsuarioRepositorio;
 import com.corenetworks.ProyectoFinal.servicio.IUsuarioServicio;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 public class IUsuarioServicioimpl extends ICRUDimpl <Usuario,Integer> implements IUsuarioServicio {
@@ -27,7 +30,6 @@ public class IUsuarioServicioimpl extends ICRUDimpl <Usuario,Integer> implements
     protected IGeneralRepositorio<Usuario, Integer> getRepo() {
         return repositorio;
     }
-
 
 
     @Override

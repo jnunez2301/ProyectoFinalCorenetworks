@@ -5,8 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
 @Entity
 @Table(name = "seguidores")
@@ -22,9 +22,4 @@ public class Seguidor {
     @ManyToOne
     @JoinColumn(name = "id_usuario_seguido")
     private Usuario seguido;
-
-    public Seguidor(Usuario seguidor, Usuario seguido) {
-        this.seguidor = seguidor;
-        this.seguido = seguido;
-    }
 }

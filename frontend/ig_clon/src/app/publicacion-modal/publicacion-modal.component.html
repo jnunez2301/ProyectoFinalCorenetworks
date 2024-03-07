@@ -1,0 +1,37 @@
+<div class="modal">
+  <div class="modal-content">
+    <div class="post-modal">
+      <picture class="post-content">
+        <img
+          [src]="
+            'https://picsum.photos/id/' +
+            publicacionActual?.idPublicacion +
+            '/640/640/'
+          "
+          [alt]="publicacionActual?.descripcion"
+        />
+      </picture>
+      <article class="comentarios">
+        <header>
+          <picture class="info-user">
+            <img
+              height="66"
+              width="66"
+              class="icono-historia"
+              [src]="
+                'https://picsum.photos/id/' +
+                publicacionActual?.idPublicacion +
+                '/640/640/'
+              "
+            />
+            <p>{{ publicacionActual?.usuario?.nombreUsuario }}</p>
+            <span class="close" (click)="close()">&times;</span>
+          </picture>
+          <ul>
+            <li>{{ publicacionActual?.descripcion }}</li>
+          </ul>
+        </header>
+      </article>
+    </div>
+  </div>
+</div>

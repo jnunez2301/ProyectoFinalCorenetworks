@@ -21,6 +21,7 @@ public class Perfil{
     @Column(length = 250)
     private String descripcion;
 
+
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="id_usuario", nullable = false, foreignKey = @ForeignKey(name = "FK_perfil_usuario"))
     private Usuario usuario;

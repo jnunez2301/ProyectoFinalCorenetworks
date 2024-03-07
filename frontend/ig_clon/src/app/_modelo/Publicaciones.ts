@@ -1,4 +1,4 @@
-import { Comentario } from "./Comentario";
+import { Comentarios } from "./Comentarios";
 import { Usuario } from "./Usuario";
 
 export interface Publicaciones{
@@ -10,5 +10,5 @@ export interface Publicaciones{
     fCreacion:Date,
     hCreacion:Date,
     usuario:Usuario,
-    comentario:Comentario[]
+    comentarios:Comentarios[]
 }
