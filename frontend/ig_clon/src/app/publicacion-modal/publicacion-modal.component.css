@@ -9,7 +9,7 @@
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
-  animation: fadeIn 150ms ease-in;
+  /* animation: fadeIn 150ms ease-in; */
 }
 
 .modal-content {
