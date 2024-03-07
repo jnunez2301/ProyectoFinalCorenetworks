@@ -21,10 +21,11 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "usuarios")
 public class Usuario{
+    @JsonView(views.Public.class)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idUsuario;
-
+    @JsonView(views.Public.class)
     @Column(length = 16, nullable = false, unique = true)
     private String nombreUsuario;
 
@@ -54,7 +55,7 @@ public class Usuario{
 
     @OneToMany(mappedBy = "seguido")
     private List<Seguido> seguidos;
-
+    @JsonIgnore
     @OneToMany(mappedBy = "seguidor")
     private List<Seguidor> seguidores;
 

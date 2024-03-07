@@ -1,14 +1,27 @@
 package com.corenetworks.ProyectoFinal.dto;
 
-public class ComentarioDTO {
-    private int idComentario;
-    private String descripcion;
-    private int cantidadLikes;
-    private String rutaContenido;
+import com.fasterxml.jackson.annotation.JsonView;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-    private String urlCompartir;
-    private int idUsuarioPublicacion;
+import java.time.LocalDate;
+import java.time.LocalTime;
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+public class ComentarioDTO {
+
+    private int idComentario;
+    private int likes;
+    private String descripcion;
+    private int idPublicacion;
     private String nombreUsuarioPublicacion;
+    private String nombreUsuarioComentario;
+    private int idnombreUsuarioComentario;
+    private LocalDate fCreacion;
+    private LocalTime hCreacion;
+
 
 
 
