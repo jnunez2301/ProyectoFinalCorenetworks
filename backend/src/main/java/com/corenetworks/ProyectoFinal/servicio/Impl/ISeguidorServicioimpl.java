@@ -1,6 +1,7 @@
 package com.corenetworks.ProyectoFinal.servicio.Impl;
 
 import com.corenetworks.ProyectoFinal.dto.CantidadSeguidoresDTO;
+import com.corenetworks.ProyectoFinal.dto.PerfilDTO;
 import com.corenetworks.ProyectoFinal.dto.SeguidorDTO;
 import com.corenetworks.ProyectoFinal.modelo.Seguidor;
 import com.corenetworks.ProyectoFinal.modelo.Usuario;

@@ -133,6 +133,10 @@ li{
 }
 .mini-historia{
     margin-bottom: .4rem;
+    cursor: pointer;
+}
+.mini-historia:hover{
+    opacity: .8;
 }
 .show-all{
     font-size: 12px;
@@ -212,13 +216,37 @@ li{
 }
 .post-info input{
     margin: 5px 0;
+    padding: .3rem 0;
     border: none;
     outline: none;
+    width: 100%;
+    transition: all .3s ease-in;
+}
+.post-info input:focus{
+    border-bottom: 1px solid #d037d0;
+}
+.open-comments{
+    color: rgba(0,0,0,0.5);
+    font-weight: bold;
+    transition: all .2s ease-in;
+    font-size: 13px;
+}
+.open-comments:hover{
+    cursor: pointer;
+    color: #E22CE2;
 }
 .btn-post{
     color: #E22CE2;
+    border: none;
+    background-color: #fff;
+    cursor: pointer;
     font-weight: bold;
     font-size: 14px;
+    transition: all .2s ease-in;
+}
+
+.btn-post:hover{
+    opacity: 0.5;
 }
 .contenedor{
     width: 100%;
@@ -262,4 +290,33 @@ li{
        
     }
     
+}
+
+/* Botones de publicación*/
+
+ng-icon{
+    cursor: pointer;
+    transition: all .2 ease-in-out;
+    margin: .3rem 0;
+    color: #d037d0;
+}
+ng-icon:hover{
+    opacity: 0.8;
+    scale: 1.1;
+    color: #dbaedb;
+}
+.dotBtn{
+    cursor: pointer;
+    transition: all .2s ease-in;
+}
+.dotBtn:hover{
+    color: #d037d0;
+}
+
+.nombre-usuario{
+    cursor: pointer;
+    transition: all .2s ease-in;
+}
+.nombre-usuario:hover{
+    color: #d037d0;
 }
