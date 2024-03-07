@@ -19,7 +19,7 @@ public class ConfiguracionUsuarioDto {
     private String preguntaSecreta;
 
 
-    public Usuario castUensaje(){
+    public Usuario castUusuario(){
         Usuario u1= new Usuario();
         u1.setIdUsuario(idUsuario);
         u1.setNombreUsuario(nombreUsuario);
@@ -30,7 +30,6 @@ public class ConfiguracionUsuarioDto {
         return u1;
     }
     public  ConfiguracionUsuarioDto castUsuarioDTO(Usuario u){
-
         idUsuario = u.getIdUsuario();
         nombreUsuario= u.getNombreUsuario();
         contrasena = u.getContrasena();
