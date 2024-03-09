@@ -7,4 +7,5 @@ public interface ICRUD <T,ID> {
     List<T> buscarTodos() throws Exception;
     T crear (T t) throws Exception;
     T editar (T t) throws Exception;
+    void eliminar(T t) throws Exception;
 }

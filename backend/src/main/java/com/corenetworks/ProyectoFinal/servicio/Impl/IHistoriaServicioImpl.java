@@ -7,6 +7,8 @@ import com.corenetworks.ProyectoFinal.servicio.IHistoriaServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class IHistoriaServicioImpl extends ICRUDimpl <Historia, Integer> implements IHistoriaServicio {
     @Autowired
@@ -15,4 +17,17 @@ public class IHistoriaServicioImpl extends ICRUDimpl <Historia, Integer> impleme
     protected IGeneralRepositorio<Historia, Integer> getRepo() {
         return repositorio;
     }
+
+
+    @Override
+    public List<Historia> HistoriasVisiblesPorSeguidor(int idPropietario) {
+        return repositorio.HistoriasVisiblesPorSeguidor(idPropietario);
+    }
+
+    @Override
+    public List<Historia> HistoriasPaTodos(int idPropietario) {
+        return repositorio.HistoriasPaTodos(idPropietario);
+    }
+
+
 }
