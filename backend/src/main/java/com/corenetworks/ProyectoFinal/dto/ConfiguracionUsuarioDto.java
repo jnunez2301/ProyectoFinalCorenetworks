@@ -17,6 +17,7 @@ public class ConfiguracionUsuarioDto {
     private String salt;
     private String correo;
     private String preguntaSecreta;
+    private String fotoPerfil;
 
 
     public Usuario castUusuario(){
@@ -24,19 +25,18 @@ public class ConfiguracionUsuarioDto {
         u1.setIdUsuario(idUsuario);
         u1.setNombreUsuario(nombreUsuario);
         u1.setContrasena(contrasena);
-        u1.setSalt(salt);
         u1.setCorreo(correo);
         u1.setPreguntaSecreta(preguntaSecreta);
+        u1.setFotoPerfil(fotoPerfil);
         return u1;
     }
     public  ConfiguracionUsuarioDto castUsuarioDTO(Usuario u){
         idUsuario = u.getIdUsuario();
         nombreUsuario= u.getNombreUsuario();
         contrasena = u.getContrasena();
-        salt = u.getSalt();
+        fotoPerfil = u.getFotoPerfil();
         correo = u.getCorreo();
         preguntaSecreta = u.getPreguntaSecreta();
         return this;
     }
-
 }

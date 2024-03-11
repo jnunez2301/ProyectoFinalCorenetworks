@@ -51,7 +51,6 @@ TODO: Mostrar el perfil en :hover al ver la sugerencia
  */
 export class InicioComponent implements OnInit {
   public listaPublicaciones$!: Publicaciones[];
-  public listaComentarios$!: Comentarios[];
   public listaUsuarios$!: Usuario[];
 
   error: string = '';
@@ -110,9 +109,6 @@ export class InicioComponent implements OnInit {
   ngOnInit(): void {
     this.service.getPublicaciones().subscribe((data) => {
       this.listaPublicaciones$ = data;
-    });
-    this.comentariosService.getComentarios().subscribe((data) => {
-      this.listaComentarios$ = data;
     });
     this.usuarioService.getUsuarios().subscribe((data) => {
       this.listaUsuarios$ = data;

@@ -12,8 +12,5 @@ export class PublicarComentarioService {
 
   constructor(private http:HttpClient) { }
 
-  getComentarios(): Observable<Comentarios[]>{
-    return this.http.get<Comentarios[]>(this.url);
-  }
   /* TODO: CRUD */
 }
