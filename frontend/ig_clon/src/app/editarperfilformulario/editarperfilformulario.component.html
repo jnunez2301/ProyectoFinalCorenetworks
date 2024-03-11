@@ -1,0 +1,22 @@
+<div>
+  <h2>Perfil de Usuario</h2>
+    <div>
+      <label for="nombre">Nombre:</label>
+      <input type="text" required ([(ngModel)]="pu.nombreUsuario"])>
+    </div>
+    <div>
+      <label for="correo">Correo Electrónico:</label>
+      <input type="correo" required ([(ngModel)="pu.correo"])>
+    </div>
+    <div>
+      <label for="contraseña">Contraseña:</label>
+      <input type="contraseña" required ([(ngModel)="pu.contrasena"])>
+    </div>
+    <div>
+      
+     <label>fotoPerfil</label>
+      <input type="text"  required ([(ngModel)="pu.fotoPerfil"])>
+    </div>
+    <button (click)="guardarCambios()" >Guardar Cambios</button>
+  
+</div>
