@@ -1,3 +1,5 @@
+import { Usuario } from "./Usuario";
+
 export interface Comentarios {
     idPublicacion: number;
     idComentario: number;
@@ -6,4 +8,5 @@ export interface Comentarios {
     respuestasUsuarios: string;
     hCreacion: string;
     fCreacion: string;
+    usuario:Usuario
 }

@@ -11,43 +11,49 @@
   }
   
   .modal-content {
-    background-color: #fefefe;
     margin: 1rem auto;
-    width: 300px;
-    min-height: 90vh;
+    max-width: 90vw;
+    width: 420px;
     border-radius: 5px;
-
+    height: 90vh;
+    min-height: 90vh;
   }
   
   .close {
     color: #aaaaaa;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 3px;
+    right: 5px;
     font-size: 28px;
     font-weight: bold;
   }
   
   .close:hover,
   .close:focus {
-    color: #000;
+    color: #fff;
     text-decoration: none;
     cursor: pointer;
   }
   .historia-modal{
     display: flex;
     flex-direction: column;
-    padding: .3rem;
+    padding: 1rem;
     position: relative;
     justify-content: space-between;
-    height: 547px;
     color: #fff;
-    background-image: url('https://picsum.photos/200/300?grayscale');
+    background-color: rgba(0, 0, 0);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-weight: bold;
     border-radius: 5px;
+    height: 100%;
   }
-  .timeline{
-    border: 1px solid #fff;
-    width: 100%;
+
+  #timeline{
+    border: 1px solid rgba(255,255,255, 0.8);
+    border-radius: 5px;
+    transition: all 100ms ease-in;
   }
   .controls-container{
     display: flex;
@@ -67,6 +73,7 @@
     border: 1px solid #fff;
     padding: 8px 12px;
     border-radius: 5px;
+    color: #fff;
   }
   .comment-container input::placeholder{
     color: #fff;

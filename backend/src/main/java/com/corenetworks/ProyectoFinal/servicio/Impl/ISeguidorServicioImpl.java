@@ -74,5 +74,10 @@ public class ISeguidorServicioimpl extends ICRUDimpl <Seguidor,Long> implements 
         return seguidoresDTO;
     }
 
+    @Override
+    public boolean isSeguidor(int idSeguido, int idSeguidor) {
+        return repositorio.isSeguidor(idSeguidor,idSeguido);
+    }
+
 
 }

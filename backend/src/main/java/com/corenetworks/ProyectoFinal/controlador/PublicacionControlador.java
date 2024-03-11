@@ -1,11 +1,13 @@
 package com.corenetworks.ProyectoFinal.controlador;
 
+import com.corenetworks.ProyectoFinal.dto.views;
 import com.corenetworks.ProyectoFinal.exepcion.ExcepcionPersonalizada;
 
 import com.corenetworks.ProyectoFinal.modelo.Publicacion;
 import com.corenetworks.ProyectoFinal.modelo.Usuario;
 import com.corenetworks.ProyectoFinal.servicio.IPublicacionServicio;
 import com.corenetworks.ProyectoFinal.servicio.Impl.IUsuarioServicioimpl;
+import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,14 +25,17 @@ public class PublicacionControlador {
     IPublicacionServicio publicacionServicio;
     @Autowired
     IUsuarioServicioimpl usuarioServicioimpl;
+    @JsonView(views.Public.class)
     @GetMapping
     public ResponseEntity <List<Publicacion>> obtenerTodasPublicaciones() throws Exception {
         return new ResponseEntity<>(publicacionServicio.buscarTodos(), HttpStatus.OK);
     }
+    @JsonView(views.Public.class)
     @GetMapping("/{id}")
     public ResponseEntity<Publicacion> obtenerPublicaconId(@PathVariable int id) throws Exception {
         return new ResponseEntity<>(publicacionServicio.buscarPorId(id),HttpStatus.OK);
     }
+    @JsonView(views.Public.class)
     @PostMapping("/{id_usuario}")
     public ResponseEntity<Publicacion> guardarPublicacion(@RequestBody Publicacion publicacion, @PathVariable int id_usuario) throws Exception {
         if(usuarioServicioimpl.buscarPorId(id_usuario) == null) {
@@ -51,7 +56,7 @@ public class PublicacionControlador {
 
         return new ResponseEntity<>(publicacionServicio.crear(publicacion),HttpStatus.CREATED);
     }
-
+    @JsonView(views.Public.class)
     @PutMapping
     public ResponseEntity<Publicacion> actualizarPublicacion(@RequestBody Publicacion publicacion) throws Exception {
         return new ResponseEntity<>(publicacionServicio.editar(publicacion),HttpStatus.OK);

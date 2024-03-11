@@ -51,7 +51,6 @@ TODO: Mostrar el perfil en :hover al ver la sugerencia
  */
 export class InicioComponent implements OnInit {
   public listaPublicaciones$!: Publicaciones[];
-  public listaComentarios$!: Comentarios[];
   public listaUsuarios$!: Usuario[];
 
   error: string = '';
@@ -59,31 +58,46 @@ export class InicioComponent implements OnInit {
   comentarioActual: string = '';
   publicacionAbierta: boolean = false;
   publicacionActual: Publicaciones | undefined;
+  
+  
+  
   /* HISTORIAS  */
   historiaAbierta: boolean = false;
   timeline: number = 0;
+  pause: boolean = false;
 
   abrirHistoria(): void {
     this.historiaAbierta = true;
+    if(this.pause){
+      this.timeline = 0;
+    }
     const interval = setInterval(() => {
-      this.timeline += 10; // Aumenta el timeline en un 10% cada vez
-      if (this.timeline >= 100) {
-        clearInterval(interval); // Detiene el intervalo cuando alcanza el 100%
-        this.historiaAbierta = false;
-        console.log('se ha cerrado la historia');
+      this.timeline += 1;
+      if(!this.pause){
+        if (this.timeline >= 100) {
+          clearInterval(interval); // Detiene el intervalo cuando alcanza el 100%
+          this.historiaAbierta = false;
+          this.timeline = 0;
+          console.log('se ha cerrado la historia');
+        }
+      }else if(this.pause){
+        this.timeline = 0;
       }
-    }, 300); // Intervalo de tiempo para aumentar gradualmente (300 ms en este caso)
+    }, 100); // Intervalo de tiempo para aumentar gradualmente (300 ms en este caso)
   }
   cerrarHistoria(): void {
     this.historiaAbierta = false;
+    this.timeline = 0;
   }
-  /*   abrirPublicacion(id:number): void{
-    this.publicacionAbierta = true;
-    this.publicacionActual = this.listaPublicaciones$[id];    
+  pararTemporizador():void{
+    this.timeline = 0;
   }
-  cerrarPublicacion(): void{
-    this.publicacionAbierta = false;
-  } */
+  pauseBtn():void{
+    this.pause = true;
+  }
+  playBtn():void{
+    this.pause = false;
+  }
   /* TODO: Modelo de historia pendiente */
 
   constructor(
@@ -95,9 +109,6 @@ export class InicioComponent implements OnInit {
   ngOnInit(): void {
     this.service.getPublicaciones().subscribe((data) => {
       this.listaPublicaciones$ = data;
-    });
-    this.comentariosService.getComentarios().subscribe((data) => {
-      this.listaComentarios$ = data;
     });
     this.usuarioService.getUsuarios().subscribe((data) => {
       this.listaUsuarios$ = data;
@@ -117,7 +128,7 @@ export class InicioComponent implements OnInit {
 
   abrirPublicacion(id: number): void {
     this.publicacionAbierta = true;
-    this.publicacionActual = this.listaPublicaciones$[id];
+    this.publicacionActual = this.listaPublicaciones$[id];    
   }
   cerrarPublicacion(): void {
     this.publicacionAbierta = false;

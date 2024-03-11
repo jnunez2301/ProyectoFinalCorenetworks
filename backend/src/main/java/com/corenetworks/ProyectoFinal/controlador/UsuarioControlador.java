@@ -51,43 +51,44 @@ public class UsuarioControlador {
 //        return new ResponseEntity<>(uccBB, HttpStatus.OK);
 //    }
 
+    @JsonView(views.Public.class)
     @GetMapping
     public ResponseEntity<List<Usuario>> mostrarTodos() throws Exception {
         return new ResponseEntity<>(usuarioServicio.buscarTodos(), HttpStatus.OK);
     }
 
-    @PostMapping
-    @JsonView(views.Private.class)
-    public ResponseEntity<Usuario> insertarUno(@RequestBody Usuario usr) throws NoSuchAlgorithmException, InvalidKeySpecException, Exception {
-        if(usr.getContrasena() == null || usr.getContrasena().isEmpty() || usr.getContrasena().length() < 8){
-            System.out.println("La contraseña debe ser más larga que 8 caracteres");
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
-        usr.setFCreacion(LocalDate.now());
-        usr.setHCreacion(LocalTime.now());
-        SecureRandom random = new SecureRandom();
-        byte[] salt = new byte[16];
-        random.nextBytes(salt);
-
-        KeySpec spec = new PBEKeySpec(usr.getContrasena().toCharArray(), salt, 65536, 128);
-        SecretKeyFactory f = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
-        byte[] hash = f.generateSecret(spec).getEncoded();
-
-        Base64.Encoder enc = Base64.getEncoder();
-        usr.setSalt(enc.encodeToString(salt));
-        usr.setContrasena(enc.encodeToString(hash));
-        Perfil p1= new Perfil();
-        p1.setUsuario(usr);
-        p1.setIdPerfil(usr.getIdUsuario());
-        p1.setNumPublicaciones(0);
-        p1.setFotoPerfil("https://t4.ftcdn.net/jpg/03/49/49/79/360_F_349497933_Ly4im8BDmHLaLzgyKg2f2yZOvJjBtlw5.webp");
-        p1.setNumSeguidores(0);
-        p1.setNumSiguiendo(0);
-        p1.setDescripcion("");
-        usuarioServicio.crear(usr);
-        perfilServicio.crear(p1);
-        return new ResponseEntity<>(usr, HttpStatus.CREATED);
-    }
+//    TODO: ARREGLAR EL POST DE USUARIO
+//    @PostMapping
+//    @JsonView(views.Private.class)
+//    public ResponseEntity<Usuario> insertarUno(@RequestBody Usuario usr) throws NoSuchAlgorithmException, InvalidKeySpecException, Exception {
+//        if(usr.getContrasena() == null || usr.getContrasena().isEmpty() || usr.getContrasena().length() < 8){
+//            System.out.println("La contraseña debe ser más larga que 8 caracteres");
+//            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+//        }
+//        usr.setFCreacion(LocalDate.now());
+//        usr.setHCreacion(LocalTime.now());
+//        SecureRandom random = new SecureRandom();
+//        byte[] salt = new byte[16];
+//        random.nextBytes(salt);
+//
+//        KeySpec spec = new PBEKeySpec(usr.getContrasena().toCharArray(), salt, 65536, 128);
+//        SecretKeyFactory f = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+//        byte[] hash = f.generateSecret(spec).getEncoded();
+//
+//        Base64.Encoder enc = Base64.getEncoder();
+//        usr.setContrasena(enc.encodeToString(hash));
+//        Perfil p1= new Perfil();
+//        p1.setUsuario(usr);
+//        p1.setIdPerfil(usr.getIdUsuario());
+//        p1.setNumPublicaciones(0);
+//        p1.setFotoPerfil("https://t4.ftcdn.net/jpg/03/49/49/79/360_F_349497933_Ly4im8BDmHLaLzgyKg2f2yZOvJjBtlw5.webp");
+//        p1.setNumSeguidores(0);
+//        p1.setNumSiguiendo(0);
+//        p1.setDescripcion("");
+//        usuarioServicio.crear(usr);
+//        perfilServicio.crear(p1);
+//        return new ResponseEntity<>(usr, HttpStatus.CREATED);
+//    }
 
     @PutMapping
     public ResponseEntity <Usuario> modificarUno(@RequestBody Usuario u) throws Exception{
