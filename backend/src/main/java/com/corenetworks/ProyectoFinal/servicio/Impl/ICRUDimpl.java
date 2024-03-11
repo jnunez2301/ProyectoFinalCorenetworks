@@ -26,4 +26,11 @@ public abstract class ICRUDimpl <T,ID> implements ICRUD<T,ID> {
     public T editar(T t) throws Exception {
         return getRepo().save(t);
     }
+
+    @Override
+    public void eliminar(T t) throws Exception {
+        getRepo().delete(t);
+    }
+
+
 }

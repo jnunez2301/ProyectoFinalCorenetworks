@@ -5,23 +5,21 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Table(name = "seguidos")
-public class Seguido {
+@Entity
+@Table(name = "likesC")
+public class LikeComentario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
     @ManyToOne
-    @JoinColumn(name = "id_usuario_seguido")
-    private Usuario seguido;
+    @JoinColumn(name = "id_Usuario")
+    private Usuario usuario;
 
     @ManyToOne
-    @JoinColumn(name = "id_usuario_seguidor")
-    private Usuario seguidor;
-
-
+    @JoinColumn(name = "id_Comentario")
+    private Comentario Comentario;
 }
