@@ -28,7 +28,29 @@
             <span class="close" (click)="close()">&times;</span>
           </picture>
           <ul>
-            <li>{{ publicacionActual?.descripcion }}</li>
+            <li class="descripcion">{{ publicacionActual?.descripcion }}</li>
+            @for (c of publicacionActual?.comentarios; track c.idPublicacion) {
+            <li class="comentario">
+            <div class="titulo-comentario"> 
+              <img
+                [src]="
+                  'https://picsum.photos/id/' +
+                  c.idComentario +
+                  '/640/640/'
+                "
+                [alt]="c.usuario.nombreUsuario"
+                class="avatar-usuario"
+              />
+              <div>
+                <p>{{c.usuario.nombreUsuario}}</p>
+                <p class="date-mensaje">{{c.fCreacion}} - {{c.hCreacion}}</p>
+              </div>
+            </div>
+              <div class="mensaje">
+                <p class="contenido-mensaje">{{c.mensajes}}</p>
+              </div>
+            </li>
+            }
           </ul>
         </header>
       </article>

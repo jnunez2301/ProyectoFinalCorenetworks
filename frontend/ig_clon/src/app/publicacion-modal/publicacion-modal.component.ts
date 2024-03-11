@@ -6,17 +6,17 @@ import { Publicaciones } from '../_modelo/Publicaciones';
   standalone: true,
   imports: [],
   templateUrl: './publicacion-modal.component.html',
-  styleUrl: './publicacion-modal.component.css'
+  styleUrl: './publicacion-modal.component.css',
 })
-export class PublicacionModalComponent{
-  
-  @Input() isOpen:boolean = false;
+export class PublicacionModalComponent {
+  @Input() isOpen: boolean = false;
 
-  @Input() publicacionActual:Publicaciones | undefined;
+  @Input() publicacionActual: Publicaciones | undefined;
 
   @Output() cerrar: EventEmitter<any> = new EventEmitter();
 
   close() {
-    this.cerrar.emit(); 
+    this.cerrar.emit();
+    console.log(this.publicacionActual);
   }
 }

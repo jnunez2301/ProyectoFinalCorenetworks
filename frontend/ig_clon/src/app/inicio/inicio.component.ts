@@ -60,6 +60,8 @@ export class InicioComponent implements OnInit {
   publicacionAbierta: boolean = false;
   publicacionActual: Publicaciones | undefined;
   
+  
+  
   /* HISTORIAS  */
   historiaAbierta: boolean = false;
   timeline: number = 0;
@@ -130,7 +132,7 @@ export class InicioComponent implements OnInit {
 
   abrirPublicacion(id: number): void {
     this.publicacionAbierta = true;
-    this.publicacionActual = this.listaPublicaciones$[id];
+    this.publicacionActual = this.listaPublicaciones$[id];    
   }
   cerrarPublicacion(): void {
     this.publicacionAbierta = false;
