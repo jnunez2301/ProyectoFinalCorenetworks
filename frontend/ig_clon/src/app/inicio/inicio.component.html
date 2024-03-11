@@ -1,3 +1,5 @@
+
+
 <section>
   <div class="contenedor">
     <header class="barra-historias">
@@ -6,8 +8,18 @@
         <a href="" class="anchor-historia">Siguiendo</a>
       </div>
       <div class="contenedor-historias">
-        @for (item of listaUsuarios$; track item.idUsuario) {
-        <div class="mini-historia">
+        @for (item of listaUsuarios$; track item.idUsuario) { @if
+        (historiaAbierta) {
+        <app-historia-modal
+          (cerrar)="cerrarHistoria()"
+          (temporizador)="pararTemporizador()"
+          (pausar)="pauseBtn()"
+          (play)="playBtn()"
+          [timelineWidth]="timeline"
+          [isPaused]="pause"     
+        ></app-historia-modal>
+        }
+        <div class="mini-historia" (click)="abrirHistoria()">
           <img
             height="66"
             width="66"
@@ -24,22 +36,28 @@
           fontIcon="navigate_next"
         ></mat-icon>
       </div>
-    </header>   
-    @for (item of listaPublicaciones$; track item.idPublicacion) {
-        @if (publicacionAbierta) {
-          <app-publicacion-modal (cerrar)="cerrarPublicacion()" [publicacionActual]="publicacionActual"></app-publicacion-modal>
-        }
+    </header>
+    @for (item of listaPublicaciones$; track item.idPublicacion; let i = $index)
+    { @if (publicacionAbierta) {
+    <app-publicacion-modal
+      (cerrar)="cerrarPublicacion()"
+      [publicacionActual]="publicacionActual"
+    ></app-publicacion-modal>
+    }
     <article class="post">
       <header class="post-titulo">
         <div class="post-info-usuario">
           <img [src]="item.rutaContenido" [alt]="item.descripcion" />
           @if(item.usuario){
           <p>
-            <span class="nombre-usuario">{{ item.usuario.nombreUsuario }} </span>  -  <span class="post-time">3h</span>
+            <span class="nombre-usuario"
+              >{{ item.usuario.nombreUsuario }}
+            </span>
+            - <span class="post-time">3h</span>
           </p>
           }
         </div>
-       <!-- 
+        <!-- 
         TODO: Espacio apartado para reportar, bloquear, remover publicación de momento se queda en standby
          <div>
           <span class="dotBtn">...</span>
@@ -54,27 +72,34 @@
       <div class="post-btns">
         <div class="post-interactive-btns">
           <ng-icon
-          (click)="darLike(item.idPublicacion)"
-           name="ionHeartCircleOutline" size="24px"></ng-icon>
-          <ng-icon 
-          (click)="abrirPublicacion(item.idPublicacion)"
-          name="ionChatboxEllipsesOutline" size="24px"></ng-icon>
+            (click)="darLike(item.idPublicacion)"
+            name="ionHeartCircleOutline"
+            size="24px"
+          ></ng-icon>
           <ng-icon
-          (click)="compartir(item.idPublicacion)"
-           name="ionShareOutline" size="24px"></ng-icon>
+            (click)="abrirPublicacion(i)"
+            name="ionChatboxEllipsesOutline"
+            size="24px"
+          ></ng-icon>
+          <ng-icon
+            (click)="compartir(item.idPublicacion)"
+            name="ionShareOutline"
+            size="24px"
+          ></ng-icon>
         </div>
         <div>
           <ng-icon
-          (click)="guardarPublicacion(item.idPublicacion)"
-           name="ionBookmarkOutline" size="24px"></ng-icon>
+            (click)="guardarPublicacion(item.idPublicacion)"
+            name="ionBookmarkOutline"
+            size="24px"
+          ></ng-icon>
         </div>
       </div>
       <div class="post-info">
         <p class="likes">320 likes</p>
-        <p class="open-comments"
-        (click)="abrirPublicacion(item.idPublicacion)"
-          >Abre todos los comentarios - 4 comentarios</p
-        >
+        <p class="open-comments" (click)="abrirPublicacion(i)">
+          Abre todos los comentarios - 4 comentarios
+        </p>
         <div class="post-add-comment">
           <input
             type="text"

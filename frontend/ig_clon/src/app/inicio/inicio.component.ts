@@ -18,7 +18,7 @@ import {
 import { PublicacionModalComponent } from '../publicacion-modal/publicacion-modal.component';
 import { UsuarioService } from '../_servicio/usuario.service';
 import { Usuario } from '../_modelo/Usuario';
-
+import { HistoriaModalComponent } from '../historia-modal/historia-modal.component';
 
 @Component({
   selector: 'app-inicio',
@@ -30,7 +30,8 @@ import { Usuario } from '../_modelo/Usuario';
     AsyncPipe,
     FormsModule,
     NgIconComponent,
-    PublicacionModalComponent
+    PublicacionModalComponent,
+    HistoriaModalComponent,
   ],
   templateUrl: './inicio.component.html',
   styleUrl: './inicio.component.css',
@@ -49,15 +50,56 @@ TODO: Hacer las rutas ?variant=home || ?variant=following en el url
 TODO: Mostrar el perfil en :hover al ver la sugerencia
  */
 export class InicioComponent implements OnInit {
-
   public listaPublicaciones$!: Publicaciones[];
   public listaComentarios$!: Comentarios[];
   public listaUsuarios$!: Usuario[];
 
   error: string = '';
+  /* PUBLICACIONES */
   comentarioActual: string = '';
-  publicacionAbierta:boolean = false;
-  publicacionActual:Publicaciones | undefined;
+  publicacionAbierta: boolean = false;
+  publicacionActual: Publicaciones | undefined;
+  
+  
+  
+  /* HISTORIAS  */
+  historiaAbierta: boolean = false;
+  timeline: number = 0;
+  pause: boolean = false;
+
+  abrirHistoria(): void {
+    this.historiaAbierta = true;
+    if(this.pause){
+      this.timeline = 0;
+    }
+    const interval = setInterval(() => {
+      this.timeline += 1;
+      if(!this.pause){
+        if (this.timeline >= 100) {
+          clearInterval(interval); // Detiene el intervalo cuando alcanza el 100%
+          this.historiaAbierta = false;
+          this.timeline = 0;
+          console.log('se ha cerrado la historia');
+        }
+      }else if(this.pause){
+        this.timeline = 0;
+      }
+    }, 100); // Intervalo de tiempo para aumentar gradualmente (300 ms en este caso)
+  }
+  cerrarHistoria(): void {
+    this.historiaAbierta = false;
+    this.timeline = 0;
+  }
+  pararTemporizador():void{
+    this.timeline = 0;
+  }
+  pauseBtn():void{
+    this.pause = true;
+  }
+  playBtn():void{
+    this.pause = false;
+  }
+  /* TODO: Modelo de historia pendiente */
 
   constructor(
     private service: PublicacionesService,
@@ -67,14 +109,14 @@ export class InicioComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getPublicaciones().subscribe((data) => {
-      this.listaPublicaciones$ = data;      
+      this.listaPublicaciones$ = data;
     });
     this.comentariosService.getComentarios().subscribe((data) => {
       this.listaComentarios$ = data;
     });
-    this.usuarioService.getUsuarios().subscribe((data)=> {
-      this.listaUsuarios$ = data;      
-    })
+    this.usuarioService.getUsuarios().subscribe((data) => {
+      this.listaUsuarios$ = data;
+    });
   }
 
   postComentario(): void {
@@ -88,28 +130,26 @@ export class InicioComponent implements OnInit {
     console.log('Comentario posteado');
   }
 
-  abrirPublicacion(id:number): void{
+  abrirPublicacion(id: number): void {
     this.publicacionAbierta = true;
-    this.publicacionActual = this.listaPublicaciones$[id - 1];
+    this.publicacionActual = this.listaPublicaciones$[id];    
   }
-  cerrarPublicacion(): void{
+  cerrarPublicacion(): void {
     this.publicacionAbierta = false;
-    
   }
 
-  darLike(idPublicacion: number): void{
-    console.log("Has dado like"); 
+  darLike(idPublicacion: number): void {
+    console.log('Has dado like');
     /* SI LA PUBLI YA TIENE LIKE QUITARLO */
     /* SI LA PUBLI TIENE LIKE MOSTRARLO ROJO */
   }
-  compartir(idPublicacion:number):void{
+  compartir(idPublicacion: number): void {
     /* TODO: Esta en standby pero debería aportar un link acortado de la publicación actual */
     console.log('Compartiendo public...');
-    
   }
-  guardarPublicacion(idPublicacion:number):void{
+  guardarPublicacion(idPublicacion: number): void {
     /* TODO: Debe almacenar las publicaciones en el perfil del usuario, sin embargo estas no deben ser públicas */
-    console.log("Publicación guardada");
+    console.log('Publicación guardada');
   }
   usuario = {
     id: 0,
