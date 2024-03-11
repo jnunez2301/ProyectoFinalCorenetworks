@@ -51,6 +51,7 @@ public class UsuarioControlador {
 //        return new ResponseEntity<>(uccBB, HttpStatus.OK);
 //    }
 
+    @JsonView(views.Public.class)
     @GetMapping
     public ResponseEntity<List<Usuario>> mostrarTodos() throws Exception {
         return new ResponseEntity<>(usuarioServicio.buscarTodos(), HttpStatus.OK);

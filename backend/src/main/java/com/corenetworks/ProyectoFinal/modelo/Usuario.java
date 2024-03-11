@@ -53,6 +53,7 @@ public class Usuario{
         this.preguntaSecreta = preguntaSecreta;
     }
 
+    @JsonIgnore
     @OneToMany(mappedBy = "seguido")
     private List<Seguidor> seguidos;
     @JsonIgnore
