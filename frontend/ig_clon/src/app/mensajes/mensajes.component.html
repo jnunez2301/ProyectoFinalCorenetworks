@@ -1,1 +1,89 @@
-<p>mensajes works!</p>
+<section>
+  <aside>
+    <header class="my-user">
+      <h3>mi_nombre_usuario</h3>
+      <ng-icon name="ionAddCircleOutline" size="22px"></ng-icon>
+    </header>
+    <ul>
+      @for (item of listaUsuarios$; track item.idUsuario) {
+
+      <li class="usr-container">
+        <picture class="info-usuario">
+          <img
+            class="foto-perfil"
+            [src]="item.fotoPerfil"
+            [alt]="item.nombreUsuario"
+          />
+          <div>
+            <p class="nombre-usuario">{{ item.nombreUsuario }}</p>
+            <p class="last-msg">ultimo mensaje</p>
+          </div>
+        </picture>
+      </li>
+      }
+    </ul>
+  </aside>
+  <main>
+    <header>
+      <picture class="info-usuario">
+        <img
+          class="foto-perfil"
+          src="https://picsum.photos/id/200/200/300"
+          alt="item.nombreUsuario"
+        />
+        <div>
+          <p class="nombre-usuario">nombre_usuario_destino</p>
+          <p class="last-msg">Ultima vez 2h ago</p>
+        </div>
+      </picture>
+    </header>
+    <div>
+      <div class="msj-list-container">
+        <ul>
+          <li>mensaje 1</li>
+          <!-- TODO: asegurarse de que el usuario que este logeado vea sus mensajes a la derecha -->
+          <li>mensaje 2</li>
+          <li>qweqwe</li>
+          <li>qweqwe</li>
+          <li>qweqwe</li>
+          <li>qweqwe</li>
+          <li>qweqwe</li>
+          <li>qweqwe</li>
+          <li>qweqwe</li>
+          <li>qweqwe</li>
+          <li>qweqwe</li>
+          <li>qweqwe</li>
+          <li>qweqwe</li>
+          <li>qweqwe</li>
+          <li>qweqwe</li>
+          <li>qweqwe</li>
+          <li>qweqwe</li>
+          <li>qweqwe</li>
+          <li>qweqwe</li>
+          <li>qweqwe</li>
+          <li>qweqwe</li>
+          <li>qweqwe</li>
+          <li>qweqwe</li>
+          <li>qweqwe</li>
+          <li>qweqwe</li>
+          <li>qweqwe</li>
+          <li>qweqwe</li>
+          <li>qweqwe</li>
+          <li>qweqwe</li>
+        </ul>
+      </div>
+      <div class="msj-container">
+        <ng-icon name="ionHappyOutline" size="24px"></ng-icon>
+        <input
+          type="text"
+          placeholder="Mensaje..."
+          id="mensaje"
+          name="mensaje"
+          [(ngModel)]="mensaje"
+          (keydown.enter)="enviarMensaje()"
+        />
+        <ng-icon name="ionChatboxEllipsesOutline" size="24px"></ng-icon>
+      </div>
+    </div>
+  </main>
+</section>
