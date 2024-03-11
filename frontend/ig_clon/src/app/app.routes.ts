@@ -7,6 +7,7 @@ import { MensajesComponent } from './mensajes/mensajes.component';
 import { NotificacionesComponent } from './notificaciones/notificaciones.component';
 import { PublicarComponent } from './publicar/publicar.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { EditarperfilformularioComponent } from './editarperfilformulario/editarperfilformulario.component';
 
 export const routes: Routes = [
   { path: 'busqueda', component: BusquedaComponent },
@@ -16,6 +17,7 @@ export const routes: Routes = [
   { path: 'notificaciones', component: NotificacionesComponent },
   { path: 'publicar', component: PublicarComponent },
   { path: 'perfil', component: PerfilComponent },
+  { path: 'perfil/editar-perfil', component: EditarperfilformularioComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', component: InicioComponent },
 ];
