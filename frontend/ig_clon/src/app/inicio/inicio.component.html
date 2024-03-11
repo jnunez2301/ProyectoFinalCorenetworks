@@ -94,7 +94,7 @@
         </div>
       </div>
       <div class="post-info">
-        <p class="likes">320 likes</p>
+        <p class="likes">{{item.cantidadLikes}} likes</p>
         <p class="open-comments" (click)="abrirPublicacion(i)">
           Abre todos los comentarios - 4 comentarios
         </p>
@@ -139,6 +139,7 @@
               <p class="mini-text">Suggester for you</p>
             </div>
           </div>
+          <!-- TODO: FOLLOW DEBE FUNCIONAR -->
           <a href="#" class="btn-follow">Follow</a>
         </li>
         }
