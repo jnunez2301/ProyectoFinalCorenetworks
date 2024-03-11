@@ -1,8 +1,10 @@
 package com.corenetworks.ProyectoFinal.controlador;
 
+import com.corenetworks.ProyectoFinal.dto.views;
 import com.corenetworks.ProyectoFinal.modelo.*;
 import com.corenetworks.ProyectoFinal.repositorio.ILikeHistoriaRepositorio;
 import com.corenetworks.ProyectoFinal.servicio.*;
+import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,6 +30,7 @@ public class LikeControlador {
     @Autowired
     IHistoriaServicio historiaServicio;
 
+    @JsonView(views.Public.class)
     @PostMapping("/publicacion/{idPublicacion}/de/{idUsuario}")
     ResponseEntity<LikePublicacion> darLikePublicacion(@PathVariable("idUsuario") int idUsuario, @PathVariable("idPublicacion") int idPublicacion, @RequestBody LikePublicacion likePublicacion) throws Exception {
         if (likePublicacionServicio.dioLikeP(idUsuario,idPublicacion)==true){
@@ -40,6 +43,7 @@ public class LikeControlador {
 
      return new ResponseEntity<>(likePublicacionServicio.crear(likePublicacion), HttpStatus.OK);
     }
+    @JsonView(views.Public.class)
     @PostMapping("/comentario/{idComentario}/de/{idUsuario}")
     ResponseEntity<LikeComentario> darLikeComentario(@PathVariable("idUsuario") int idUsuario, @PathVariable("idComentario") int idComentario, @RequestBody LikeComentario likeComentario) throws Exception {
         if (likeComentarioServicio.dioLikeC(idUsuario,idComentario)==true){
@@ -52,6 +56,7 @@ public class LikeControlador {
 
         return new ResponseEntity<>(likeComentarioServicio.crear(likeComentario), HttpStatus.OK);
     }
+    @JsonView(views.Public.class)
     @PostMapping("/historia/{idHistoria}/de/{idUsuario}")
     ResponseEntity<LikeHistoria> darLikeHistoria(@PathVariable("idUsuario") int idUsuario, @PathVariable("idHistoria") int idHistoria, @RequestBody LikeHistoria likeHistoria) throws Exception {
         if (likeHistoriaServicio.dioLikeH(idUsuario,idHistoria)==true){

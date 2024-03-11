@@ -12,8 +12,7 @@ public interface IHistoriaRepositorio extends IGeneralRepositorio <Historia,Inte
 
     @Query("SELECT h FROM Historia h " +
             "WHERE h.usuario.id = :idUsuario " +
-            "AND h.Activo = true " +
-            "AND h.publicas = false")
+            "AND h.Activo = true")
     List<Historia> HistoriasVisiblesPorSeguidor(int idUsuario);
 
     @Query("SELECT h FROM Historia h " +
