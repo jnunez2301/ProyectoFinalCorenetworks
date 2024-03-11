@@ -84,8 +84,9 @@ li:active {
 }
 emoji-mart{
   position: absolute;
-  top: -425px;
+  top: -435px;
 }
+
 
 @media (max-width:769px){
     section{
