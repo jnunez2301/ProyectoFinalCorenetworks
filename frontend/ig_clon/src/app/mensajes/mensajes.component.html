@@ -73,7 +73,16 @@
         </ul>
       </div>
       <div class="msj-container">
-        <ng-icon name="ionHappyOutline" size="24px"></ng-icon>
+        <div class="emoji-container">
+          @if (emojiPickerOpen) {
+          <emoji-mart title="Pick your emoji…" emoji="point_up" (emojiClick)="addEmoji($event)"></emoji-mart>
+          }
+          <ng-icon
+            name="ionHappyOutline"
+            size="24px"
+            (click)="abrirEmojiPicker()"
+          ></ng-icon>
+        </div>
         <input
           type="text"
           placeholder="Mensaje..."
@@ -82,10 +91,7 @@
           [(ngModel)]="mensaje"
           (keydown.enter)="enviarMensaje()"
         />
-        @if (emojiPickerOpen) {
-            <emoji-mart title="Pick your emoji…" emoji="point_up"></emoji-mart>
-        }
-        <ng-icon name="ionChatboxEllipsesOutline" size="24px" (click)="abrirEmojiPicker()"></ng-icon>
+        <ng-icon name="ionChatboxEllipsesOutline" size="24px"></ng-icon>
       </div>
     </div>
   </main>

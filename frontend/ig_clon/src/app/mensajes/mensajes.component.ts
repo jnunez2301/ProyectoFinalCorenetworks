@@ -27,11 +27,15 @@ export class MensajesComponent implements OnInit {
   public listaUsuarios$!: Usuario[];
 
   /*  EMOJI PICKER  */
-  emojiPickerOpen:boolean = false;
-  abrirEmojiPicker(): void{
+  emojiPickerOpen: boolean = false;
+  abrirEmojiPicker(): void {
+    console.log(this.emojiPickerOpen);
     this.emojiPickerOpen = !this.emojiPickerOpen;
   }
-
+  addEmoji(event: any): void {
+    console.log(event.emoji.native);
+    this.mensaje += event.emoji.native;
+  }
   mensaje: string = '';
   errorMsg: string = '';
 

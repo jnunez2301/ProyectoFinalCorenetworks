@@ -79,6 +79,13 @@ li:active {
   width: 100%;
   outline: none;
 }
+.emoji-container{
+  position: relative;
+}
+emoji-mart{
+  position: absolute;
+  top: -425px;
+}
 
 @media (max-width:769px){
     section{
