@@ -45,7 +45,7 @@
     <article class="post">
       <header class="post-titulo">
         <div class="post-info-usuario">
-          <img [src]="item.rutaContenido" [alt]="item.descripcion" />
+          <img [src]="item.usuario.fotoPerfil" [alt]="item.usuario.nombreUsuario" />
           @if(item.usuario){
           <p>
             <span class="nombre-usuario"
@@ -62,11 +62,8 @@
           <span class="dotBtn">...</span>
         </div> -->
       </header>
-      <div class="post-contenido">
-        <img
-          [src]="'https://picsum.photos/id/' + item.idPublicacion + '/468/640/'"
-          alt=""
-        />
+      <!-- TODO: LOGIN IMPLEMENTADO si lo esta añadir la foto de la publicación! -->
+      <div class="post-contenido" [style.background-image]="'url(' + 'https://picsum.photos/id/' + item.idPublicacion + '/468/640/' + ')'">
       </div>
       <div class="post-btns">
         <div class="post-interactive-btns">
