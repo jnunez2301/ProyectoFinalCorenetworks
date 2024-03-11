@@ -45,6 +45,7 @@ public class Usuario{
     private LocalDate fCreacion;
     @JsonView(views.Private.class)
     private LocalTime hCreacion;
+    // TODO: AÑADIR FOTO DE PERFIL
 
     public Usuario(String nombreUsuario, String contrasena, String correo, String preguntaSecreta) {
         this.nombreUsuario = nombreUsuario;

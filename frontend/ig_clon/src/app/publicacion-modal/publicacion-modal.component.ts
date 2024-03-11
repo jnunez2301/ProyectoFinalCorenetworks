@@ -17,6 +17,5 @@ export class PublicacionModalComponent {
 
   close() {
     this.cerrar.emit();
-    console.log(this.publicacionActual);
   }
 }
