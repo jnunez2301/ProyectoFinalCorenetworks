@@ -6,5 +6,5 @@ export interface Usuario {
   fcreacion: Date,
   hcreacion: Date,
   preguntaSecreta:string,
-  salt:string,
+  fotoPerfil:string
 }

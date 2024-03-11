@@ -1,4 +1,3 @@
-
 /* publicacion-modal.component.css */
 .modal {
   display: block;
@@ -71,6 +70,9 @@
   border-left: 1px solid rgba(0, 0, 0, 0.1);
   position: relative;
   width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   
 }
 .lista-comentarios {
@@ -126,6 +128,33 @@
 }
 .date-mensaje{
   font-size: 10px;
+}
+#post-comentario{
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  outline: none;
+}
+#post-comentario:focus{
+  border: 1px solid #E22CE2;
+}
+.post-comentario{
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  padding: .3rem;
+}
+ng-icon{
+  cursor: pointer;
+  transition: all .2 ease-in-out;
+  margin: .3rem 0;
+  color: #d037d0;
+}
+ng-icon:hover{
+  opacity: 0.8;
+  scale: 1.1;
+  color: #dbaedb;
 }
 @media (max-width: 767px) {
   .post-modal {

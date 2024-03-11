@@ -185,7 +185,11 @@ li{
 }
 .post-contenido{
     max-width: 468px;
+    height: 640px;
     width: 468px;   
+    background-color: #000;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 .post-contenido img{
     border-radius: 2px;

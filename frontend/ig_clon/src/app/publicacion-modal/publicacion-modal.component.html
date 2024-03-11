@@ -32,9 +32,7 @@
             <li class="comentario">
               <div class="titulo-comentario">
                 <img
-                  [src]="
-                    'https://picsum.photos/id/' + c.idComentario + '/640/640/'
-                  "
+                  [src]="c.usuario.fotoPerfil"
                   [alt]="c.usuario.nombreUsuario"
                   class="avatar-usuario"
                 />
@@ -52,6 +50,10 @@
             }
           </ul>
         </header>
+        <form class="post-comentario">
+          <input type="text" placeholder="Añade un comentario" name="post-comentario" id="post-comentario" (keydown.enter)="subirComentario()" [(ngModel)]="comentario">
+          <ng-icon name="ionAddCircleOutline" size="24px" (click)="subirComentario()"></ng-icon>
+        </form>
       </article>
     </div>
   </div>

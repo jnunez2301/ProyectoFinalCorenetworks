@@ -25,4 +25,11 @@ public interface ISeguidorRepositorio extends IGeneralRepositorio<Seguidor,Long>
     List<CantidadSeguidoresDTO> seguidos(@Param("nombreUsuarioSeguidor") String nombreUsuario);
 
 
+
+    @Query("SELECT CASE WHEN COUNT(s) > 0 THEN true ELSE false END " +
+            "FROM Seguidor s " +
+            "WHERE s.seguido.id = :idSeguido " +
+            "AND s.seguidor.id = :idSeguidor")
+    boolean isSeguidor(@Param("idSeguidor") int idSeguidor, @Param("idSeguido") int idSeguido);
+
 }
