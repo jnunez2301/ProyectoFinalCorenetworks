@@ -45,7 +45,5 @@ export class BusquedaComponent implements OnInit {
       }
     );
   }
-  abrirPublicacion(publicacion: Publicaciones) {
-    console.log('Publicación abierta:', publicacion);
-  }
+  
 }
