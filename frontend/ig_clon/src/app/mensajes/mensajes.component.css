@@ -86,8 +86,20 @@ emoji-mart{
   position: absolute;
   top: -435px;
 }
-
-
+.msj-enviado{
+  display: flex;
+  justify-content: flex-end;
+}
+.msj-recibido{
+  border: 1px solid #d037d0;
+  padding: 5px 8px;
+  background-color: #d037d0;
+  color: #f2f2f2;
+  border-radius: 5px;
+}
+main>header{
+  margin-bottom: 10px;
+}
 @media (max-width:769px){
     section{
         flex-direction: column;

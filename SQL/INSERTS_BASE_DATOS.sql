@@ -1,18 +1,18 @@
 -- INSERT USUARIOS
-INSERT INTO usuarios (id_usuario, nombre_usuario, contrasena, salt, correo, pregunta_secreta, f_creacion, h_creacion)
-VALUES (1, 'jhon_cenaa', 'contrasena1', 'salt1', 'usuario1@example.com', 'Pregunta1', '2024-02-05', '12:30:00');
+INSERT INTO usuarios (id_usuario,nombre, apellido ,nombre_usuario, contrasena,correo, pregunta_secreta, f_creacion, h_creacion)
+VALUES (1, 'jhon','Cena', 'jhon_cenaa' ,'contrasena1', 'usuario1@example.com', 'Pregunta1', CURRENT_DATE, CURRENT_TIME);
 
-INSERT INTO usuarios (id_usuario, nombre_usuario, contrasena, salt, correo, pregunta_secreta, f_creacion, h_creacion)
-VALUES (2, 'pablito123', 'contrasena2', 'salt2', 'usuario2@example.com', 'Pregunta2', '2024-02-05', '14:45:00');
+INSERT INTO usuarios (id_usuario, nombre_usuario,nombre, apellido, contrasena,correo, pregunta_secreta, f_creacion, h_creacion)
+VALUES (2, 'pablito123','pablito','clavo un clavito', 'contrasena2','usuario2@example.com', 'Pregunta2', CURRENT_DATE, CURRENT_TIME);
 
-INSERT INTO usuarios (id_usuario, nombre_usuario, contrasena, salt, correo, pregunta_secreta, f_creacion, h_creacion)
-VALUES (3, 'Elrica_Tula', 'contrasena3', 'salt3', 'usuario3@example.com', 'Pregunta3', '2024-02-05', '10:15:00');
+INSERT INTO usuarios (id_usuario, nombre_usuario, nombre, apellido, contrasena, correo, pregunta_secreta, f_creacion, h_creacion)
+VALUES (3, 'Elrica_Tula', 'Elrica','tula', 'contrasena3', 'usuario3@example.com', 'Pregunta3', CURRENT_DATE, CURRENT_TIME);
 
-INSERT INTO usuarios (id_usuario, nombre_usuario, contrasena, salt, correo, pregunta_secreta, f_creacion, h_creacion)
-VALUES (4, 'ALL_CAPS_MA_BOYS', 'contrasena4', 'salt4', 'usuario4@example.com', 'Pregunta4', '2024-02-05', '08:00:00');
+INSERT INTO usuarios (id_usuario, nombre_usuario, nombre, apellido ,contrasena,correo, pregunta_secreta, f_creacion, h_creacion)
+VALUES (4, 'ALL_CAPS_MA_BOYS','ALL CAPS','MA BOYS', 'contrasena4',  'usuario4@example.com', 'Pregunta4', CURRENT_DATE, CURRENT_TIME);
 
-INSERT INTO usuarios (id_usuario, nombre_usuario, contrasena, salt, correo, pregunta_secreta, f_creacion, h_creacion)
-VALUES (5, 'ROSA_MELANO', 'contrasena5', 'salt5', 'usuario5@example.com', 'Pregunta5', '2024-02-05', '16:30:00');
+INSERT INTO usuarios (id_usuario, nombre_usuario,nombre, apellido ,contrasena, correo, pregunta_secreta, f_creacion, h_creacion)
+VALUES (5, 'ROSA_MELANO','ROSA','MELANO' ,'contrasena5', 'usuario5@example.com', 'Pregunta5', CURRENT_DATE, CURRENT_TIME);
 -- INSERT PERFILES
 INSERT INTO perfil (id_perfil,descripcion,nombre,apellido,foto_perfil,num_publicaciones,num_seguidores,num_siguiendo,id_usuario)
 VALUES(1,'','jhon','Cena','https://t4.ftcdn.net/jpg/03/49/49/79/360_F_349497933_Ly4im8BDmHLaLzgyKg2f2yZOvJjBtlw5.webp',0,0,0,1),
@@ -22,21 +22,27 @@ VALUES(1,'','jhon','Cena','https://t4.ftcdn.net/jpg/03/49/49/79/360_F_349497933_
 (5,'','ROSA','MELANO','https://t4.ftcdn.net/jpg/03/49/49/79/360_F_349497933_Ly4im8BDmHLaLzgyKg2f2yZOvJjBtlw5.webp',0,0,0,5);
 -- INSERT PUBLICACIONES
 INSERT INTO publicaciones (id_publicacion,f_creacion, h_creacion, id_usuario, descripcion, ruta_contenido, url_compartir, cantidad_likes)
-VALUES(1, CURRENT_DATE, CURRENT_TIME, 1, 'De viaje en paris :D', 'https://picsum.photos/id/237/200/300', '', 0);
+VALUES(1,CURRENT_DATE, CURRENT_TIME, 1, 'De viaje en paris :D', 'https://picsum.photos/id/237/200/300', '', 0);
 
 INSERT INTO publicaciones (id_publicacion,f_creacion, h_creacion, id_usuario, descripcion, ruta_contenido, url_compartir, cantidad_likes)
 VALUES(2, CURRENT_DATE, CURRENT_TIME, 2, 'Comienda pizza!', 'https://picsum.photos/id/237/200/400', '', 0);
 
-INSERT INTO publicaciones (id_publicacion, f_creacion, h_creacion, id_usuario, descripcion, ruta_contenido, url_compartir, cantidad_likes)
-VALUES(3, CURRENT_DATE, CURRENT_TIME, 3, 'Explorando Nueva York', 'https://picsum.photos/id/238/300/200', '', 0);
+INSERT INTO publicaciones (id_publicacion,f_creacion, h_creacion, id_usuario, descripcion, ruta_contenido, url_compartir, cantidad_likes)
+VALUES(3,CURRENT_DATE, CURRENT_TIME, 3, 'Explorando Nueva York', 'https://picsum.photos/id/238/300/200', '', 0);
 
 -- Publicación 4 con dimensión y ID distinto
-INSERT INTO publicaciones (id_publicacion, f_creacion, h_creacion, id_usuario, descripcion, ruta_contenido, url_compartir, cantidad_likes)
-VALUES(4, CURRENT_DATE, CURRENT_TIME, 4, 'Caminando por Roma', 'https://picsum.photos/id/239/400/200', '', 0);
+INSERT INTO publicaciones (id_publicacion,f_creacion, h_creacion, id_usuario, descripcion, ruta_contenido, url_compartir, cantidad_likes)
+VALUES(4,CURRENT_DATE, CURRENT_TIME, 4, 'Caminando por Roma', 'https://picsum.photos/id/239/400/200', '', 0);
 
 -- Publicación 5 con dimensión y ID distinto
-INSERT INTO publicaciones (id_publicacion, f_creacion, h_creacion, id_usuario, descripcion, ruta_contenido, url_compartir, cantidad_likes)
-VALUES(5, CURRENT_DATE, CURRENT_TIME, 5, 'Relajándome en la playa', 'https://picsum.photos/id/240/400/300', '', 0);
+INSERT INTO publicaciones (id_Publicacion,f_creacion, h_creacion, id_usuario, descripcion, ruta_contenido, url_compartir, cantidad_likes)
+VALUES(5,CURRENT_DATE, CURRENT_TIME, 5, 'Relajándome en la playa', 'https://picsum.photos/id/240/400/300', '', 0);
+
+-- INSERT MENSAJES
+INSERT INTO mensajes (id_mensaje,contenido,f_creacion,h_creacion,url_fotos,usuario_destino_id,usuario_origen_id)
+VALUES(1,'mamahuevo digo gluglu',CURRENT_DATE,CURRENT_TIME,'',1,2),
+(2,'gluglu',CURRENT_DATE,CURRENT_TIME,'',2,1),
+(3,'Los iluminatis',CURRENT_DATE,CURRENT_TIME,'',2,3)
 
 -- INSERT COMENTARIOS
 INSERT INTO comentarios (id_comentario, f_creacion, h_creacion, likes, mensajes, respuestas_usuarios,id_usuario,id_publicacion)
@@ -70,3 +76,7 @@ VALUES(1,true,'https://cdn.eldeforma.com/wp-content/uploads/2020/03/hacker-meme-
 -- PRIVADAS
 (6,true,'PRIV',CURRENT_DATE, CURRENT_TIME,false,1),
 (7,true,'Siuu',CURRENT_DATE, CURRENT_TIME,false,2);
+
+--INSER Likes Publicacion
+INSERT INTO likesp
+VALUES (1,1,2),(2,1,3),(3,2,1)
