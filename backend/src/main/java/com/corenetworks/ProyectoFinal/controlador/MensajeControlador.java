@@ -53,13 +53,14 @@ public class MensajeControlador {
 
         return new ResponseEntity<>(mensajeEnviado, HttpStatus.CREATED);
     }
-    @JsonView(views.Public.class)
+
     @GetMapping("/de/{id_origen}/con/{id_destino}")
     public ResponseEntity<List<HistorialChatsDTO>> historialChats(@PathVariable("id_origen")int id_origen,@PathVariable("id_destino")int id_destino) throws Exception {
        return new ResponseEntity<>(mensajeServicio.historialChats(id_origen,id_destino), HttpStatus.OK);
 
     }
-    @JsonView(views.Public.class)
+
+
     @GetMapping("/chats/{id_origen}")
     public ResponseEntity<List<BarritaDeMensajesDto>> barritaMensajes(@PathVariable("id_origen")int id_origen) throws Exception {
         return new ResponseEntity<>(mensajeServicio.barritaDeMensajes(id_origen),HttpStatus.OK);
