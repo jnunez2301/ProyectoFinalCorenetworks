@@ -44,6 +44,9 @@ VALUES(1,'mamahuevo digo gluglu',CURRENT_DATE,CURRENT_TIME,'',1,2),
 (2,'gluglu',CURRENT_DATE,CURRENT_TIME,'',2,1),
 (3,'Los iluminatis',CURRENT_DATE,CURRENT_TIME,'',2,3)
 
+INSERT INTO mensajes (id_mensaje,contenido,f_creacion,h_creacion,url_fotos,usuario_destino_id,usuario_origen_id)
+VALUES(1,'mamahuevo digo gluglu',CURRENT_DATE,CURRENT_TIME,'',2,1)
+
 -- INSERT COMENTARIOS
 INSERT INTO comentarios (id_comentario, f_creacion, h_creacion, likes, mensajes, respuestas_usuarios,id_usuario,id_publicacion)
 VALUES (1, CURRENT_DATE, CURRENT_TIME, 0, '¡Qué increíble foto!', '',1,1);
@@ -81,4 +84,4 @@ VALUES(1,true,'https://cdn.eldeforma.com/wp-content/uploads/2020/03/hacker-meme-
 INSERT INTO likesp
 VALUES (1,1,2),(2,1,3),(3,2,1);
 
-SELECT * FROM mensajes;
+SELECT * FROM publicaciones;

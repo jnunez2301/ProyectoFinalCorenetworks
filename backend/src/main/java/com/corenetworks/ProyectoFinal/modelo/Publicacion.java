@@ -8,8 +8,6 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.engine.jdbc.env.internal.LobTypes;
-import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.time.LocalTime;
 import java.util.List;
@@ -29,8 +27,11 @@ public class Publicacion {
     private String descripcion;
     @JsonView(views.Public.class)
     private int cantidadLikes;
+
     @JsonView(views.Public.class)
+    @Column(columnDefinition = "TEXT")
     private String rutaContenido;
+
     @JsonView(views.Public.class)
     private String urlCompartir;
     @JsonView(views.Private.class)
@@ -38,20 +39,6 @@ public class Publicacion {
     private LocalDate fCreacion;
     @JsonView(views.Private.class)
     private LocalTime hCreacion;
-
-//    public Publicacion(int idPublicacion, String descripcion, int cantidadLikes, String contenido, String urlCompartir, LocalDate fCreacion, LocalTime hCreacion, Usuario usuario) {
-//        this.idPublicacion = idPublicacion;
-//        this.descripcion = descripcion;
-//        this.cantidadLikes = cantidadLikes;
-//        this.rutaContenido = contenido;
-//        this.urlCompartir = urlCompartir;
-//        this.fCreacion = fCreacion;
-//        this.hCreacion = hCreacion;
-//        this.usuario = usuario;
-//    }
-    /*
-    * FK_usuarios_publicaciones
-    * */
 
     // Comentario
     @JsonView(views.Public.class)

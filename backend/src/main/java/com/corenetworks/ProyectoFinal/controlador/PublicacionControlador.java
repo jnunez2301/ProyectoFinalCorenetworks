@@ -62,7 +62,8 @@ public class PublicacionControlador {
 
         Usuario usuario = usuarioServicioimpl.buscarPorId(id_usuario);
         publicacion.setUsuario(usuario);
-
+        int ultimaId = publicacionServicio.buscarTodos().size() + 1;
+        publicacion.setIdPublicacion(ultimaId);
         publicacion.setUrlCompartir("http://localhost:3000/api/publicaciones/"+publicacion.getIdPublicacion());
         int l= ILikePublicacionServicio.cantidadLikeP(usuario.getIdUsuario());
         publicacion.setCantidadLikes(l);
