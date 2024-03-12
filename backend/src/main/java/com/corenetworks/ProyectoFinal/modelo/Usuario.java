@@ -68,6 +68,9 @@ public class Usuario{
     @JsonIgnore
     @OneToMany(mappedBy = "seguidor")
     private List<Seguidor> seguidores;
+    @JsonIgnore
+    @OneToMany(mappedBy = "usuario")
+    private List<Publicacion> publicacion;
 
 
 

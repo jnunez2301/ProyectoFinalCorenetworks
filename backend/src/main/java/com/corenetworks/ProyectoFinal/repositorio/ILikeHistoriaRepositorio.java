@@ -10,4 +10,7 @@ public interface ILikeHistoriaRepositorio extends IGeneralRepositorio<LikeHistor
             "WHERE l.usuario.idUsuario = :idUsuario " +
             "AND l.historia.idHistoria = :idHistoria")
     boolean dioLikeH(@Param("idUsuario") int idUsuario, @Param("idHistoria") int idHistoria);
+
+    @Query("SELECT COUNT(id) FROM LikeHistoria l WHERE l.historia.idHistoria = :idHistoria")
+    int cantidadDeLikesH(@Param("idHistoria") int idHistoria);
 }

@@ -4,9 +4,7 @@ import com.corenetworks.ProyectoFinal.dto.views;
 import com.corenetworks.ProyectoFinal.exepcion.ExcepcionPersonalizada;
 import com.corenetworks.ProyectoFinal.modelo.Historia;
 import com.corenetworks.ProyectoFinal.modelo.Usuario;
-import com.corenetworks.ProyectoFinal.servicio.IHistoriaServicio;
-import com.corenetworks.ProyectoFinal.servicio.ISeguidorServicio;
-import com.corenetworks.ProyectoFinal.servicio.IUsuarioServicio;
+import com.corenetworks.ProyectoFinal.servicio.*;
 import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,6 +24,9 @@ public class HistoriaControlador {
     ISeguidorServicio seServicio;
     @Autowired
     IUsuarioServicio uServicio;
+
+    @Autowired
+    ILikeHistoriaServicio hServicio;
 
     /*
     TODO: Eliminar fecha final

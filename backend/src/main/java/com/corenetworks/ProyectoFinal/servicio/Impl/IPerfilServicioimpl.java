@@ -1,6 +1,7 @@
 package com.corenetworks.ProyectoFinal.servicio.Impl;
 
 import com.corenetworks.ProyectoFinal.dto.PerfilDTO;
+import com.corenetworks.ProyectoFinal.dto.SeguidoresSeguidosPublicacionesDTO;
 import com.corenetworks.ProyectoFinal.modelo.Perfil;
 import com.corenetworks.ProyectoFinal.repositorio.IGeneralRepositorio;
 import com.corenetworks.ProyectoFinal.repositorio.IPerfilRespositorio;
@@ -23,5 +24,10 @@ public class IPerfilServicioimpl extends ICRUDimpl<Perfil,Long> implements IPerf
         PerfilDTO x= repositorio.DatosPerfil(nombreUsuario);
         System.out.println(x);
         return repositorio.DatosPerfil(nombreUsuario);
+    }
+
+    @Override
+    public SeguidoresSeguidosPublicacionesDTO datos(int idUsuario) {
+        return repositorio.datos(idUsuario);
     }
 }

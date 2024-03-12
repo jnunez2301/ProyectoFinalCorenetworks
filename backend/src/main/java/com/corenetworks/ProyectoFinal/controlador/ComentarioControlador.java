@@ -29,6 +29,9 @@ public class ComentarioControlador {
     IPublicacionServicio puServicio;
     @Autowired
     IUsuarioServicio uservicio;
+
+    @Autowired
+    IComentarioServicio cServicio;
     @JsonView(views.Public.class)
     @PostMapping("/enviarcomentario/de/{idPublicacion}/de/{idUsuario}")
     ResponseEntity<Comentario> enviarComentario(@PathVariable("idPublicacion") int idPublicacion, @PathVariable("idUsuario") int idUsuario, @RequestBody Comentario comentario) throws Exception {
