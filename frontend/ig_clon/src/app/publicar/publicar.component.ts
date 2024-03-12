@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './publicar.component.css'
 })
 export class PublicarComponent {
-
+/* TODO: postear publicaciones con file */
 }
