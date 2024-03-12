@@ -32,7 +32,11 @@ public class PublicacionControlador {
     @JsonView(views.Public.class)
     @GetMapping
     public ResponseEntity <List<Publicacion>> obtenerTodasPublicaciones() throws Exception {
-
+        List<Publicacion> publicaciones = publicacionServicio.buscarTodos();
+        for (Publicacion publicacion : publicaciones) {
+            int cantidadLikes = ILikePublicacionServicio.cantidadLikeP(publicacion.getUsuario().getIdUsuario());
+            publicacion.setCantidadLikes(cantidadLikes);
+        }
         return new ResponseEntity<>(publicacionServicio.buscarTodos(), HttpStatus.OK);
     }
     @JsonView(views.Public.class)
