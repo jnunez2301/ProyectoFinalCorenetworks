@@ -1,20 +1,29 @@
-import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
-import { Usuario } from "../_modelo/Usuario";
-
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Perfilusuario } from '../_modelo/perfilusuario';
 
 @Injectable({
-    providedIn: 'root',
+  providedIn: 'root',
 })
-export class PerfilService { 
+export class PerfilService {
+  // confirmar url
+  baseURL: string = 'http://localhost:3000/api/usuarios';
+  constructor(private http: HttpClient) {}
 
-  url:string = "http://localhost:3000/api/usuarios/id"
+  obtenerPerfil(id: number): Observable<Perfilusuario> {    
+    return this.http.get<Perfilusuario>(`${this.baseURL}/${id}`);
+  }
 
-  constructor(private http:HttpClient) { }
+  actualizarPerfil(p: Perfilusuario): Observable<Perfilusuario> {
+    return this.http.put<Perfilusuario>(`${this.baseURL}/${p.idPerfil}`, p);
+  }
 
-  getUsuarios(): Observable<Usuario[]>{
-    return this.http.get<Usuario[]>(this.url);
+  eliminarPerfil(id: number) {
+    return this.http.delete(`${this.baseURL}/${id}`);
+  }
+
+  altaPerfil(p: Perfilusuario): Observable<Perfilusuario> {
+    return this.http.post<Perfilusuario>(`${this.baseURL}/${p.idPerfil}`, p);
   }
 }
-

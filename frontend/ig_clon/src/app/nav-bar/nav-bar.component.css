@@ -139,6 +139,7 @@ ul {
 .short-title{
   display: none;
 }
+
 @media(max-width: 1260px){
   a{
     flex-direction: column;
@@ -223,6 +224,10 @@ ul {
     top: -150px;
     left: -100px;
   }
+  #home-icon{
+    display: none
+  }
+  
 }
 
 @keyframes rotate {
