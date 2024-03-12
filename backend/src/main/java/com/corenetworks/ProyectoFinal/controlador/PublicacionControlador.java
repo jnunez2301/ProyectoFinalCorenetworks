@@ -3,8 +3,10 @@ package com.corenetworks.ProyectoFinal.controlador;
 import com.corenetworks.ProyectoFinal.dto.views;
 import com.corenetworks.ProyectoFinal.exepcion.ExcepcionPersonalizada;
 
+import com.corenetworks.ProyectoFinal.modelo.LikePublicacion;
 import com.corenetworks.ProyectoFinal.modelo.Publicacion;
 import com.corenetworks.ProyectoFinal.modelo.Usuario;
+import com.corenetworks.ProyectoFinal.servicio.ILikePublicacionServicio;
 import com.corenetworks.ProyectoFinal.servicio.IPublicacionServicio;
 import com.corenetworks.ProyectoFinal.servicio.Impl.IUsuarioServicioimpl;
 import com.fasterxml.jackson.annotation.JsonView;
@@ -25,6 +27,8 @@ public class PublicacionControlador {
     IPublicacionServicio publicacionServicio;
     @Autowired
     IUsuarioServicioimpl usuarioServicioimpl;
+    @Autowired
+    ILikePublicacionServicio ILikePublicacionServicio;
     @JsonView(views.Public.class)
     @GetMapping
     public ResponseEntity <List<Publicacion>> obtenerTodasPublicaciones() throws Exception {
@@ -33,7 +37,13 @@ public class PublicacionControlador {
     @JsonView(views.Public.class)
     @GetMapping("/{id}")
     public ResponseEntity<Publicacion> obtenerPublicaconId(@PathVariable int id) throws Exception {
-        return new ResponseEntity<>(publicacionServicio.buscarPorId(id),HttpStatus.OK);
+        Publicacion p= publicacionServicio.buscarPorId(id);
+        int l= ILikePublicacionServicio.cantidadLikeP(p.getUsuario().getIdUsuario());
+        p.setCantidadLikes(l);
+        if (p==null){
+            throw new ExcepcionPersonalizada("No existe la publicacion con el id "+ id);
+        }
+        return new ResponseEntity<>(p,HttpStatus.OK);
     }
     @JsonView(views.Public.class)
     @PostMapping("/{id_usuario}")
@@ -49,7 +59,8 @@ public class PublicacionControlador {
         publicacion.setUsuario(usuario);
 
         publicacion.setUrlCompartir("http://localhost:3000/api/publicaciones/"+publicacion.getIdPublicacion());
-
+        int l= ILikePublicacionServicio.cantidadLikeP(usuario.getIdUsuario());
+        publicacion.setCantidadLikes(l);
         publicacion.setFCreacion(LocalDate.now());
         publicacion.setHCreacion(LocalTime.now());
         publicacion.setCantidadLikes(0);

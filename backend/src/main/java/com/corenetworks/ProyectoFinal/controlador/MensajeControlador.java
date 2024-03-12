@@ -27,15 +27,17 @@ public class MensajeControlador {
     @Autowired
     IUsuarioServicioimpl usuarioServicioimpl;
 
+    @JsonView(views.Public.class)
     @GetMapping
     public ResponseEntity <List<Mensaje>> mostrarTodos() throws Exception {
         return new ResponseEntity<>(mensajeServicio.buscarTodos(), HttpStatus.OK);
     }
+    @JsonView(views.Public.class)
     @GetMapping("/{id}")
     public ResponseEntity<List<MensajeDTO>>buscarMensajesporId(@PathVariable(name = "id") int id) throws Exception {
         return new ResponseEntity<>(mensajeServicio.filtroMensajesporId(id),HttpStatus.OK);
     }
-
+    @JsonView(views.Public.class)
     @PostMapping("/enviarmensajes/{idO}/a/{idD}")
     public ResponseEntity<Mensaje> enviarMensaje(@PathVariable("idO") int idOrigen,@PathVariable("idD") int idDestino, @RequestBody Mensaje mensaje) throws Exception {
         Usuario usuarioDestino = usuarioServicioimpl.buscarPorId(idDestino);
@@ -51,12 +53,13 @@ public class MensajeControlador {
 
         return new ResponseEntity<>(mensajeEnviado, HttpStatus.CREATED);
     }
+    @JsonView(views.Public.class)
     @GetMapping("/de/{id_origen}/con/{id_destino}")
     public ResponseEntity<List<HistorialChatsDTO>> historialChats(@PathVariable("id_origen")int id_origen,@PathVariable("id_destino")int id_destino) throws Exception {
        return new ResponseEntity<>(mensajeServicio.historialChats(id_origen,id_destino), HttpStatus.OK);
 
     }
-
+    @JsonView(views.Public.class)
     @GetMapping("/chats/{id_origen}")
     public ResponseEntity<List<BarritaDeMensajesDto>> barritaMensajes(@PathVariable("id_origen")int id_origen) throws Exception {
         return new ResponseEntity<>(mensajeServicio.barritaDeMensajes(id_origen),HttpStatus.OK);

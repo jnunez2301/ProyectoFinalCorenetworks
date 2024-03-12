@@ -32,10 +32,10 @@ public class Publicacion {
     private String rutaContenido;
     @JsonView(views.Public.class)
     private String urlCompartir;
-    @JsonView(views.Public.class)
+    @JsonView(views.Private.class)
     //private String guardar;
     private LocalDate fCreacion;
-    @JsonView(views.Public.class)
+    @JsonView(views.Private.class)
     private LocalTime hCreacion;
 
 //    public Publicacion(int idPublicacion, String descripcion, int cantidadLikes, String contenido, String urlCompartir, LocalDate fCreacion, LocalTime hCreacion, Usuario usuario) {

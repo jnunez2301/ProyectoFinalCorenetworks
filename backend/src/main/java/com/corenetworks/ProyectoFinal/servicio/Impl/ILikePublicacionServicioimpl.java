@@ -20,4 +20,9 @@ public class ILikePublicacionServicioimpl extends ICRUDimpl<LikePublicacion,Inte
     public boolean dioLikeP(int idUsuario, int idPublicacion) {
         return repositorio.dioLikeP(idUsuario,idPublicacion);
     }
+
+    @Override
+    public int cantidadLikeP(int idPublicacion) {
+        return repositorio.cantidadDeLikesP(idPublicacion);
+    }
 }

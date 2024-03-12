@@ -34,6 +34,7 @@ public class UsuarioControlador {
     @Autowired
     IPerfilServicio perfilServicio;
 
+    @JsonView(views.Public.class)
     @GetMapping("/{id}")
     public ResponseEntity<Usuario> mostrarUno(@PathVariable(name = "id") int id) throws Exception{
         Usuario uccBB = usuarioServicio.buscarPorId(id);
@@ -58,38 +59,44 @@ public class UsuarioControlador {
     }
 
 //    TODO: ARREGLAR EL POST DE USUARIO
-//    @PostMapping
-//    @JsonView(views.Private.class)
-//    public ResponseEntity<Usuario> insertarUno(@RequestBody Usuario usr) throws NoSuchAlgorithmException, InvalidKeySpecException, Exception {
-//        if(usr.getContrasena() == null || usr.getContrasena().isEmpty() || usr.getContrasena().length() < 8){
-//            System.out.println("La contraseña debe ser más larga que 8 caracteres");
-//            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-//        }
-//        usr.setFCreacion(LocalDate.now());
-//        usr.setHCreacion(LocalTime.now());
-//        SecureRandom random = new SecureRandom();
-//        byte[] salt = new byte[16];
-//        random.nextBytes(salt);
-//
-//        KeySpec spec = new PBEKeySpec(usr.getContrasena().toCharArray(), salt, 65536, 128);
-//        SecretKeyFactory f = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
-//        byte[] hash = f.generateSecret(spec).getEncoded();
-//
-//        Base64.Encoder enc = Base64.getEncoder();
-//        usr.setContrasena(enc.encodeToString(hash));
-//        Perfil p1= new Perfil();
-//        p1.setUsuario(usr);
-//        p1.setIdPerfil(usr.getIdUsuario());
-//        p1.setNumPublicaciones(0);
-//        p1.setFotoPerfil("https://t4.ftcdn.net/jpg/03/49/49/79/360_F_349497933_Ly4im8BDmHLaLzgyKg2f2yZOvJjBtlw5.webp");
-//        p1.setNumSeguidores(0);
-//        p1.setNumSiguiendo(0);
-//        p1.setDescripcion("");
-//        usuarioServicio.crear(usr);
-//        perfilServicio.crear(p1);
-//        return new ResponseEntity<>(usr, HttpStatus.CREATED);
-//    }
+    @PostMapping
+    @JsonView(views.Public.class)
+    public ResponseEntity<Usuario> insertarUno(@RequestBody Usuario usr) throws NoSuchAlgorithmException, InvalidKeySpecException, Exception {
+        if(usr.getContrasena() == null || usr.getContrasena().isEmpty() || usr.getContrasena().length() < 8){
+            System.out.println("La contraseña debe ser más larga que 8 caracteres");
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        usr.setFCreacion(LocalDate.now());
+        usr.setHCreacion(LocalTime.now());
+        if (usr.getFotoPerfil()==null){
+            usr.setFotoPerfil("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png");
+        }
+        SecureRandom random = new SecureRandom();
+        byte[] salt = new byte[16];
+        random.nextBytes(salt);
 
+        KeySpec spec = new PBEKeySpec(usr.getContrasena().toCharArray(), salt, 65536, 128);
+        SecretKeyFactory f = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+        byte[] hash = f.generateSecret(spec).getEncoded();
+
+        Base64.Encoder enc = Base64.getEncoder();
+        usr.setContrasena(enc.encodeToString(hash));
+        Perfil p1= new Perfil();
+        p1.setUsuario(usr);
+        p1.setIdPerfil(usr.getIdUsuario());
+        p1.setNumPublicaciones(0);
+        p1.setFotoPerfil(usr.getFotoPerfil());
+        p1.setNumSeguidores(0);
+        p1.setNumSiguiendo(0);
+        p1.setDescripcion("");
+        p1.setNombre(usr.getNombre());
+        p1.setApellido(usr.getApellido());
+        usuarioServicio.crear(usr);
+        perfilServicio.crear(p1);
+        return new ResponseEntity<>(usr, HttpStatus.CREATED);
+    }
+
+    @JsonView(views.Public.class)
     @PutMapping
     public ResponseEntity <Usuario> modificarUno(@RequestBody Usuario u) throws Exception{
         Usuario UccBB = usuarioServicio.buscarPorId(u.getIdUsuario());

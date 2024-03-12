@@ -25,7 +25,10 @@ public class Usuario{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idUsuario;
-
+    @JsonView(views.Private.class)
+    private String Nombre;
+    @JsonView(views.Private.class)
+    private String apellido;
     @JsonView(views.Public.class)
     @Column(length = 16, nullable = false, unique = true)
     private String nombreUsuario;
@@ -48,7 +51,7 @@ public class Usuario{
     @JsonView(views.Private.class)
     private LocalTime hCreacion;
 
-    @JsonView(views.Public.class)
+    @JsonView(views.Private.class)
     @Column(columnDefinition = "VARCHAR(255) DEFAULT 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'")
     private String fotoPerfil;
 
