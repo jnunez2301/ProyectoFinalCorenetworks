@@ -108,7 +108,7 @@ export class InicioComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getPublicaciones().subscribe((data) => {
-      this.listaPublicaciones$ = data;
+      this.listaPublicaciones$ = data.reverse();
     });
     this.usuarioService.getUsuarios().subscribe((data) => {
       this.listaUsuarios$ = data;
