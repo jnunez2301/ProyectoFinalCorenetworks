@@ -32,18 +32,18 @@ export class MensajesComponent implements OnInit {
   constructor(private usuarioService: UsuarioService, private mensajeService: MensajeServiceService) {}
   
   /* Listar mensajes */
-  mensajesActuales:Mensaje[] | unknown | any;
+  mensajesActuales: Mensaje[] | undefined;
+  public usuarioDestino$: Usuario | undefined;
   usuarioActual = {
     idUsuario: 1,
     nombreUsuario: "jhon_cenaa"
   };
 
-  obtenerMensajesUsuario(id:number){
-  this.mensajeService.getMsgById(id).subscribe(data => {
-    this.mensajesActuales = data;    
-    console.log(this.mensajesActuales);
-    
-  });
+  obtenerMensajesUsuario(id: number) {
+    this.mensajeService.getMsgById(id).subscribe(data => {
+      this.mensajesActuales = data;
+      this.usuarioDestino$ = this.listaUsuarios$.find(usr => usr.idUsuario === id);    
+    });
   }
 
   /*  EMOJI PICKER  */

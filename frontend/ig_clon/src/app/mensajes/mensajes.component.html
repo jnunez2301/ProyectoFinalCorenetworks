@@ -28,22 +28,25 @@
   </aside>
   <main>
     <header>
+      @if (usuarioDestino$) {
       <picture class="info-usuario">
         <img
           class="foto-perfil"
-          src="https://picsum.photos/id/200/200/300"
-          alt="item.nombreUsuario"
+          [src]="usuarioDestino$.fotoPerfil"
+          [alt]="usuarioDestino$.nombreUsuario"
         />
         <div>
-          <p class="nombre-usuario">nombre_usuario_destino</p>
+          <p class="nombre-usuario">{{ usuarioDestino$.nombreUsuario }}</p>
           <p class="last-msg">Ultima vez 2h ago</p>
         </div>
       </picture>
+
+      }
     </header>
     <div>
       <div class="msj-list-container">
         <ul>
-          @for (item of mensajesActuales; track item.idMensaje) { 
+          @for (item of mensajesActuales; track item.idMensaje) {
           @if(item.nombreUsuarioOrigen !== usuarioActual.nombreUsuario) {
           <li>
             <span class="msj-recibido">{{ item.contenido }}</span>

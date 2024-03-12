@@ -12,7 +12,7 @@ export class MensajeServiceService {
   baseURL:string = 'http://localhost:3000/api/mensajes/de/'
   constructor(private http: HttpClient) { }
 
-  getMsgById(id:number): Observable<Mensaje>{    
-    return this.http.get<Mensaje>(`${this.baseURL}1/con/${id}`)
+  getMsgById(id:number): Observable<Mensaje[]>{    
+    return this.http.get<Mensaje[]>(`${this.baseURL}1/con/${id}`)
   }
 }
