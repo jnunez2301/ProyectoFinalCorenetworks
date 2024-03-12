@@ -28,7 +28,7 @@ public class PublicacionControlador {
     @Autowired
     IUsuarioServicioimpl usuarioServicioimpl;
     @Autowired
-    ILikePublicacionServicio PublicacionServicio;
+    ILikePublicacionServicio ILikePublicacionServicio;
     @JsonView(views.Public.class)
     @GetMapping
     public ResponseEntity <List<Publicacion>> obtenerTodasPublicaciones() throws Exception {
@@ -38,11 +38,11 @@ public class PublicacionControlador {
     @GetMapping("/{id}")
     public ResponseEntity<Publicacion> obtenerPublicaconId(@PathVariable int id) throws Exception {
         Publicacion p= publicacionServicio.buscarPorId(id);
+        int l= ILikePublicacionServicio.cantidadLikeP(p.getUsuario().getIdUsuario());
+        p.setCantidadLikes(l);
         if (p==null){
             throw new ExcepcionPersonalizada("No existe la publicacion con el id "+ id);
         }
-      int l= PublicacionServicio.cantidadLikeP(id);
-       p.setCantidadLikes(l);
         return new ResponseEntity<>(p,HttpStatus.OK);
     }
     @JsonView(views.Public.class)
@@ -59,7 +59,8 @@ public class PublicacionControlador {
         publicacion.setUsuario(usuario);
 
         publicacion.setUrlCompartir("http://localhost:3000/api/publicaciones/"+publicacion.getIdPublicacion());
-
+        int l= ILikePublicacionServicio.cantidadLikeP(usuario.getIdUsuario());
+        publicacion.setCantidadLikes(l);
         publicacion.setFCreacion(LocalDate.now());
         publicacion.setHCreacion(LocalTime.now());
         publicacion.setCantidadLikes(0);
