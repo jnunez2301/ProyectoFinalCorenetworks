@@ -18,5 +18,7 @@ public class HistorialChatsDTO {
     private String urlFotos;
     private String nombreUsuarioOrigen;
     private String nombreUsuarioDestino;
+    private String FotoPerfilOrigen;
+    private String FotoPerfilDestino;
 
 }
