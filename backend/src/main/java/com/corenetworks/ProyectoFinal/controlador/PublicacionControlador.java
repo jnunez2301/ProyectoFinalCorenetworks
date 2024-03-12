@@ -3,9 +3,11 @@ package com.corenetworks.ProyectoFinal.controlador;
 import com.corenetworks.ProyectoFinal.dto.views;
 import com.corenetworks.ProyectoFinal.exepcion.ExcepcionPersonalizada;
 
+import com.corenetworks.ProyectoFinal.modelo.Comentario;
 import com.corenetworks.ProyectoFinal.modelo.LikePublicacion;
 import com.corenetworks.ProyectoFinal.modelo.Publicacion;
 import com.corenetworks.ProyectoFinal.modelo.Usuario;
+import com.corenetworks.ProyectoFinal.servicio.ILikeComentarioServicio;
 import com.corenetworks.ProyectoFinal.servicio.ILikePublicacionServicio;
 import com.corenetworks.ProyectoFinal.servicio.IPublicacionServicio;
 import com.corenetworks.ProyectoFinal.servicio.Impl.IUsuarioServicioimpl;
@@ -29,6 +31,9 @@ public class PublicacionControlador {
     IUsuarioServicioimpl usuarioServicioimpl;
     @Autowired
     ILikePublicacionServicio ILikePublicacionServicio;
+
+    @Autowired
+    ILikeComentarioServicio ILikeComentarioServicio;
     @JsonView(views.Public.class)
     @GetMapping
     public ResponseEntity <List<Publicacion>> obtenerTodasPublicaciones() throws Exception {
@@ -36,9 +41,15 @@ public class PublicacionControlador {
         for (Publicacion publicacion : publicaciones) {
             int cantidadLikes = ILikePublicacionServicio.cantidadLikeP(publicacion.getUsuario().getIdUsuario());
             publicacion.setCantidadLikes(cantidadLikes);
+
+        List<Comentario> comentarios = publicacion.getComentarios();
+        for (Comentario comentario : comentarios) {
+            int cantidadLikesComentario = ILikeComentarioServicio.cantidadLikeC(comentario.getIdComentario());
+            comentario.setLikes(cantidadLikesComentario);
         }
-        return new ResponseEntity<>(publicacionServicio.buscarTodos(), HttpStatus.OK);
-    }
+        }
+            return new ResponseEntity<>(publicacionServicio.buscarTodos(), HttpStatus.OK);
+        }
     @JsonView(views.Public.class)
     @GetMapping("/{id}")
     public ResponseEntity<Publicacion> obtenerPublicaconId(@PathVariable int id) throws Exception {

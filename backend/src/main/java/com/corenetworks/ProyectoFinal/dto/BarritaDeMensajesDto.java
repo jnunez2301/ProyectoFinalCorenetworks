@@ -15,6 +15,7 @@ public class BarritaDeMensajesDto {
     private String contenido;
     private String urlFotos;
     private String nombreUsuarioDestino;
+    private String fotoPerfilDestino;
     private LocalDate fCreacion;
     private LocalTime hCreacion;
 

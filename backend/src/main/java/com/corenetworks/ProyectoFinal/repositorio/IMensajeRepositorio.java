@@ -48,12 +48,13 @@ public interface IMensajeRepositorio extends IGeneralRepositorio<Mensaje, Intege
  List<HistorialChatsDTO> historialChats(@Param("id_origen")int id_Origen, @Param("id_destino")int id_Destino) throws Exception;
 
  @Query("SELECT NEW com.corenetworks.ProyectoFinal.dto.BarritaDeMensajesDto(" +
-         "m.contenido, m.urlFotos, m.usuarioDestino.nombreUsuario, m.fCreacion, m.hCreacion) " +
+         "m.contenido, m.urlFotos, m.usuarioDestino.nombreUsuario, m.usuarioDestino.fotoPerfil, m.fCreacion, m.hCreacion) " +
          "FROM Mensaje m " +
          "WHERE (m.idMensaje, m.usuarioOrigen.idUsuario) IN " +
          "(SELECT MAX(m2.idMensaje), m2.usuarioOrigen.idUsuario " +
          "FROM Mensaje m2 " +
          "WHERE m2.usuarioDestino.idUsuario = :idUsuario OR m2.usuarioOrigen.idUsuario = :idUsuario " +
-         "GROUP BY m2.usuarioOrigen.idUsuario)")
+         "GROUP BY m2.usuarioOrigen.idUsuario) " +
+         "ORDER BY m.fCreacion, m.hCreacion")
  List<BarritaDeMensajesDto> barritadeMensajes(@Param("idUsuario")int id) throws Exception;
 }

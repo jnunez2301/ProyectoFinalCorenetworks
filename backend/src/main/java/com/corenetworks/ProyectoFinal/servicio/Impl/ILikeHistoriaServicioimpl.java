@@ -20,4 +20,9 @@ public class ILikeHistoriaServicioimpl extends ICRUDimpl<LikeHistoria,Integer> i
     public boolean dioLikeH(int idUsuario, int idHistoria) {
         return repositorio.dioLikeH(idUsuario,idHistoria);
     }
+
+    @Override
+    public int cantidadLikeH(int idHistoria) {
+        return repositorio.cantidadDeLikesH(idHistoria);
+    }
 }

@@ -10,4 +10,7 @@ public interface ILikeComentarioRepositorio extends IGeneralRepositorio<LikeCome
             "WHERE l.usuario.idUsuario = :idUsuario " +
             "AND l.Comentario.idComentario = :idComentario")
     boolean dioLikeC(@Param("idUsuario") int idUsuario, @Param("idComentario") int idComentario);
+
+    @Query("SELECT COUNT(id) FROM LikeComentario l WHERE l.Comentario.idComentario = :idComentario")
+    int cantidadDeLikesC(@Param("idComentario") int idComentario);
 }

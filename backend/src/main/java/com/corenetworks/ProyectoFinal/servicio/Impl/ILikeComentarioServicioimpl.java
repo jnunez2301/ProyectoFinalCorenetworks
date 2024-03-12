@@ -22,4 +22,9 @@ public class ILikeComentarioServicioimpl extends ICRUDimpl<LikeComentario,Intege
     public boolean dioLikeC(int idUsuario, int idComentario) {
         return repositorio.dioLikeC(idUsuario,idComentario);
     }
+
+    @Override
+    public int cantidadLikeC(int idComentario) {
+        return repositorio.cantidadDeLikesC(idComentario);
+    }
 }

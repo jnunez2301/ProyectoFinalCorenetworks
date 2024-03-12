@@ -5,10 +5,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class CantidadSeguidoresDTO {
-    private String NombreUsuario;
-    private String fotoperfil;
-    private long cantidadSeguidores;
+@NoArgsConstructor
+public class SeguidoresSeguidosPublicacionesDTO {
+    private long seguidores;
+    private long seguidos;
+    private long Publicaciones;
 }

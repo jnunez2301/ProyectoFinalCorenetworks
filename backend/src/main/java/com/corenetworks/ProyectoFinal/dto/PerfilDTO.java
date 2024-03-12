@@ -17,6 +17,4 @@ public class PerfilDTO {
     private String nombreUsuario;
     private String nombre;
     private String Apellido;
-
-
 }

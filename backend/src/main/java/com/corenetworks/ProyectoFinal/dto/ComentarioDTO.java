@@ -17,7 +17,9 @@ public class ComentarioDTO {
     private String descripcion;
     private int idPublicacion;
     private String nombreUsuarioPublicacion;
+    private String fotoperfilUsuarioPublicacion;
     private String nombreUsuarioComentario;
+    private String fotoperfilUsuarioComentario;
     private int idnombreUsuarioComentario;
     private LocalDate fCreacion;
     private LocalTime hCreacion;
