@@ -7,7 +7,10 @@
     <ul>
       @for (item of listaUsuarios$; track item.idUsuario) {
 
-      <li class="usr-container" (click)="obtenerMensajesUsuario(item.idUsuario)">
+      <li
+        class="usr-container"
+        (click)="obtenerMensajesUsuario(item.idUsuario)"
+      >
         <picture class="info-usuario">
           <img
             class="foto-perfil"
@@ -40,9 +43,14 @@
     <div>
       <div class="msj-list-container">
         <ul>
-          <li><span  class="msj-recibido">Mensaje 1</span></li>
-          <!-- TODO: asegurarse de que el usuario que este logeado vea sus mensajes a la derecha -->
-          <li class="msj-enviado">mensaje 2</li>
+          @for (item of mensajesActuales; track item.idMensaje) { 
+          @if(item.nombreUsuarioOrigen !== usuarioActual.nombreUsuario) {
+          <li>
+            <span class="msj-recibido">{{ item.contenido }}</span>
+          </li>
+          } @if (item.nombreUsuarioOrigen == usuarioActual.nombreUsuario) {
+          <li class="msj-enviado">{{ item.contenido }}</li>
+          } }
         </ul>
       </div>
       <div class="msj-container">

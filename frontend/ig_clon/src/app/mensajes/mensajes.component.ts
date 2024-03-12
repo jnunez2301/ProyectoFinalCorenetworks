@@ -33,11 +33,16 @@ export class MensajesComponent implements OnInit {
   
   /* Listar mensajes */
   mensajesActuales:Mensaje[] | unknown | any;
+  usuarioActual = {
+    idUsuario: 1,
+    nombreUsuario: "jhon_cenaa"
+  };
 
   obtenerMensajesUsuario(id:number){
   this.mensajeService.getMsgById(id).subscribe(data => {
-    console.log(data);    
-    this.mensajesActuales = data;
+    this.mensajesActuales = data;    
+    console.log(this.mensajesActuales);
+    
   });
   }
 
