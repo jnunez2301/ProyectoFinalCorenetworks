@@ -9,6 +9,8 @@ import {
 } from '@ng-icons/ionicons';
 import { FormsModule } from '@angular/forms';
 import { PickerComponent } from '@ctrl/ngx-emoji-mart';
+import { Mensaje } from '../_modelo/Mensaje';
+import { MensajeServiceService } from '../_servicio/mensaje-service.service';
 @Component({
   selector: 'app-mensajes',
   standalone: true,
@@ -25,6 +27,16 @@ import { PickerComponent } from '@ctrl/ngx-emoji-mart';
 })
 export class MensajesComponent implements OnInit {
   public listaUsuarios$!: Usuario[];
+  public listaMensajes$!: Mensaje[];
+
+  constructor(private usuarioService: UsuarioService, private mensajeService: MensajeServiceService) {}
+  
+  /* Listar mensajes */
+  mensajesActuales:Mensaje[] | unknown;
+
+  obtenerMensajesUsuario(id:number){
+    this.mensajesActuales = this.mensajeService.getMsgById(id);
+  }
 
   /*  EMOJI PICKER  */
   emojiPickerOpen: boolean = false;
@@ -37,7 +49,6 @@ export class MensajesComponent implements OnInit {
   mensaje: string = '';
   errorMsg: string = '';
 
-  constructor(private usuarioService: UsuarioService) {}
 
   ngOnInit(): void {
     this.usuarioService.getUsuarios().subscribe((data) => {
@@ -52,5 +63,8 @@ export class MensajesComponent implements OnInit {
     console.log(this.mensaje);
     console.log('mensaje enviado');
     this.mensaje = '';
+  }
+  mostrarMensajes(id:number):void{
+    this.usuarioActual = this.listaUsuarios$.filter(usr => usr.idUsuario == id);
   }
 }

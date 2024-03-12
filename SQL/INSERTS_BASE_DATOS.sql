@@ -79,4 +79,6 @@ VALUES(1,true,'https://cdn.eldeforma.com/wp-content/uploads/2020/03/hacker-meme-
 
 --INSER Likes Publicacion
 INSERT INTO likesp
-VALUES (1,1,2),(2,1,3),(3,2,1)
+VALUES (1,1,2),(2,1,3),(3,2,1);
+
+SELECT * FROM mensajes;
