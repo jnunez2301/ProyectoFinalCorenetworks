@@ -18,11 +18,33 @@ public interface IMensajeRepositorio extends IGeneralRepositorio<Mensaje, Intege
          "on d.id_usuario= m.usuario_destino_id\n" +
          "where usuario_origen_id=:id",nativeQuery = true)
  List<Object[]> filtroMensajesPoridUsuario(@Value("id") int id) throws Exception;
- @Query(value = "SELECT NEW com.corenetworks.ProyectoFinal.dto.HistorialChatsDTO(m.idMensaje, m.contenido, m.fCreacion, m.hCreacion, m.urlFotos, " +
-         "m.usuarioOrigen.nombreUsuario, m.usuarioDestino.nombreUsuario) FROM Mensaje m " +
+ @Query("SELECT NEW com.corenetworks.ProyectoFinal.dto.HistorialChatsDTO(" +
+         "m.idMensaje, " +
+         "m.contenido, " +
+         "m.fCreacion, " +
+         "m.hCreacion, " +
+         "m.urlFotos, " +
+         "CASE " +
+         "    WHEN m.usuarioOrigen.idUsuario = :id_origen THEN m.usuarioOrigen.nombreUsuario " +
+         "    ELSE m.usuarioDestino.nombreUsuario " +
+         "END AS nombreRemitente, " +
+         "CASE " +
+         "    WHEN m.usuarioOrigen.idUsuario = :id_origen THEN m.usuarioOrigen.fotoPerfil " +
+         "    ELSE m.usuarioDestino.fotoPerfil " +
+         "END AS fotoPerfilRemitente, " +
+         "CASE " +
+         "    WHEN m.usuarioOrigen.idUsuario = :id_origen THEN m.usuarioDestino.nombreUsuario " +
+         "    ELSE m.usuarioOrigen.nombreUsuario " +
+         "END AS nombreDestinatario, " +
+         "CASE " +
+         "    WHEN m.usuarioOrigen.idUsuario = :id_origen THEN m.usuarioDestino.fotoPerfil " +
+         "    ELSE m.usuarioOrigen.fotoPerfil " +
+         "END AS fotoPerfilDestinatario) " +
+         "FROM Mensaje m " +
          "JOIN m.usuarioOrigen uo " +
          "JOIN m.usuarioDestino ud " +
-         "WHERE (uo.idUsuario = :id_origen AND ud.idUsuario = :id_destino) OR (uo.idUsuario = :id_destino AND ud.idUsuario = :id_origen)")
+         "WHERE (uo.idUsuario = :id_origen AND ud.idUsuario = :id_destino) OR (uo.idUsuario = :id_destino AND ud.idUsuario = :id_origen) " +
+         "ORDER BY m.fCreacion, m.hCreacion")
  List<HistorialChatsDTO> historialChats(@Param("id_origen")int id_Origen, @Param("id_destino")int id_Destino) throws Exception;
 
  @Query("SELECT NEW com.corenetworks.ProyectoFinal.dto.BarritaDeMensajesDto(" +
