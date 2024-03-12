@@ -1,5 +1,6 @@
 package com.corenetworks.ProyectoFinal.repositorio;
 
+import com.corenetworks.ProyectoFinal.dto.CantidadSeguidoresDTO;
 import com.corenetworks.ProyectoFinal.dto.HistoriaPrivadaDTO;
 import com.corenetworks.ProyectoFinal.modelo.Historia;
 import com.corenetworks.ProyectoFinal.modelo.Usuario;
@@ -20,5 +21,6 @@ public interface IHistoriaRepositorio extends IGeneralRepositorio <Historia,Inte
             "AND h.Activo = true " +
             "AND h.publicas = true")
     List<Historia> HistoriasPaTodos(int idUsuario);
+
 
 }

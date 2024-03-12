@@ -9,5 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class CantidadSeguidoresDTO {
     private String NombreUsuario;
+    private String fotoperfil;
     private long cantidadSeguidores;
 }

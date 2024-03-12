@@ -12,7 +12,10 @@ import lombok.NoArgsConstructor;
 public class SeguidorDTO {
     private Long id;
     private String NombreUsuarioSeguidor;
+    private String fotoPerfilSeguidor;
     private String NombreUsuarioSeguido;
+    private String fotoPerfilSeguido;
+
 
 
     public Seguidor castSeguidor(){
@@ -22,11 +25,14 @@ public class SeguidorDTO {
 
 
         uSeguido.setNombreUsuario(NombreUsuarioSeguido);
+        uSeguido.setFotoPerfil(fotoPerfilSeguido);
 
         follower.setNombreUsuario(NombreUsuarioSeguidor);
+        follower.setFotoPerfil(fotoPerfilSeguidor);
 
         s1.setSeguido(uSeguido);
         s1.setSeguidor(follower);
+
 
         return s1;
     }

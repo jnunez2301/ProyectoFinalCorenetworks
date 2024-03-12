@@ -34,7 +34,9 @@ public class ISeguidorServicioimpl extends ICRUDimpl <Seguidor,Long> implements 
             // Mapea los datos del Seguidor a un SeguidorDTO
             seguidorDTO.setId((long) Math.toIntExact(seguidor.getId()));
             seguidorDTO.setNombreUsuarioSeguidor(seguidor.getSeguidor().getNombreUsuario());
+            seguidorDTO.setFotoPerfilSeguidor(seguidor.getSeguidor().getFotoPerfil());
             seguidorDTO.setNombreUsuarioSeguido(seguidor.getSeguido().getNombreUsuario());
+            seguidorDTO.setFotoPerfilSeguido(seguidor.getSeguido().getFotoPerfil());
             seguidoresDTO.add(seguidorDTO);
         }
         return seguidoresDTO;
@@ -68,7 +70,9 @@ public class ISeguidorServicioimpl extends ICRUDimpl <Seguidor,Long> implements 
             // Mapea los datos del Seguidor a un SeguidorDTO
             seguidorDTO.setId((long) Math.toIntExact(elemento.getId()));
             seguidorDTO.setNombreUsuarioSeguidor(elemento.getSeguidor().getNombreUsuario());
+            seguidorDTO.setFotoPerfilSeguidor(elemento.getSeguidor().getFotoPerfil());
             seguidorDTO.setNombreUsuarioSeguido(elemento.getSeguido().getNombreUsuario());
+            seguidorDTO.setFotoPerfilSeguido(elemento.getSeguido().getFotoPerfil());
             seguidoresDTO.add(seguidorDTO);
         }
         return seguidoresDTO;
