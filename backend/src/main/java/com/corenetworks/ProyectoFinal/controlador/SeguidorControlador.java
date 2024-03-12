@@ -18,6 +18,7 @@ import java.util.Objects;
 
 @RestController
 @RequestMapping("/api/seguidores")
+@CrossOrigin(origins = "http://localhost:4200")
 public class SeguidorControlador{
     @Autowired
     ISeguidorServicio seguidorServicio;

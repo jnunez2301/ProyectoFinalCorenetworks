@@ -19,6 +19,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/historias")
+@CrossOrigin(origins = "http://localhost:4200")
 public class HistoriaControlador {
     @Autowired
     IHistoriaServicio servicio;

@@ -7,7 +7,7 @@
     <ul>
       @for (item of listaUsuarios$; track item.idUsuario) {
 
-      <li class="usr-container">
+      <li class="usr-container" (click)="obtenerMensajesUsuario(item.idUsuario)">
         <picture class="info-usuario">
           <img
             class="foto-perfil"

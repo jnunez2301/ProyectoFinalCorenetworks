@@ -22,6 +22,7 @@ import java.time.LocalTime;
 
 @RestController
 @RequestMapping("/api/comentario")
+@CrossOrigin(origins = "http://localhost:4200")
 public class ComentarioControlador {
     @Autowired
     IComentarioServicio servicio;
