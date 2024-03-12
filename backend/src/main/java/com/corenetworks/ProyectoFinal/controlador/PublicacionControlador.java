@@ -32,6 +32,7 @@ public class PublicacionControlador {
     @JsonView(views.Public.class)
     @GetMapping
     public ResponseEntity <List<Publicacion>> obtenerTodasPublicaciones() throws Exception {
+
         return new ResponseEntity<>(publicacionServicio.buscarTodos(), HttpStatus.OK);
     }
     @JsonView(views.Public.class)

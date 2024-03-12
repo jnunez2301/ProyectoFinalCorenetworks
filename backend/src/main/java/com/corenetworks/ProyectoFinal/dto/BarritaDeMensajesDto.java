@@ -11,6 +11,7 @@ import java.time.LocalTime;
 @NoArgsConstructor
 @Data
 public class BarritaDeMensajesDto {
+
     private String contenido;
     private String urlFotos;
     private String nombreUsuarioDestino;
