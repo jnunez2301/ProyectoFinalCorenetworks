@@ -1,12 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { PublicarModalComponent } from '../publicar-modal/publicar-modal.component';
 
 @Component({
   selector: 'app-publicar',
   standalone: true,
-  imports: [],
+  imports: [PublicarModalComponent],
   templateUrl: './publicar.component.html',
-  styleUrl: './publicar.component.css'
+  styleUrl: './publicar.component.css',
 })
-export class PublicarComponent {
-/* TODO: postear publicaciones con file */
+
+export class PublicarComponent implements OnInit{
+  ngOnInit(): void {
+    this.isPosting = true;
+  }
+  isPosting: boolean = true;
+  abrirPosting() {
+    this.isPosting = true;
+  }
+  cerrarPosting() {
+    this.isPosting = false;
+  }
 }

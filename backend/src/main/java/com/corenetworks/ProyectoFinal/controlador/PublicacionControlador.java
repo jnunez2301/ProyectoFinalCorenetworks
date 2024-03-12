@@ -56,8 +56,8 @@ public class PublicacionControlador {
         if(usuarioServicioimpl.buscarPorId(id_usuario) == null) {
             throw new ExcepcionPersonalizada("El usuario con el id: "+id_usuario+" no existe");
         }
-        if(publicacion.getDescripcion().isEmpty() || publicacion.getDescripcion().length() < 10){
-            throw new ExcepcionPersonalizada("La descripcion no puede estar vacia y debe ser mayor a 10 caracteres");
+        if(publicacion.getDescripcion().isEmpty() || publicacion.getDescripcion().length() < 3){
+            throw new ExcepcionPersonalizada("La descripcion no puede estar vacia y debe ser mayor a 3 caracteres");
         }
 
         Usuario usuario = usuarioServicioimpl.buscarPorId(id_usuario);

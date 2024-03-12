@@ -1,1 +1,6 @@
-<p>publicar works!</p>
+@if (isPosting) {
+    <app-publicar-modal (cerrar)="cerrarPosting()"></app-publicar-modal>
+}
+@if(!isPosting){
+    <button (click)="abrirPosting()">Publicar</button>
+}
