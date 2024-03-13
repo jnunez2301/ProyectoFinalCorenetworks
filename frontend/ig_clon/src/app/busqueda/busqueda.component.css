@@ -1,32 +1,29 @@
 
-/*IMAGENES*/
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-  }
-  section{
-    padding: 1rem;
-  }
-  @media (max-width: 498px){
-  .item {
-    margin-bottom: 1px;
-    margin-right: 3px;
-  }
-  }
- 
-  .item img {
-    width: 280px;
-    height: 300px;
-    border-radius: 2px;
-  }
+section {
+  padding: 1rem;
+}
+.container-img{
+  width: 100%;
+}
+.item-img{
+  width: 326px;
+  height: 326px;
+  padding: 0.1rem;
+  margin-bottom: -2px;
+  margin-top: -2px;
+
+}
+.item-img:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
 
   /*BARRA BUSCADOR*/
 .search-input-container {
     position: relative;
     display: inline-block;
-    width: 100%; 
-    margin-bottom: 5px;
+    width: 99%; 
+    margin-bottom: 10px;
 }
 .search-input-container input{
   width: 100%;
@@ -41,7 +38,7 @@
 
 .search-icon {
     position:absolute;
-    right: 4.5%;
+    right: 1%;
     top: 55%;
     transform: translateY(-50%);
     font-size: 20px;
