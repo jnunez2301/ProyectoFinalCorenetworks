@@ -89,7 +89,7 @@
   }
   .close{
     position: absolute;
-    right: 0;
+    right: 10px;
     top: 0;
   }
   @media (max-width: 768px){

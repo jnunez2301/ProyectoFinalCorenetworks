@@ -37,7 +37,7 @@
           <p>Buscar</p>
         </a>
       </li>
-     <!--  <li>
+      <!--  <li>
         <a [routerLink]="['/explorar']" routerLinkActive="router-link-active">
           <mat-icon
             aria-hidden="false"
@@ -47,7 +47,7 @@
           <p>Explorar</p>
         </a>
       </li> -->
-     <!--  <li>
+      <!--  <li>
         <a [routerLink]="['/reels']" routerLinkActive="router-link-active">
           <mat-icon
             aria-hidden="false"
@@ -58,7 +58,7 @@
         </a>
       </li> -->
 
-    <!--   <li>
+      <!--   <li>
         <a
           [routerLink]="['/notificaciones']"
           routerLinkActive="router-link-active"
@@ -105,7 +105,9 @@
           </button>
           <ul>
             <li>
-              <a href="#"
+              <a
+                [routerLink]="['/perfil/editar-perfil']"
+                routerLinkActive="router-link-active"
                 ><mat-icon
                   aria-hidden="false"
                   aria-label="settings-icon"
@@ -146,7 +148,6 @@
             aria-hidden="false"
             aria-label="settings-icon"
             fontIcon="settings"
-            [routerLink]="['/http://localhost/perfil/editar-perfil']" routerLinkActive="router-link-active" 
           ></mat-icon>
           <p>Configuración</p>
         </button>
