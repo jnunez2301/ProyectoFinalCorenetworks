@@ -77,11 +77,11 @@
             name="ionChatboxEllipsesOutline"
             size="24px"
           ></ng-icon>
-          <ng-icon
+         <!--  <ng-icon
             (click)="compartir(item.idPublicacion)"
             name="ionShareOutline"
             size="24px"
-          ></ng-icon>
+          ></ng-icon> -->
         </div>
         <div>
           <ng-icon
@@ -100,10 +100,10 @@
           <input
             type="text"
             placeholder="Añade un comentario"
-            [(ngModel)]="comentarioActual"
-            (keyup.enter)="postComentario()"
+            [(ngModel)]="comentarioActual.mensaje"
+            (keyup.enter)="postComentario(item.idPublicacion)"
           />
-          <button class="btn-post" (click)="postComentario()">POST</button>
+          <button class="btn-post" (click)="postComentario(item.idPublicacion)">POST</button>
         </div>
       </div>
     </article>

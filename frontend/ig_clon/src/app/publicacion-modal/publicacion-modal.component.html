@@ -51,8 +51,8 @@
           </ul>
         </header>
         <form class="post-comentario">
-          <input type="text" placeholder="Añade un comentario" name="post-comentario" id="post-comentario" (keydown.enter)="subirComentario()" [(ngModel)]="comentario">
-          <ng-icon name="ionAddCircleOutline" size="24px" (click)="subirComentario()"></ng-icon>
+          <input type="text" placeholder="Añade un comentario" name="post-comentario" id="post-comentario" (keydown.enter)="subirComentario(publicacionActual?.idPublicacion || 0)" [(ngModel)]="comentario.mensaje">
+          <ng-icon name="ionAddCircleOutline" size="24px" (click)="subirComentario(publicacionActual?.idPublicacion || 0)"></ng-icon>
         </form>
       </article>
     </div>

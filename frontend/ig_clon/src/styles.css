@@ -35,7 +35,12 @@ app-inicio, app-perfil, app-mensajes{
     height: 100vh;
     flex: 1;
 }
-
+app-publicar{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
 
 @media (max-width: 768px){
     .main{

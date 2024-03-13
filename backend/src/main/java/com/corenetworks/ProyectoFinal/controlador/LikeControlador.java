@@ -38,11 +38,11 @@ public class LikeControlador {
             throw new Exception("Ya le has dado like");
         }
         Usuario usuario = usuarioServicio.buscarPorId(idUsuario);
-     likePublicacion.setUsuario(usuario);
-     Publicacion publicacion= publicacionServicio.buscarPorId(idPublicacion);
-     likePublicacion.setPublicacion(publicacion);
+        likePublicacion.setUsuario(usuario);
+        Publicacion publicacion= publicacionServicio.buscarPorId(idPublicacion);
+        likePublicacion.setPublicacion(publicacion);
 
-     return new ResponseEntity<>(likePublicacionServicio.crear(likePublicacion), HttpStatus.OK);
+        return new ResponseEntity<>(likePublicacionServicio.crear(likePublicacion), HttpStatus.OK);
     }
     @JsonView(views.Public.class)
     @PostMapping("/comentario/{idComentario}/de/{idUsuario}")

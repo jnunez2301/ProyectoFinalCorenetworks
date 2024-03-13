@@ -29,9 +29,9 @@
   
   .close:hover,
   .close:focus {
-    color: #fff;
     text-decoration: none;
     cursor: pointer;
+    opacity: .5;
   }
   .publicar-modal{
     display: flex;

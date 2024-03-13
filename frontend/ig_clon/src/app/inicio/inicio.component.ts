@@ -19,6 +19,7 @@ import { PublicacionModalComponent } from '../publicacion-modal/publicacion-moda
 import { UsuarioService } from '../_servicio/usuario.service';
 import { Usuario } from '../_modelo/Usuario';
 import { HistoriaModalComponent } from '../historia-modal/historia-modal.component';
+import { ComentarioPost } from '../_modelo/ComentarioPost';
 
 @Component({
   selector: 'app-inicio',
@@ -55,7 +56,9 @@ export class InicioComponent implements OnInit {
 
   error: string = '';
   /* PUBLICACIONES */
-  comentarioActual: string = '';
+  comentarioActual:ComentarioPost = {
+    mensaje: ''
+  };
   publicacionAbierta: boolean = false;
   publicacionActual: Publicaciones | undefined;
   
@@ -115,14 +118,15 @@ export class InicioComponent implements OnInit {
     });
   }
 
-  postComentario(): void {
-    if (this.comentarioActual.length < 3) {
+  postComentario(idPublicacion:number): void {
+    
+    if (this.comentarioActual.mensaje.length < 3) {
       this.error = 'El comentario debe ser más largo';
       console.log(this.error);
       return;
     }
-    console.log(this.comentarioActual);
-
+    this.service.comentar(idPublicacion, this.comentarioActual).subscribe(d => console.log(d))
+    this.comentarioActual.mensaje = '';
     console.log('Comentario posteado');
   }
 
@@ -135,7 +139,7 @@ export class InicioComponent implements OnInit {
   }
 
   darLike(idPublicacion: number): void {
-    console.log('Has dado like');
+    this.service.darLike(idPublicacion).subscribe(d => console.log(d));
     /* SI LA PUBLI YA TIENE LIKE QUITARLO */
     /* SI LA PUBLI TIENE LIKE MOSTRARLO ROJO */
   }
