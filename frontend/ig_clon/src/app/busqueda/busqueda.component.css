@@ -9,7 +9,7 @@ section{
 }
 .item-img {
   width: 290px;
-  height: 290px;
+  height: auto;
 }
 .item-img:hover {
   opacity: 0.8;
